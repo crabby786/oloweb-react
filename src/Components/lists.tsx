@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
       marginTop:0,
     },
     '& p': {
-      color:theme.palette.grey[500],
+      // color:theme.palette.grey[500],
       marginTop:0,
       marginBottom:"0px",
       fontSize:"0.8rem"
@@ -69,7 +69,7 @@ export const RestList = (props:any)=> {
       <Grid item>
         <div className="dataContainer" >
         <h4> {obj.RestaurantDishName} </h4>
-              <p >{obj.RestaurantName} </p>
+              <Typography color="error" >{'@ ' + obj.RestaurantName} </Typography >
               <h4> {obj.LocationName} </h4>
               <Typography color="primary" > {obj.Cuisines} </Typography>
               <Box mt={2}>
