@@ -4,6 +4,7 @@ import { List, makeStyles, Box, ListItemAvatar, Avatar, Grid, Icon, Divider, Typ
 import clsx from 'clsx';
 import { IRestList, IAllRestaurantDish } from '../Models/RestListModel';
 import { RouteComponentProps, useHistory } from "react-router-dom";
+import { imgBase } from '../Constants/DishCoApi';
 
 type Props =  RouteComponentProps;
 const useStyles = makeStyles(theme => ({
@@ -15,7 +16,6 @@ const useStyles = makeStyles(theme => ({
     marginTop:0,
     '& h4': {
       marginTop:0,
-      marginBottom:"2px"
     },
     '& p': {
       color:theme.palette.grey[500],
@@ -58,7 +58,7 @@ export const RestList = (props:any)=> {
           <span style={{whiteSpace:"nowrap", fontSize:"small"}} >By Locals</span>
           <ListItemAvatar>            
           <Avatar alt="dish1" variant="square" 
-           src={process.env.PUBLIC_URL + '/assets/images/other/dish1.jpg'}/>
+           src={ imgBase + obj.DishImage}/>
         </ListItemAvatar>
           </Box>
           <Grid component="div" container spacing={1} wrap = "nowrap" >

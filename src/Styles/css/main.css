@@ -1,3 +1,15 @@
+
+@font-face {
+    font-family: 'Geometria';
+    src: url('/assets/fonts/Geometria.woff2') format('woff2'),
+        url('/assets/fonts/Geometria.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html, body {
+    font-family: 'Geometria';
+    line-height: 1.1;
+}
 p {
     margin: 0;
 }

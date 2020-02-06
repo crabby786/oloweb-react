@@ -67,9 +67,7 @@ class HomePage extends React.Component<any> {
                 </div>
             </Box>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <Icon>notifications</Icon>
-              </Badge>
+              <img src="/assets/images/other/img/pledge_logo.png" alt="logo2" style={{height:'30px'}}></img>
             </IconButton>
           </Toolbar>
         </AppBar>
