@@ -36,7 +36,7 @@ class RestDetails extends React.Component<any, any> {
       return(
           <div>
             <Paper className={classes.paper} square>
-              <Grid container justify="space-between"  >
+              <Grid container justify="space-between" alignItems="center"  >
               <Grid item xs={2}>
                 <img src={imgBase + data.RestaurantDishes[0].DishImage} style={{width:'100%'}} alt="img"/>
               </Grid>
