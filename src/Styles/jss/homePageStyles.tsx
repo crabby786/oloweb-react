@@ -9,6 +9,8 @@ export const homeStyle = (theme: Theme) =>
       {
         root: {
           display: 'flex',
+          '& .MuiAvatar-root' :{width:'60px', height:'60px'},
+          '& .MuiListItem-root' :{cursor: 'pointer'},
         },
         toolbar: {
           paddingRight: 24, // keep right padding when drawer closed

@@ -19,7 +19,7 @@ import compose from 'recompose/compose';
 import { restListAction } from '../Store/Actions/restListAction';
 import { homeStyle } from '../Styles/jss/homePageStyles'
 import { mainListItems, secondaryListItems } from '../Components/sidebarItems';
-import { Divider, List, Hidden } from '@material-ui/core';
+import { Divider, List, Hidden, CircularProgress } from '@material-ui/core';
 
 // export interface Iprops extends WithStyles<typeof homeStyle> { };
 class Restaurants extends React.Component<any, any> {
@@ -67,7 +67,8 @@ class Restaurants extends React.Component<any, any> {
               {
                 restData ?
                   < RestList classesUp = {classes} restData={restData.AllRestaurantDishes} /> :
-                  <p>Loading Data </p>
+                  (<div  className="preLoade">
+      </div>)
               }
             </div>
           </div>

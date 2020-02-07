@@ -1,17 +1,12 @@
 
 
-const restListState = {
-    isLoading:false,
-    isError: false,
-    restList: {} 
-  }
   const initialState = {
     isLoading:false,
     isError: false,
     data: null 
   }
 
-export const restListReducer = (state = restListState, { type, payload }) => {
+export const restListReducer = (state = initialState, { type, payload }) => {
     switch (type) {
     case 'LOAD_REQUEST':
         return { ...state, isLoading:true }

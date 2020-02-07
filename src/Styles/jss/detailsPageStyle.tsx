@@ -14,11 +14,13 @@ export const detailStyle = (theme: Theme) =>
       },
       cardHeader: {
         background:mainStyle.brownColor[0],
+        padding:'2px 8px',
         '& .MuiCardHeader-title': {
-          color:mainStyle.yellowColor[0], fontSize:theme.typography.h3
+          color:mainStyle.yellowColor[0], 
+          fontSize:theme.typography.h5.fontSize
         },
         '& .MuiCardHeader-subheader ':{
-          color:'#fff', fontSize:theme.typography.h3
+          color:'#fff', fontSize:theme.typography.h5.fontSize
         }
       },
       textSuccess: {
@@ -70,9 +72,8 @@ export const detailStyle = (theme: Theme) =>
         paddingBottom: theme.spacing(1),
       },
       paper: {
-        padding: theme.spacing(2),
+        padding: '4px',
         display: 'flex',
-        marginBottom:'10px',
         overflow: 'auto',
         flexDirection: 'column',
       },
@@ -98,7 +99,6 @@ export const detailStyle = (theme: Theme) =>
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(1),
       '& .MuiGrid-item': {
-        padding:'10px 2px',
         textAlign:'center'
       }
     },
@@ -121,6 +121,17 @@ export const detailStyle = (theme: Theme) =>
     coupenBox2: {
       padding:'10px',
       color:mainStyle.yellowColor[0]
+    },
+    carouselRoot: {
+      position: 'relative',
+    },
+    slide: {
+      padding: 15,
+      minHeight: 100,
+      color: '#fff',
+    },
+    menuIcons: {
+      '& img':{ width:'40px', }
     }
-    }
+  }
 );

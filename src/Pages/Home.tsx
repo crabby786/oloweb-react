@@ -6,23 +6,17 @@ import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { RestList } from '../Components/lists';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
-import { SwitchA } from '../Components/FormComps';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { restListAction } from '../Store/Actions/restListAction';
 import { homeStyle } from '../Styles/jss/homePageStyles';
-import { drawerWidth } from '../Styles/jss/main'
 import { mainListItems, secondaryListItems } from '../Components/sidebarItems';
-import { Divider, List, Hidden } from '@material-ui/core';
+import { Divider, List, Hidden, CircularProgress } from '@material-ui/core';
 import RestDetails from './RestDetails';
-import {  Switch,  Route,  Link,  Redirect } from "react-router-dom";
+import { Switch, Route, Link, Redirect } from "react-router-dom";
 import Restraunts from './Restraunts';
 
 
@@ -41,6 +35,7 @@ class HomePage extends React.Component<any> {
   }
   render() {
     const { classes, restData } = this.props;
+
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -52,8 +47,8 @@ class HomePage extends React.Component<any> {
               color="inherit"
               onClick={() => this.setAppbarOpen(true)}
               className={clsx(classes.menuButton, this.state.appBarOpen && classes.menuButtonHidden)}>
-                <Icon>menu</Icon>
-                </IconButton>
+              <Icon>menu</Icon>
+            </IconButton>
             <IconButton color="inherit"  >
               <Icon>search</Icon>
             </IconButton>
@@ -67,7 +62,7 @@ class HomePage extends React.Component<any> {
                 </div>
             </Box>
             <IconButton color="inherit">
-              <img src="/assets/images/other/img/pledge_logo.png" alt="logo2" style={{height:'30px'}}></img>
+              <img src="/assets/images/other/img/pledge_logo.png" alt="logo2" style={{ height: '30px' }}></img>
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -76,7 +71,7 @@ class HomePage extends React.Component<any> {
             variant="permanent"
             classes={{
               paper: clsx(classes.drawerPaper, !this.state.appBarOpen && classes.drawerPaperClose),
-              root:classes.drawerRoot,
+              root: classes.drawerRoot,
             }}
             open={this.state.appBarOpen}
           >
@@ -89,21 +84,25 @@ class HomePage extends React.Component<any> {
             <List>{mainListItems}</List>
           </Drawer>
         </Hidden>
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Container maxWidth="lg" className={classes.container}>
-          <Switch>
-          <Route  path="/restraunts">
-            <Restraunts restData = {restData} ></Restraunts>
-          </Route>
-          <Route path="/restdetail/:restid">
-            <RestDetails></RestDetails>
-          </Route>
-          <Redirect from="/" to="/restraunts"></Redirect>
-          </Switch>
-          </Container>
-        </main>
 
+        {restData.isLoading ? <div className="preLoader">
+          <CircularProgress color="primary" />
+        </div> :
+          <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="lg" className={classes.container}>
+              <Switch>
+                <Route path="/restraunts">
+                  <Restraunts restData={restData.data} ></Restraunts>
+                </Route>
+                <Route path="/restdetail/:restid">
+                  <RestDetails></RestDetails>
+                </Route>
+                <Redirect from="/" to="/restraunts"></Redirect>
+              </Switch>
+            </Container>
+          </main>
+        }
       </div>
     );
   }
@@ -112,7 +111,7 @@ const mapStateToProps = (state: any) => {
   // console.log(state.restListReducer.data);
 
   return {
-    restData: state.restListReducer.data
+    restData: state.restListReducer
   }
 }
 const mapDispatchToProps = (dispatch: any) => {
