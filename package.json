@@ -1,6 +1,7 @@
 {
   "name": "create-react-app-with-typescript",
   "version": "4.0.0",
+  "homepage": "http://crabby786.github.io/MUIcreate-react-app-with-typescript",
   "private": true,
   "dependencies": {
     "@material-ui/core": "latest",
@@ -31,7 +32,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -44,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
