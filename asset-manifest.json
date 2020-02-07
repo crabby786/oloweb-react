@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/MUIcreate-react-app-with-typescript/static/css/main.19ed8275.chunk.css",
+    "main.js": "/MUIcreate-react-app-with-typescript/static/js/main.c37eb429.chunk.js",
+    "main.js.map": "/MUIcreate-react-app-with-typescript/static/js/main.c37eb429.chunk.js.map",
+    "runtime-main.js": "/MUIcreate-react-app-with-typescript/static/js/runtime-main.8fa332c7.js",
+    "runtime-main.js.map": "/MUIcreate-react-app-with-typescript/static/js/runtime-main.8fa332c7.js.map",
+    "static/js/2.473b3e53.chunk.js": "/MUIcreate-react-app-with-typescript/static/js/2.473b3e53.chunk.js",
+    "static/js/2.473b3e53.chunk.js.map": "/MUIcreate-react-app-with-typescript/static/js/2.473b3e53.chunk.js.map",
+    "index.html": "/MUIcreate-react-app-with-typescript/index.html",
+    "precache-manifest.709080c36b426d93b504a1f502cca78e.js": "/MUIcreate-react-app-with-typescript/precache-manifest.709080c36b426d93b504a1f502cca78e.js",
+    "service-worker.js": "/MUIcreate-react-app-with-typescript/service-worker.js",
+    "static/css/main.19ed8275.chunk.css.map": "/MUIcreate-react-app-with-typescript/static/css/main.19ed8275.chunk.css.map",
+    "static/js/2.473b3e53.chunk.js.LICENSE": "/MUIcreate-react-app-with-typescript/static/js/2.473b3e53.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8fa332c7.js",
+    "static/js/2.473b3e53.chunk.js",
+    "static/css/main.19ed8275.chunk.css",
+    "static/js/main.c37eb429.chunk.js"
+  ]
+}
