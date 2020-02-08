@@ -1,25 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Badge from '@material-ui/core/Badge';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { RestList } from '../Components/lists';
-import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import { SwitchA } from '../Components/FormComps';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-import { restListAction } from '../Store/Actions/restListAction';
 import { homeStyle } from '../Styles/jss/homePageStyles'
-import { mainListItems, secondaryListItems } from '../Components/sidebarItems';
-import { Divider, List, Hidden, CircularProgress } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 // export interface Iprops extends WithStyles<typeof homeStyle> { };
 class Restaurants extends React.Component<any, any> {
@@ -65,9 +54,8 @@ class Restaurants extends React.Component<any, any> {
             </Grid>
             <div>
               {
-                restData ?
-                  < RestList classesUp = {classes} restData={restData.AllRestaurantDishes} /> :
-                  (<div  className="preLoade">
+                restData ? < RestList classesUp = {classes} restData={restData.AllRestaurantDishes} /> 
+                  : (<div  className="preLoade">
       </div>)
               }
             </div>

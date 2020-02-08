@@ -68,10 +68,10 @@ export const RestList = (props:any)=> {
         </Grid>
       <Grid item>
         <div className="dataContainer" >
-        <h4> {obj.RestaurantDishName} </h4>
+        <h5> {obj.RestaurantDishName} </h5>
               <Typography color="error" >{'@ ' + obj.RestaurantName} </Typography >
-              <h4> {obj.LocationName} </h4>
-              <Typography color="primary" > {obj.Cuisines} </Typography>
+              <h5> {obj.LocationName} </h5>
+              <Typography className="text-muted" > {obj.Cuisines} </Typography>
               <Box mt={2}>
                 <Grid container spacing={1}  alignItems="center">
                   <Grid item  >

@@ -1,7 +1,7 @@
 import { withStyles, Theme, createStyles, WithStyles } from '@material-ui/core/styles';
 import * as mainStyle from './main'
 
-export const detailStyle = (theme: Theme) => 
+export const detailStyle = (theme: Theme) =>
   createStyles(
     {
       root: {
@@ -13,66 +13,66 @@ export const detailStyle = (theme: Theme) =>
         overflow: 'auto',
       },
       cardHeader: {
-        background:mainStyle.brownColor[0],
-        padding:'2px 8px',
+        background: mainStyle.brownColor[0],
+        padding: '2px 8px',
         '& .MuiCardHeader-title': {
-          color:mainStyle.yellowColor[0], 
-          fontSize:theme.typography.h5.fontSize
+          color: mainStyle.yellowColor[0],
+          fontSize: theme.typography.h5.fontSize
         },
-        '& .MuiCardHeader-subheader ':{
-          color:'#fff', fontSize:theme.typography.h5.fontSize
+        '& .MuiCardHeader-subheader ': {
+          color: '#fff', fontSize: theme.typography.h5.fontSize
         }
       },
       textSuccess: {
-        color:mainStyle.successColor[0],
+        color: mainStyle.successColor[0],
       },
       textDanger: {
-        color:mainStyle.dangerColor[0],
+        color: mainStyle.dangerColor[0],
       },
       textBrown: {
         color: mainStyle.brownColor[0]
       },
       bgSuccess: {
-        background:mainStyle.successColor[0],
+        background: mainStyle.successColor[0],
       },
       bgBrown: {
-        background:mainStyle.brownColor[0],
+        background: mainStyle.brownColor[0],
       },
       bgDanger: {
-        background:mainStyle.dangerColor[0],
+        background: mainStyle.dangerColor[0],
       },
-      iconWithText : {    verticalAlign: 'text-bottom'},
+      iconWithText: { verticalAlign: 'text-bottom' },
       CardActions: {
         color: mainStyle.brownColor[1],
-        background:mainStyle.grayColor[3],
-        textAlign:'center',
-        alignItems:'flex-end',
+        background: mainStyle.grayColor[3],
+        textAlign: 'center',
+        alignItems: 'flex-end',
         justifyContent: 'space-between',
-        padding:'0',
-        paddingLeft:'6px',
-        '& .MuiTypography-root':{
-          fontSize:'12px',
-          margin:'4px 0',
-          '& h4':{
-            fontSize:'18px',
-          } 
-        } 
+        padding: '0',
+        paddingLeft: '6px',
+        '& .MuiTypography-root': {
+          fontSize: '12px',
+          margin: '4px 0',
+          '& h4': {
+            fontSize: '18px',
+          }
+        }
       },
-      badgeOrange :{
-        background:mainStyle.dangerColor[1],
-        padding:'2px',
-        borderRadius:'999px',
-        color:'#fff'
+      badgeOrange: {
+        background: mainStyle.dangerColor[1],
+        padding: '2px',
+        borderRadius: '999px',
+        color: '#fff'
       },
       bgYellow: {
-        background:mainStyle.yellowColor[0],
+        background: mainStyle.yellowColor[0],
       },
       container: {
         paddingTop: theme.spacing(1),
         paddingBottom: theme.spacing(1),
       },
       paper: {
-        padding: '4px',
+        padding: '0 4px',
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
@@ -95,43 +95,45 @@ export const detailStyle = (theme: Theme) =>
         backgroundColor: "red",
       },
 
-    menuContainer: {
-      paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(1),
-      '& .MuiGrid-item': {
-        textAlign:'center'
-      }
-    },
-    tabRoot: {
-      backgroundColor: theme.palette.background.paper,
-      '& .MuiPaper-elevation4': {boxShadow:'none'},
-      "& .MuiTypography-colorTextSecondary": {
-        fontSize: "0.7rem",
-        lineHeight:1.2
+      menuContainer: {
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
+        '& .MuiGrid-item': {
+          textAlign: 'center',
+          paddingBottom: '12px',
+        }
       },
-      "& .MuiTab-textColorPrimary.Mui-selected":{
-        background:theme.palette.primary.main,
-        color:theme.palette.primary.contrastText
-      }
-    },
-    coupenBox: {
-      color:'#fff',
-      padding:'10px'
-    },
-    coupenBox2: {
-      padding:'10px',
-      color:mainStyle.yellowColor[0]
-    },
-    carouselRoot: {
-      position: 'relative',
-    },
-    slide: {
-      padding: 15,
-      minHeight: 100,
-      color: '#fff',
-    },
-    menuIcons: {
-      '& img':{ width:'40px', }
+      tabRoot: {
+        backgroundColor: theme.palette.background.paper,
+        '& .MuiPaper-elevation4': { boxShadow: 'none' },
+        "& .MuiTypography-colorTextSecondary": {
+          fontSize: "0.7rem",
+          lineHeight: 1.2
+        },
+        "& .MuiTab-textColorPrimary.Mui-selected": {
+          background: theme.palette.primary.main,
+          color: theme.palette.primary.contrastText
+        }
+      },
+      coupenBox: {
+        color: '#fff',
+        padding: '15px 10px'
+      },
+      coupenBox2: {
+        padding: '10px',
+        color: mainStyle.yellowColor[0]
+      },
+      carouselRoot: {
+        position: 'relative',
+      },
+      slide: {
+        padding: 15,
+        minHeight: 100,
+        color: '#fff',
+      },
+      menuIcons: {
+        '& img': { width: '40px', }
+      },
+      
     }
-  }
-);
+  );

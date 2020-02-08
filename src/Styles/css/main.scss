@@ -1,0 +1,117 @@
+@import './constants';
+
+@font-face {
+  font-family: 'Geometria';
+  src: url("/assets/fonts/Geometria.woff2") format("woff2"), url("/assets/fonts/Geometria.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+html, body {
+  font-family: 'Geometria';
+  line-height: 1.1; 
+  font-size: 14px;
+}
+
+p {
+  margin: 0; }
+
+h2, h3, h4, h5, h6 {
+  margin: 0; }
+  h1{
+    font-size: 2rem;
+  }
+  h2{
+    font-size: 1.75rem;
+  }
+  h3{
+    font-size: 1.5rem;
+  }
+  h4{
+    font-size: 1.2rem;
+  }
+  h5{
+    font-size: 0.8rem;
+  }
+  h6{
+    font-size: 0.8rem;
+  }
+  
+.preLoader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(220, 209, 205, 0.37); }
+
+.MuiCircularProgress-root {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 20px); }
+
+.text-center {
+  text-align: center; }
+.text-muted {
+  color:$muted;
+}
+.rupee::before {
+  content: '\20B9';
+  margin-right: 4px;
+  color: inherit;
+  font-family: Arial !important; }
+
+#city {
+  line-height: 1.8; }
+
+.carousel-root {
+  position: relative; }
+
+.carousel-root .nav .material-icons {
+  font-size: 4rem;
+  color: #fff; }
+
+.carousel-root .nav > div {
+  position: absolute;
+  top: 45%;
+  background: rgba(68, 64, 64, 0.44);
+  width: 46px; }
+
+.carousel-root .nav .left-nav {
+  /* left: -12px; */ }
+
+.carousel-root .nav .right-nav {
+  right: 0; }
+
+.carousel-root .nav .right-nav > .material-icons {
+  transform: translateX(-14px); }
+
+.credit-card-container img {
+  width: 40px;
+  display: inline-block; }
+
+.details-tab1 {
+  min-height: 125px;
+  align-items: center;
+  display: flex;
+  justify-content: center; }
+
+.menu-box {
+  padding: 4px 4px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: initial; }
+
+.menu-box > img {
+  width: 50px; }
+  .slider-card {
+    .rate {
+      font-size:12px; 
+      color:#f02508 ;
+      max-width:110px;
+      position: absolute;
+      right: 6px;
+      top: 4px;
+    }
+  }
+
+/*# sourceMappingURL=main.css.map */

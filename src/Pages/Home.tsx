@@ -18,6 +18,7 @@ import { Divider, List, Hidden, CircularProgress } from '@material-ui/core';
 import RestDetails from './RestDetails';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import Restraunts from './Restraunts';
+import Dashboard from './Dashboard';
 
 
 // const drawerWidth = 240;
@@ -77,6 +78,7 @@ class HomePage extends React.Component<any> {
           >
             <div className={classes.toolbarIcon}>
               <IconButton onClick={() => this.setAppbarOpen(false)}>
+                
                 <Icon>menu_open</Icon>
               </IconButton>
             </div>
@@ -92,13 +94,14 @@ class HomePage extends React.Component<any> {
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
               <Switch>
+                <Route exact={true} path='/' component= {Dashboard}></Route>
                 <Route path="/restraunts">
                   <Restraunts restData={restData.data} ></Restraunts>
                 </Route>
                 <Route path="/restdetail/:restid">
                   <RestDetails></RestDetails>
                 </Route>
-                <Redirect from="/" to="/restraunts"></Redirect>
+                {/* <Redirect from="/" to="/restraunts"></Redirect> */}
               </Switch>
             </Container>
           </main>

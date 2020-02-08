@@ -25,11 +25,13 @@ const DishSlider = (props:any) => {
                   title="Signature Dishes"
                   subheader={
                     <Typography component="div" style={{ color: '#fff' }}>
+                      <Box className="rupee rate"  >
+                        {dish.Rate}
+                        </Box>
+                        
                       <Icon fontSize="small" className={clsx((dish.IsVeg == 1) ? classes.textSuccess : classes.textDanger, classes.iconWithText)} >fiber_manual_record</Icon>
                       {dish.RestaurantDishName}
-                      <Box color="#f02508" fontSize="small" className="rupee" mt={2}>
-                        134
-                        </Box>
+                      
                     </Typography>
                   }
                   className={classes.cardHeader}
@@ -45,21 +47,21 @@ const DishSlider = (props:any) => {
                 </Typography>
                   <Typography component="div">
                     Voted By
-                    <h4> {dish.Votes}</h4>
+                    <h5> {dish.Votes}</h5>
                     Users
                 </Typography  >
                   <Typography component="div">
-                    <h4>{dish.Friends}</h4>
+                    <h5>{dish.Friends}</h5>
                     <span className={classes.badgeOrange} >FRIENDS</span>
                   </Typography>
                   <Typography component="div">
-                    <h4>{0}</h4>
+                    <h5>{0}</h5>
                     <span className={classes.badgeOrange} >
                       MARSHAL
                       </span>
                   </Typography>
                   <Typography variant="h6" component="div" align="center" className={classes.bgYellow} style={{
-                    padding: '6px 8px',
+                    padding: '0px 8px',
                     margin: ' 0px 0px',
                     fontSize: '13px',
                   }} >
@@ -97,12 +99,19 @@ class RestDetails extends React.Component<any, any> {
 
   carouselByNavRight= (dishes: number) => {
     if((dishes-1) > this.state.index)
-    this.setState({index: this.state.index + 1});
+    {this.setState({index: this.state.index + 1});}
+    else {
+      this.setState({index: 0});
+    }
   };
   carouselByNavLeft= (dishes: number) => {
     if(this.state.index > 0)
-    this.setState({index: this.state.index - 1});
+    {this.setState({index: this.state.index - 1});}
+    else {
+      this.setState({index: (dishes - 1)});
+    }
   };
+  
   
   handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
@@ -138,6 +147,10 @@ class RestDetails extends React.Component<any, any> {
               </Grid>
             </Grid>
           </Paper>
+
+
+
+
           {/* carousel starts */}
           <div className="carousel-root">
             <DishSlider RestaurantDishes = {data.RestaurantDishes} handleChangeCarouselIndex = {this.handleChangeCarouselIndex} classes={classes} index={this.state.index}></DishSlider>
@@ -175,16 +188,17 @@ class RestDetails extends React.Component<any, any> {
             }
           </div>
 
-          <Typography className={clsx(classes.coupenBox, classes.bgBrown)} component="div" paragraph variant="h6">
+          <Typography className={clsx(classes.coupenBox, classes.bgBrown)} component="div" paragraph variant="h5">
             Coupons From this Restaurant
                  </Typography>
 
           <div>
-            <img src="/assets/images/other/img/get_coupons_hdpi.png" alt="get coupon" style={{ height: '85px' }}></img>
+            <img src="/assets/images/other/img/get_coupons_hdpi.png" alt="get coupon" style={{ height: '75px' }}></img>
           </div>
         </div>
       )
     }
+    
     else {
       return (<div className="preLoader">
         <CircularProgress color="primary" />

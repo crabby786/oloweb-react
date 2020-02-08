@@ -16,8 +16,8 @@ interface Props extends SwitchProps {
 export const AntSwitch = withStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: 28,
-      height: 16,
+      width: 40,
+      height: 20,
       padding: 0,
       display: 'flex',
       margin: 'auto'
@@ -26,7 +26,7 @@ export const AntSwitch = withStyles((theme: Theme) =>
       padding: 2,
       color: theme.palette.grey[500],
       '&$checked': {
-        transform: 'translateX(12px)',
+        transform: 'translateX(20px)',
         color: theme.palette.common.white,
         '& + $track': {
           opacity: 1,
@@ -36,8 +36,8 @@ export const AntSwitch = withStyles((theme: Theme) =>
       },
     },
     thumb: {
-      width: 12,
-      height: 12,
+      width: 16,
+      height: 16,
       boxShadow: 'none',
     },
     track: {
