@@ -68,7 +68,6 @@ const mapStateToProps = (state: any, ownProps:any) => {
 }
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    getRestList: () => dispatch(restListAction())
   }
 }
 export default compose<any, any>(

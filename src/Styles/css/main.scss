@@ -1,4 +1,5 @@
 @import './constants';
+@import './bootstrap.css';
 
 @font-face {
   font-family: 'Geometria';
@@ -35,9 +36,10 @@ h2, h3, h4, h5, h6 {
   h6{
     font-size: 0.8rem;
   }
-  a {
+  a, a:hover, a:active {
     text-decoration: none;
     color: initial;
+    cursor: pointer;
   }
   img {
     max-width: 100%;
@@ -60,8 +62,14 @@ h2, h3, h4, h5, h6 {
 .text-muted {
   color:$muted;
 }
+.text-light {
+  color:#fff;
+}
 .text-secondary {
   color:$secondary;
+}
+.bg-mute {
+  background-color: $muted;
 }
 .rupee::before {
   content: '\20B9';
@@ -129,20 +137,32 @@ h2, h3, h4, h5, h6 {
     }
   }
 
-  .merchantListContainer {
+  .listType-1 {
     .listItem {
       display: flex;
       display: flex;
       align-items: center;
       border-bottom: 1px solid $muted;
+      height: 70px;
+      text-overflow: ellipsis;
       .img-box {
-        padding: 0 4px;
-        width: 20%;
+        padding: 0 8px;
+        margin-right: 4px;
+        width: 10%;
         @include media(max-mob) {
           width: 60px;
         }
       }
     }
+  }
+  @include media(max-mob) {
+    .mob-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width:100%
+    }
+
   }
 
 /*# sourceMappingURL=main.css.map */

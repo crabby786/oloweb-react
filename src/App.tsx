@@ -7,7 +7,7 @@ import { BrowserRouter, HashRouter as Router, Switch, Route, Redirect } from "re
 import { createBrowserHistory } from "history";
 import Dashboard from './Pages/Dashboard';
 import Home from './Pages/Home';
-import MerchantList from './Pages/MerchantList';
+import MerchantList from './Pages/MerchantLogin/MerchantList';
 import { RootRoutes } from "./routes";
 
 export default function App(props: any) {
@@ -17,7 +17,7 @@ export default function App(props: any) {
     <Router basename="/">
       <Switch>
         {RootRoutes.map((route, i)=> (
-            <Route key={'route'+i}  path={route.path} component={route.component} ></Route>
+            <Route key={'route'+i}  path={route.path} component={route.component} exact={route.exact}></Route>
         ) )}
         <Redirect from='/' to='/home' exact={true} ></Redirect>        
       </Switch>

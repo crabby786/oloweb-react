@@ -1,4 +1,4 @@
-import { RestListApi, BaseApi, RestDetailApi } from '../../Constants/DishCoApi'
+import { RestListApi,MerchantApi, BaseApi, RestDetailApi } from '../../Constants/DishCoApi'
 import { androidHeader } from '../../Constants/DishCoApi'
 
 export function restListAction() {
@@ -31,6 +31,60 @@ export function restDetailAction(queryParams, type) {
       payload: {
         request:{
           url:RestDetailApi,
+          ...options
+        }
+      }
+    }
+  }
+export function getMerchantListAction(queryParams, type) {
+  
+    const options = {
+        headers: {...androidHeader},
+        params: {
+          ...queryParams,
+        }
+      };
+    return {
+      type: type,
+      payload: {
+        request:{
+          url:MerchantApi,
+          ...options
+        }
+      }
+    }
+  }
+export function getRestaurantLoginDetailsAction(queryParams, type) {
+  
+    const options = {
+        headers: {...androidHeader},
+        params: {
+          ...queryParams,
+        }
+      };
+    return {
+      type: type,
+      payload: {
+        request:{
+          url:MerchantApi,
+          ...options
+        }
+      }
+    }
+  }
+export function getDataAction(url,queryParams, type) {
+  
+    const options = {
+        headers: {...androidHeader},
+        params: {
+          ...queryParams,
+        }
+      };
+    return {
+      type: type,
+      payload: {
+        request:{
+          url,
           ...options
         }
       }

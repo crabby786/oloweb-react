@@ -4,14 +4,17 @@ import axiosMiddleware from 'redux-axios-middleware';
 // import {restListReducer} from './Reducers/restListReducer'
 import { RestListApi, BaseApi } from '../Constants/DishCoApi'
 import { androidHeader } from '../Constants/DishCoApi';
-import {restListReducer, restDetailReducer} from './Reducers'
+import {restListReducer,SubAccountListReducer, restDetailReducer, getMerchantListReducer} from './Reducers'
 
 const client = axios.create({ 
   baseURL:BaseApi,
   responseType: 'json'
 });
 const rootReducer = combineReducers({
-    restListReducer, restDetailReducer
+    restListReducer, 
+    restDetailReducer, 
+    getMerchantListReducer,
+    SubAccountListReducer
 })
 
 export const store = createStore(

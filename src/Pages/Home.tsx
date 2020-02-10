@@ -19,7 +19,7 @@ import RestDetails from './RestDetails';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import Restraunts from './Restraunts';
 import Dashboard from './Dashboard';
-import MerchantList from './MerchantList';
+import MerchantList from './MerchantLogin/MerchantList';
 import { HomeRoutes } from '../routes';
 
 

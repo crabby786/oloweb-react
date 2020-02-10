@@ -201,13 +201,6 @@ class RestDetails extends React.Component<any, any> {
         </div>
       )
     }
-
-
-    // else {
-    //   return (<div className="preLoader">
-    //     <CircularProgress color="primary" />
-    //   </div>)
-    // }
   }
 }
 
