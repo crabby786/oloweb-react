@@ -37,9 +37,10 @@ class SubAccountList extends React.Component<any, any> {
       if (accountList.length > 0) {
       return (
           <div className="listType-1">
-            <div className="bg-mute p-3 text-center font-weight-bold">
+            <div className="bg-mute  text-center font-weight-bold header">
               Select Restraunt
             </div>
+            <div className="list">
             {accountList.map((list:any, i:number)=> {
               return (
 
@@ -58,7 +59,8 @@ class SubAccountList extends React.Component<any, any> {
             }
             
              )}
-            <div className="bg-mute p-3 text-center font-weight-bold mob-footer" onClick={()=> history.goBack() } >
+            </div>
+            <div className="bg-mute  text-center font-weight-bold mob-footer " onClick={()=> history.goBack() } >
               Back
             </div>
           </div>

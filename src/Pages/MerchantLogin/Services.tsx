@@ -30,9 +30,11 @@ class RestrauntServices extends React.Component<any, any> {
 
       return (
         <div className={classes.dashboardContainer}>
-          <div className="bg-danger p-2 mb-3 text-center " >
-              <h5 className="text-light" > {account.RestaurantName} </h5>
+          <div className="bg-danger header text-center" >
+              <div>
+              <h5 className="text-light mb-1" > {account.RestaurantName} </h5>
               <small> {account.Location} </small>
+              </div>
           </div>
         <Grid container spacing={1}>
             {ServicesRights.map((menu, i)=> (

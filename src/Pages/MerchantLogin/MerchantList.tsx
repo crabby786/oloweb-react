@@ -37,9 +37,10 @@ class MerchantList extends React.Component<any, any> {
 
       return (
           <div className="listType-1">
-            <div className="bg-mute p-3 text-center font-weight-bold">
+            <div className="bg-mute  text-center font-weight-bold header">
               Select Account
             </div>
+            <div className="list">
             {accountList.map((list:any, i:number)=> {
               return (
 
@@ -55,10 +56,10 @@ class MerchantList extends React.Component<any, any> {
             </div>
         </Link>
               )
-            }
-            
+            }            
              )}
-            <div className="bg-mute p-3 text-center font-weight-bold" onClick={()=> history.goBack() } >
+            </div>
+            <div className="bg-mute  text-center font-weight-bold mob-footer" onClick={()=> history.goBack() } >
               Cancel
             </div>
             {/* <SubAccountList></SubAccountList> */}

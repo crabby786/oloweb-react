@@ -136,8 +136,18 @@ h2, h3, h4, h5, h6 {
       line-height:1.5;
     }
   }
-
+  .header, .mob-footer {
+    min-height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .listType-1 {
+    
+    .list {
+      max-height: calc(100vh - 112px);
+      overflow-y: auto;
+    }
     .listItem {
       display: flex;
       display: flex;
