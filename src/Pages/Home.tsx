@@ -13,29 +13,32 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { restListAction } from '../Store/Actions/restListAction';
 import { homeStyle } from '../Styles/jss/homePageStyles';
-import { mainListItems, secondaryListItems } from '../Components/sidebarItems';
+import { MainListItems, secondaryListItems } from '../Components/sidebarItems';
 import { Divider, List, Hidden, CircularProgress } from '@material-ui/core';
 import RestDetails from './RestDetails';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import Restraunts from './Restraunts';
 import Dashboard from './Dashboard';
+import MerchantList from './MerchantList';
+import { HomeRoutes } from '../routes';
 
 
 // const drawerWidth = 240;
 // export interface Iprops extends WithStyles<typeof homeStyle> { };
-class HomePage extends React.Component<any> {
+class HomePage extends React.Component<any, any> {
   state: any = {
     appBarOpen: true,
   }
   componentWillMount() {
-    this.props.getRestList()
+    this.props.getRestList();
   }
 
   setAppbarOpen = (isOpen: boolean) => {
     this.setState({ ...this.state, appBarOpen: isOpen })
   }
   render() {
-    const { classes, restData } = this.props;
+    const { classes, restData, match } = this.props;
+    const {path, url, isExact, params} = match;
 
     return (
       <div className={classes.root}>
@@ -83,7 +86,9 @@ class HomePage extends React.Component<any> {
               </IconButton>
             </div>
             <Divider />
-            <List>{mainListItems}</List>
+            <List  >
+              <MainListItems></MainListItems>
+            </List>
           </Drawer>
         </Hidden>
 
@@ -93,16 +98,17 @@ class HomePage extends React.Component<any> {
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
-              <Switch>
-                <Route exact={true} path='/' component= {Dashboard}></Route>
-                <Route path="/restraunts">
-                  <Restraunts restData={restData.data} ></Restraunts>
-                </Route>
-                <Route path="/restdetail/:restid">
-                  <RestDetails></RestDetails>
-                </Route>
-                {/* <Redirect from="/" to="/restraunts"></Redirect> */}
+              {
+                (this.props.restData && this.props.restData.data != null ) ?
+                <Switch>
+                {HomeRoutes.map((route, i)=> (
+                    <Route key={'homeroute' +i} path={path + route.path} exact={route.exact} component={route.component}></Route>
+                ) )}
               </Switch>
+              : <div className="preLoader">
+              <CircularProgress color="primary" />
+            </div>
+              }
             </Container>
           </main>
         }
@@ -110,8 +116,8 @@ class HomePage extends React.Component<any> {
     );
   }
 }
-const mapStateToProps = (state: any) => {
-  // console.log(state.restListReducer.data);
+const mapStateToProps = (state: any, ownProps:any) => {
+  // console.log(ownProps);
 
   return {
     restData: state.restListReducer

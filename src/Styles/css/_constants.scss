@@ -1,6 +1,18 @@
-$muted:#7b7979;
+$muted:#aaaaaa;
 $primary: #2d120b;
 $secondary: #fbb03b;
 $warning: #ff9800;
 $error: #f02407;
 $success:  #81c784;
+
+@mixin media($point) {
+    @if $point == min-pc {
+      @media (min-width: 1251px) { @content; }
+    }
+    @else if $point == max-tab {
+      @media (  max-width: 1250px) { @content; }
+    }
+    @else if $point == max-mob {
+      @media (max-width: 600px)  { @content; }
+    }
+  }

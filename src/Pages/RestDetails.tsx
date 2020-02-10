@@ -12,70 +12,68 @@ import { restDetailAction } from '../Store/Actions/restListAction'
 import { imgBase } from '../Constants/DishCoApi'
 import SwipeableViews from 'react-swipeable-views'
 
-const DishSlider = (props:any) => {
+const DishSlider = (props: any) => {
   // const [index, setValue] = React.useState(0);
-  const {RestaurantDishes, classes, index} = props
-  
-    
+  const { RestaurantDishes, classes, index } = props
+
+
   return (
     <SwipeableViews axis="x" index={index} onChangeIndex={props.handleChangeCarouselIndex}>
-              {RestaurantDishes.map((dish:any, i:number)=> (
-                <Card square key={i} className="slider-card" >
-                <CardHeader
-                  title="Signature Dishes"
-                  subheader={
+      {RestaurantDishes.map((dish: any, i: number) => (
+        <Card square key={i} className="slider-card" >
+          <div
+            className="card-header"
+          >
                     <Typography component="div" style={{ color: '#fff' }}>
-                      <Box className="rupee rate"  >
-                        {dish.Rate}
-                        </Box>
-                        
+                      <h4 className="text-secondary">Signature Dishes</h4>
                       <Icon fontSize="small" className={clsx((dish.IsVeg == 1) ? classes.textSuccess : classes.textDanger, classes.iconWithText)} >fiber_manual_record</Icon>
                       {dish.RestaurantDishName}
                       
                     </Typography>
-                  }
-                  className={classes.cardHeader}
-                />
-                 <CardMedia
-                  className={classes.media}
-                  image= {imgBase + dish.DishImage}
-                  title="dish"
-                />
-                <CardActions disableSpacing className={classes.CardActions}>
-                  <Typography >
-                    by Locals
+                    <div className="rupee rate"  >
+                        {dish.Rate}
+                        </div>
+          </div>
+          <CardMedia
+            className={classes.media}
+            image={imgBase + dish.DishImage}
+            title="dish"
+          />
+          <CardActions disableSpacing className={classes.CardActions}>
+            <Typography >
+              by Locals
                 </Typography>
-                  <Typography component="div">
-                    Voted By
+            <Typography component="div">
+              Voted By
                     <h5> {dish.Votes}</h5>
-                    Users
+              Users
                 </Typography  >
-                  <Typography component="div">
-                    <h5>{dish.Friends}</h5>
-                    <span className={classes.badgeOrange} >FRIENDS</span>
-                  </Typography>
-                  <Typography component="div">
-                    <h5>{0}</h5>
-                    <span className={classes.badgeOrange} >
-                      MARSHAL
+            <Typography component="div">
+              <h5>{dish.Friends}</h5>
+              <span className={classes.badgeOrange} >FRIENDS</span>
+            </Typography>
+            <Typography component="div">
+              <h5>{0}</h5>
+              <span className={classes.badgeOrange} >
+                MARSHAL
                       </span>
-                  </Typography>
-                  <Typography variant="h6" component="div" align="center" className={classes.bgYellow} style={{
-                    padding: '0px 8px',
-                    margin: ' 0px 0px',
-                    fontSize: '13px',
-                  }} >
-                    # <br></br>
-                    Rank <br></br>
-                    Now
+            </Typography>
+            <Typography variant="h6" component="div" align="center" className={classes.bgYellow} style={{
+              padding: '0px 8px',
+              margin: ' 0px 0px',
+              fontSize: '13px',
+            }} >
+              # <br></br>
+              Rank <br></br>
+              Now
                 </Typography>
-    
-                </CardActions>
-              </Card>
-              
-              ) )}
-              </SwipeableViews>
-            
+
+          </CardActions>
+        </Card>
+
+      ))}
+    </SwipeableViews>
+
   )
 }
 
@@ -83,7 +81,7 @@ class RestDetails extends React.Component<any, any> {
 
   state: any = {
     expanded: false,
-    index:0
+    index: 0
   }
   componentWillMount() {
     let IntLocRestaurantId = this.props.match.params.restid;
@@ -93,26 +91,24 @@ class RestDetails extends React.Component<any, any> {
     const type = 'GETDETAIL';
     return this.props.getDetail(query, type);
   }
-   handleChangeCarouselIndex = (index: number) => {
-    this.setState({index});
+  handleChangeCarouselIndex = (index: number) => {
+    this.setState({ index });
   };
 
-  carouselByNavRight= (dishes: number) => {
-    if((dishes-1) > this.state.index)
-    {this.setState({index: this.state.index + 1});}
+  carouselByNavRight = (dishes: number) => {
+    if ((dishes - 1) > this.state.index) { this.setState({ index: this.state.index + 1 }); }
     else {
-      this.setState({index: 0});
+      this.setState({ index: 0 });
     }
   };
-  carouselByNavLeft= (dishes: number) => {
-    if(this.state.index > 0)
-    {this.setState({index: this.state.index - 1});}
+  carouselByNavLeft = (dishes: number) => {
+    if (this.state.index > 0) { this.setState({ index: this.state.index - 1 }); }
     else {
-      this.setState({index: (dishes - 1)});
+      this.setState({ index: (dishes - 1) });
     }
   };
-  
-  
+
+
   handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
   };
@@ -122,17 +118,24 @@ class RestDetails extends React.Component<any, any> {
     const data: IRestDetail = restDetail.data;
     const { index } = this.state;
     const logoPlaceholder = '/assets/images/other/img/for_you.png'
-    if (!isLoading && !isError && data != null) {
-      
+
+    if (isLoading || data == null) {
+      return (
+        <div className="preLoader">
+          <CircularProgress color="primary" />
+        </div>
+      )
+    }
+    else {
       return (
         <div>
           <Paper className={classes.paper} square>
             <Grid container justify="space-between" alignItems="center"  >
               <Grid item xs={2}>
-                <img src={data.RestaurantLogo =="" ? logoPlaceholder :  imgBase + data.RestaurantLogo} style={{ width: '100%' }} alt="img" />
+                <img src={data.RestaurantLogo == "" ? logoPlaceholder : imgBase + data.RestaurantLogo} style={{ width: '100%' }} alt="img" />
               </Grid>
               <Grid item >
-                <h3> {data.RestaurantName} </h3>
+                <h4> {data.RestaurantName} </h4>
                 <small>
                   {data.TotalPledge} Meals Pledged
                                     </small>
@@ -140,7 +143,7 @@ class RestDetails extends React.Component<any, any> {
               <Grid item >
                 <Typography component="div" align="center">
                   <div className="text-center" >
-                  <Icon style={{ fontSize: '27px', color: '#ccc' }} > person_pin_circle </Icon>
+                    <Icon style={{ fontSize: '27px', color: '#ccc' }} > person_pin_circle </Icon>
                   </div>
                   <small>Check In</small>
                 </Typography>
@@ -153,15 +156,15 @@ class RestDetails extends React.Component<any, any> {
 
           {/* carousel starts */}
           <div className="carousel-root">
-            <DishSlider RestaurantDishes = {data.RestaurantDishes} handleChangeCarouselIndex = {this.handleChangeCarouselIndex} classes={classes} index={this.state.index}></DishSlider>
+            <DishSlider RestaurantDishes={data.RestaurantDishes} handleChangeCarouselIndex={this.handleChangeCarouselIndex} classes={classes} index={this.state.index}></DishSlider>
             <div className="nav">
-                <div className="left-nav" onClick={()=>this.carouselByNavLeft(data.RestaurantDishes.length)}>
-                  <Icon>chevron_left</Icon>
-                </div>
-                <div className="right-nav" onClick={()=>this.carouselByNavRight(data.RestaurantDishes.length)}>
-                  <Icon>chevron_right</Icon>
-                </div>
-                </div>
+              <div className="left-nav" onClick={() => this.carouselByNavLeft(data.RestaurantDishes.length)}>
+                <Icon>chevron_left</Icon>
+              </div>
+              <div className="right-nav" onClick={() => this.carouselByNavRight(data.RestaurantDishes.length)}>
+                <Icon>chevron_right</Icon>
+              </div>
+            </div>
           </div>
 
           {/*_________ Menu Item ______*/}
@@ -169,9 +172,9 @@ class RestDetails extends React.Component<any, any> {
             <Grid container className={classes.menuContainer}>
               {data && data.RestaurantDetailMenuUser.map((opt, i) => (
                 <Grid item xs={3} key={i} >
-                  <div onClick={()=> {console.log(opt.Uniqueid)} }>
+                  <div onClick={() => { console.log(opt.Uniqueid) }}>
                     <div className={classes.menuIcons} >
-                      <img alt = 'menuIcon' className={classes.menuIcon} src = {'/assets/images/other/img/' + opt.ImageName + '.png'}></img>
+                      <img alt='menuIcon' className={classes.menuIcon} src={'/assets/images/other/img/' + opt.ImageName + '.png'}></img>
                     </div>
                     <small>{opt.Discription}</small>
                   </div>
@@ -198,12 +201,13 @@ class RestDetails extends React.Component<any, any> {
         </div>
       )
     }
-    
-    else {
-      return (<div className="preLoader">
-        <CircularProgress color="primary" />
-      </div>)
-    }
+
+
+    // else {
+    //   return (<div className="preLoader">
+    //     <CircularProgress color="primary" />
+    //   </div>)
+    // }
   }
 }
 

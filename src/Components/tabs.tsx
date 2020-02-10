@@ -118,7 +118,7 @@ export default function FullWidthTabs(props: any) {
               Cash is always welcome <br></br>
               Following Cards are accepted
             </h5>
-            {content.CrediteCards.map((card:any,i:number)=> <img src={imgBase + card.CrediteCardsImage} alt={card} ></img>  )}
+            {content.CrediteCards.map((card:any,i:number)=> <img src={imgBase + card.CrediteCardsImage} alt={card} key={'slideImg'+i}></img>  )}
           </div>
         </TabPanel>
       </SwipeableViews>

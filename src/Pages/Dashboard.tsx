@@ -20,14 +20,14 @@ const dashboardStyle = (theme:Theme) =>
     state = {}
     
     render() {
-        const {classes} = this.props
+        const {classes, match} = this.props
         
         return (
             <div className={classes.dashboardContainer}>
                 <Grid container spacing={1}>
                     {menus.map((menu, i)=> (
                         <Grid item xs={4} md={4} key={i} >
-                            <Link to={menu.route} className={clsx("menu-box", classes.imgBox)} >
+                            <Link to={ menu.route} className={clsx("menu-box", classes.imgBox)} >
                                 <img src={menu.img} alt="meni item"></img>
                                 <Typography component="div" variant="caption"> {menu.name} </Typography>
                             </Link>

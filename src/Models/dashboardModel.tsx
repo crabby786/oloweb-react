@@ -1,5 +1,5 @@
 export const dasboardModel = [
-    {id:1,route:'/restraunts',name:'Best Dish', img:'/assets/images/icons/dashboard/best_dish.jpg'},
+    {id:1,route:'/home/restraunts',name:'Best Dish', img:'/assets/images/icons/dashboard/best_dish.jpg'},
     {id:2,route:'/',name:'Top 10', img:'/assets/images/icons/dashboard/top10.jpg'},
     {id:3,route:'/',name:'Tiffin Box', img:'/assets/images/icons/dashboard/tiffin.jpg'},
     {id:4,route:'/',name:'Table Booking', img:'/assets/images/icons/dashboard/table_book.jpg'},
@@ -18,6 +18,6 @@ export const dasboardModel = [
     {id:17,route:'/',name:'Share', img:'/assets/images/icons/dashboard/share.jpg'},
     {id:15,route:'/',name:'My Profile', img:'/assets/images/icons/dashboard/user.jpg'},
     {id:16,route:'/',name:'Contact Us', img:'/assets/images/icons/dashboard/contact_us.jpg'},
-    {id:17,route:'/',name:'Merchant Login', img:'/assets/images/icons/dashboard/merchant.jpg'},
+    {id:17,route:'/merchants',name:'Merchant Login', img:'/assets/images/icons/dashboard/merchant.jpg'},
     
 ]

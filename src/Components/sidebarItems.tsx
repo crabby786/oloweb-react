@@ -3,35 +3,33 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import { NavLink } from 'react-router-dom';
-import homeRoutes from '../routes';
+import {HomeRoutes} from '../routes';
 import clsx from "clsx";
 import { Icon } from '@material-ui/core';
 
 function activeRoute(routeName:any) {
-  return window.location.href.indexOf(routeName) > -1 ? true : false;
+  return window.location.hash.indexOf(routeName) > -1 ? true : false;
 }
 
-export const mainListItems = (
-  <div>
-    {homeRoutes.map((route, i)=> (
-        <NavLink key={i} to={route.path} activeClassName="active" className={"navItem"} isActive={()=> activeRoute(route.path) } >
-        <ListItem button>
-          <ListItemIcon>
-            <Icon> {route.icon} </Icon>
-          </ListItemIcon>
-          <ListItemText primary= {route.name} />
-        </ListItem>
-        </NavLink>
-      ) )}
-  </div>
-);
+export const MainListItems = (props:any)=> {
+  return (
+    <div>
+      {HomeRoutes.map((route, i)=> (
+          <NavLink key={i} to={route.path} activeClassName="active" className={"navItem"} isActive={()=> activeRoute(route.path) } >
+          <ListItem button>
+            <ListItemIcon>
+              <Icon> {route.icon} </Icon>
+            </ListItemIcon>
+            <ListItemText primary= {route.name} />
+          </ListItem>
+          </NavLink>
+        ) )}
+    </div>
+  );
+}
+
 
 export const secondaryListItems = (
   <div>

@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { homeStyle } from '../Styles/jss/homePageStyles'
 import { Typography } from '@material-ui/core';
+import { restListAction } from '../Store/Actions/restListAction';
 
 // export interface Iprops extends WithStyles<typeof homeStyle> { };
 class Restaurants extends React.Component<any, any> {
@@ -53,22 +54,24 @@ class Restaurants extends React.Component<any, any> {
               </Grid>
             </Grid>
             <div>
-              {
-                restData ? < RestList classesUp = {classes} restData={restData.AllRestaurantDishes} /> 
-                  : (<div  className="preLoade">
-      </div>)
-              }
+                < RestList classesUp = {classes} restData={this.props.restData.data.AllRestaurantDishes} /> 
             </div>
           </div>
       
     );
   }
 }
-
+const mapStateToProps = (state: any, ownProps:any) => {
+  return {
+    restData: state.restListReducer
+  }
+}
 const mapDispatchToProps = (dispatch: any) => {
-  return {}
+  return {
+    getRestList: () => dispatch(restListAction())
+  }
 }
 export default compose<any, any>(
   withStyles(homeStyle),
-  connect(null, mapDispatchToProps),
+  connect(mapStateToProps, mapDispatchToProps),
 )(Restaurants);

@@ -47,7 +47,7 @@ export const RestList = (props:any)=> {
   const classes = useStyles();
   let history = useHistory();
   const showDetails =  (restId:number) => {
-    history.push("/restdetail/"+ restId );
+    history.push("/home/restdetail/"+ restId );
   };
   return (
     <List className={classes.root}>
