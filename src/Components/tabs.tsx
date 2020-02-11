@@ -64,7 +64,7 @@ export default function FullWidthTabs(props: any) {
 
   return (
     <div className={classes.tabRoot}>
-      <AppBar position="static" color="default">
+      <AppBar position="static" color="default" className={classes.defaultBar}  >
         <Tabs
           value={value}
           onChange={handleChange}
@@ -73,7 +73,7 @@ export default function FullWidthTabs(props: any) {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label={props.tabData[0].name} {...a11yProps(0)} />
+          <Tab classes={{selected:classes.tabSelected}} label={props.tabData[0].name} {...a11yProps(0)} />
           <Tab label={props.tabData[1].name} {...a11yProps(1)} />
           <Tab label={props.tabData[2].name} {...a11yProps(2)} />
         </Tabs>

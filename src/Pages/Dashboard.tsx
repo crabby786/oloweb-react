@@ -11,6 +11,7 @@ import clsx from 'clsx'
 const dashboardStyle = (theme:Theme) => 
     createStyles({
         dashboardContainer :{
+            background:'#fff',
             '& $imgBox': {}
         },
         imgBox:{}
@@ -28,7 +29,7 @@ const dashboardStyle = (theme:Theme) =>
                     {menus.map((menu, i)=> (
                         <Grid item xs={4} md={4} key={i} >
                             <Link to={ menu.route} className={clsx("menu-box", classes.imgBox)} >
-                                <img src={menu.img} alt="meni item"></img>
+                                <img src={menu.img} alt="menu item"></img>
                                 <Typography component="div" variant="caption"> {menu.name} </Typography>
                             </Link>
                         </Grid>

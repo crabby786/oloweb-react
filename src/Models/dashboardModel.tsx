@@ -7,7 +7,7 @@ export const dasboardModel = [
     {id:6,route:'/',name:'Order Online', img:'/assets/images/icons/dashboard/deliver.jpg'},
     {id:7,route:'/',name:'Dairy', img:'/assets/images/icons/dashboard/diary.jpg'},
     {id:8,route:'/',name:'Wallets', img:'/assets/images/icons/dashboard/wallet.jpg'},
-    {id:9,route:'/',name:'FeedBack', img:'/assets/images/icons/dashboard/feedBack.jpg'},
+    {id:9,route:'/',name:'FeedBack', img:'/assets/images/icons/dashboard/feedback.jpg'},
     {id:10,route:'/',name:'Friends', img:'/assets/images/icons/dashboard/friends.jpg'},
     {id:11,route:'/',name:'Food Marshal', img:'/assets/images/icons/dashboard/food_marshal.jpg'},
     {id:12,route:'/',name:'Events', img:'/assets/images/icons/dashboard/events.jpg'},

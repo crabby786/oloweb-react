@@ -66,7 +66,7 @@ class SubAccountList extends React.Component<any, any> {
           </div>
          )
         }
-        else {  alert('err'); return (<Redirect to="/merchants" ></Redirect>) }
+        else {  alert('Please link Restraunt to your account'); return (<Redirect to="/merchants" ></Redirect>) }
     }
     
   }

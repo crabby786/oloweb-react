@@ -19,7 +19,7 @@
     --gray: #6c757d;
     --gray-dark: #343a40;
     --primary: #007bff;
-    --secondary: #6c757d;
+    --secondary:#fbb03b;
     --success: #28a745;
     --info: #17a2b8;
     --warning: #ffc107;
@@ -9909,13 +9909,6 @@
     color: #0056b3 !important;
   }
   
-  .text-secondary {
-    color: #6c757d !important;
-  }
-  
-  a.text-secondary:hover, a.text-secondary:focus {
-    color: #494f54 !important;
-  }
   
   .text-success {
     color: #28a745 !important;

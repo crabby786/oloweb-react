@@ -11,6 +11,8 @@ html, body {
   font-family: 'Geometria';
   line-height: 1.1; 
   font-size: 14px;
+  margin: 0;
+  background-color: #ffffff;
 }
 
 p {
@@ -47,14 +49,17 @@ h2, h3, h4, h5, h6 {
   }
 .preLoader {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 100;
-  background-color: rgba(220, 209, 205, 0.37); }
+  z-index: 9999;
+  background-color: rgba(64, 62, 62, 0.62);
+}
 
 .MuiCircularProgress-root {
   position: absolute;
-  top: calc(50% - 40px);
+  top: calc(50% - 20px);
   left: calc(50% - 20px); }
 
 .text-center {
@@ -71,6 +76,7 @@ h2, h3, h4, h5, h6 {
 .bg-mute {
   background-color: $muted;
 }
+.MuiIcon-root {vertical-align: top;}
 .rupee::before {
   content: '\20B9';
   margin-right: 4px;
@@ -78,7 +84,11 @@ h2, h3, h4, h5, h6 {
   font-family: Arial !important; }
 
 #city {
-  line-height: 1.8; }
+  display: inline-block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
 
 .carousel-root {
   position: relative; }
@@ -158,7 +168,7 @@ h2, h3, h4, h5, h6 {
       .img-box {
         padding: 0 8px;
         margin-right: 4px;
-        width: 10%;
+        width: 80px;
         @include media(max-mob) {
           width: 60px;
         }

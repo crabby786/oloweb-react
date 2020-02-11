@@ -23,7 +23,6 @@ export const restDetailReducer = (state = initialState, { type, payload }) => {
     case 'GETDETAIL_REQUEST':
         return { ...state, isLoading:true }
     case 'GETDETAIL_SUCCESS':
-        // console.log('rdx', payload)
         return { ...state, ...payload, isLoading:false }
     case 'GETDETAIL_FAILURE':
         return { ...state, ...payload , isLoading:false, isError:true}

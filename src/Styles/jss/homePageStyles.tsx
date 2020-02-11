@@ -19,10 +19,11 @@ export const homeStyle = (theme: Theme) =>
         toolbarIcon: {
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
           padding: '0 8px',
           background:theme.palette.error.main,
           ...theme.mixins.toolbar,
+          '& .MuiIconButton-root':{color:'#fff'}
         },
         appBar: {
           zIndex: theme.zIndex.drawer + 1,
@@ -97,6 +98,8 @@ export const homeStyle = (theme: Theme) =>
           [theme.breakpoints.down('xs')]:{
             paddingLeft: 0,
           paddingRight: 0,
+          paddingTop: 0,
+          paddingBottom: 0,
           }
         },
         paper: {
@@ -109,7 +112,7 @@ export const homeStyle = (theme: Theme) =>
           height: 240,
         },
         iconWithText: {
-          lineHeight: '1.25'
+          verticalAlign: 'middle'
         },
       }
   ) 

@@ -7,11 +7,10 @@ import SubAccountList from "./Pages/MerchantLogin/SubAccountList";
 import RestrauntServices from "./Pages/MerchantLogin/Services";
   export const HomeRoutes = [
     {
-      path: "/",
+      path: "/dashboard",
       name: "Dashboard",
       icon: 'art_track',
       component: Dashboard,
-      exact:true
     },
     {
       path: "/restraunts",

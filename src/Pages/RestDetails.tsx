@@ -129,10 +129,10 @@ class RestDetails extends React.Component<any, any> {
     else {
       return (
         <div>
-          <Paper className={classes.paper} square>
-            <Grid container justify="space-between" alignItems="center"  >
-              <Grid item xs={2}>
-                <img src={data.RestaurantLogo == "" ? logoPlaceholder : imgBase + data.RestaurantLogo} style={{ width: '100%' }} alt="img" />
+          
+            <Grid container justify="space-between" alignItems="center" wrap="nowrap" className="mt-2 p-1" >
+              <Grid item xs={2} md={1}>
+                <img src={data.RestaurantLogo == "" ? logoPlaceholder : imgBase + data.RestaurantLogo} style={{ maxWidth: '100%' }} alt="img" />
               </Grid>
               <Grid item >
                 <h4> {data.RestaurantName} </h4>
@@ -149,7 +149,6 @@ class RestDetails extends React.Component<any, any> {
                 </Typography>
               </Grid>
             </Grid>
-          </Paper>
 
 
 

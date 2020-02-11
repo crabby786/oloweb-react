@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/MUIcreate-react-app-with-typescript/static/css/main.19ed8275.chunk.css",
-    "main.js": "/MUIcreate-react-app-with-typescript/static/js/main.c37eb429.chunk.js",
-    "main.js.map": "/MUIcreate-react-app-with-typescript/static/js/main.c37eb429.chunk.js.map",
-    "runtime-main.js": "/MUIcreate-react-app-with-typescript/static/js/runtime-main.8fa332c7.js",
-    "runtime-main.js.map": "/MUIcreate-react-app-with-typescript/static/js/runtime-main.8fa332c7.js.map",
-    "static/js/2.473b3e53.chunk.js": "/MUIcreate-react-app-with-typescript/static/js/2.473b3e53.chunk.js",
-    "static/js/2.473b3e53.chunk.js.map": "/MUIcreate-react-app-with-typescript/static/js/2.473b3e53.chunk.js.map",
-    "index.html": "/MUIcreate-react-app-with-typescript/index.html",
-    "precache-manifest.709080c36b426d93b504a1f502cca78e.js": "/MUIcreate-react-app-with-typescript/precache-manifest.709080c36b426d93b504a1f502cca78e.js",
-    "service-worker.js": "/MUIcreate-react-app-with-typescript/service-worker.js",
-    "static/css/main.19ed8275.chunk.css.map": "/MUIcreate-react-app-with-typescript/static/css/main.19ed8275.chunk.css.map",
-    "static/js/2.473b3e53.chunk.js.LICENSE": "/MUIcreate-react-app-with-typescript/static/js/2.473b3e53.chunk.js.LICENSE"
+    "main.css": "/static/css/main.fa5cef2f.chunk.css",
+    "main.js": "/static/js/main.84149198.chunk.js",
+    "main.js.map": "/static/js/main.84149198.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.572e229b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.572e229b.js.map",
+    "static/js/2.262c20f3.chunk.js": "/static/js/2.262c20f3.chunk.js",
+    "static/js/2.262c20f3.chunk.js.map": "/static/js/2.262c20f3.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.472536a81ee8c96d5de3d51170cd3d1b.js": "/precache-manifest.472536a81ee8c96d5de3d51170cd3d1b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.fa5cef2f.chunk.css.map": "/static/css/main.fa5cef2f.chunk.css.map",
+    "static/js/2.262c20f3.chunk.js.LICENSE": "/static/js/2.262c20f3.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.8fa332c7.js",
-    "static/js/2.473b3e53.chunk.js",
-    "static/css/main.19ed8275.chunk.css",
-    "static/js/main.c37eb429.chunk.js"
+    "static/js/runtime-main.572e229b.js",
+    "static/js/2.262c20f3.chunk.js",
+    "static/css/main.fa5cef2f.chunk.css",
+    "static/js/main.84149198.chunk.js"
   ]
 }

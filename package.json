@@ -1,7 +1,6 @@
 {
   "name": "create-react-app-with-typescript",
   "version": "4.0.0",
-  "homepage": "http://crabby786.github.io/MUIcreate-react-app-with-typescript",
   "private": true,
   "dependencies": {
     "@material-ui/core": "latest",

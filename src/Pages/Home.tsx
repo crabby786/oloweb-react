@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { restListAction } from '../Store/Actions/restListAction';
 import { homeStyle } from '../Styles/jss/homePageStyles';
-import { MainListItems, secondaryListItems } from '../Components/sidebarItems';
+import { MainListItems } from '../Components/sidebarItems';
 import { Divider, List, Hidden, CircularProgress } from '@material-ui/core';
 import RestDetails from './RestDetails';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
@@ -42,7 +42,7 @@ class HomePage extends React.Component<any, any> {
 
     return (
       <div className={classes.root}>
-        <CssBaseline />
+        
         <AppBar position="absolute" className={clsx(classes.appBar, this.state.appBarOpen && classes.appBarShift)}>
           <Toolbar className={clsx(classes.toolbar)}>
 
@@ -62,7 +62,9 @@ class HomePage extends React.Component<any, any> {
                 <Icon className={clsx(classes.iconWithText)}>pin_drop</Icon>
               </div>
               <div style={{ color: "#000" }} >
-                <span id="restCount">1617</span> Restraurants
+                { restData.data &&
+                  <span id="restCount"> {restData.data.NoOfRestaurants.NoOfRestaurants} </span>
+                } Restraurants
                 </div>
             </Box>
             <IconButton color="inherit">
@@ -80,6 +82,9 @@ class HomePage extends React.Component<any, any> {
             open={this.state.appBarOpen}
           >
             <div className={classes.toolbarIcon}>
+              <div>
+                <img src="/assets/images/other/img/demo_logo.png" alt="logo" style={{height:'60px', width: '100%'}} ></img>
+              </div>
               <IconButton onClick={() => this.setAppbarOpen(false)}>
                 
                 <Icon>menu_open</Icon>
@@ -87,7 +92,7 @@ class HomePage extends React.Component<any, any> {
             </div>
             <Divider />
             <List  >
-              <MainListItems></MainListItems>
+              <MainListItems match={match}></MainListItems>
             </List>
           </Drawer>
         </Hidden>
@@ -102,7 +107,7 @@ class HomePage extends React.Component<any, any> {
                 (this.props.restData && this.props.restData.data != null ) ?
                 <Switch>
                 {HomeRoutes.map((route, i)=> (
-                    <Route key={'homeroute' +i} path={path + route.path} exact={route.exact} component={route.component}></Route>
+                    <Route key={'homeroute' +i} path={path + route.path}  component={route.component}></Route>
                 ) )}
               </Switch>
               : <div className="preLoader">

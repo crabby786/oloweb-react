@@ -8,8 +8,6 @@ import { SwitchA } from '../Components/FormComps';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { homeStyle } from '../Styles/jss/homePageStyles'
-import { Typography } from '@material-ui/core';
-import { restListAction } from '../Store/Actions/restListAction';
 
 // export interface Iprops extends WithStyles<typeof homeStyle> { };
 class Restaurants extends React.Component<any, any> {
@@ -30,7 +28,7 @@ class Restaurants extends React.Component<any, any> {
     
     return (
           <div>
-            <Grid component="div" container justify="space-between" alignItems="center" spacing={1}>
+            <Grid component="div" className="p-2 mt-2" container justify="space-between" alignItems="center" spacing={1}>
               <Grid item>
                 <SwitchA
                   leftKey="Rank"

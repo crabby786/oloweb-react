@@ -72,7 +72,7 @@ export const detailStyle = (theme: Theme) =>
         paddingBottom: theme.spacing(1),
       },
       paper: {
-        padding: '0 4px',
+        padding: '2px 4px',
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
@@ -105,7 +105,7 @@ export const detailStyle = (theme: Theme) =>
       },
       tabRoot: {
         backgroundColor: theme.palette.background.paper,
-        '& .MuiPaper-elevation4': { boxShadow: 'none' },
+        '& $defaultBar': { boxShadow: 'none' },
         "& .MuiTypography-colorTextSecondary": {
           fontSize: "0.7rem",
           lineHeight: 1.2
@@ -115,6 +115,7 @@ export const detailStyle = (theme: Theme) =>
           color: theme.palette.primary.contrastText
         }
       },
+      defaultBar: {boxShadow: 'none' },
       coupenBox: {
         color: '#fff',
         padding: '15px 10px'

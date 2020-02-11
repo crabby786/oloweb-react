@@ -10,14 +10,17 @@ import clsx from "clsx";
 import { Icon } from '@material-ui/core';
 
 function activeRoute(routeName:any) {
-  return window.location.hash.indexOf(routeName) > -1 ? true : false;
+  let route = window.location.hash
+  return route.indexOf(routeName) > -1 ? true : false;
 }
 
 export const MainListItems = (props:any)=> {
+  const {match}= props;
   return (
     <div>
       {HomeRoutes.map((route, i)=> (
-          <NavLink key={i} to={route.path} activeClassName="active" className={"navItem"} isActive={()=> activeRoute(route.path) } >
+          <NavLink key={i} to={match.path +route.path} activeClassName="active" className={"navItem"} 
+          isActive={()=> activeRoute(route.path) } >
           <ListItem button>
             <ListItemIcon>
               <Icon> {route.icon} </Icon>
@@ -30,27 +33,3 @@ export const MainListItems = (props:any)=> {
   );
 }
 
-
-export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem>
-  </div>
-);
