@@ -1,6 +1,6 @@
 export const dasboardModel = [
     {id:1,route:'/home/restraunts',name:'Best Dish', img:'/assets/images/icons/dashboard/best_dish.jpg'},
-    {id:2,route:'/',name:'Top 10', img:'/assets/images/icons/dashboard/top10.jpg'},
+    {id:2,route:'/home/top10',name:'Top 10', img:'/assets/images/icons/dashboard/top10.jpg'},
     {id:3,route:'/',name:'Tiffin Box', img:'/assets/images/icons/dashboard/tiffin.jpg'},
     {id:4,route:'/',name:'Table Booking', img:'/assets/images/icons/dashboard/table_book.jpg'},
     {id:5,route:'/',name:'Resto Chat', img:'/assets/images/icons/dashboard/chat1.jpg'},

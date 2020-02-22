@@ -77,9 +77,14 @@ export const detailStyle = (theme: Theme) =>
         overflow: 'auto',
         flexDirection: 'column',
       },
-      media: {
+      detailMedia: {
         height: 0,
         paddingTop: '56.25%', // 16:9
+        [theme.breakpoints.up("md")]: {
+        height: '40vh',
+        backgroundSize: 'contain',
+        paddingTop: 'initial',
+        }
       },
       expand: {
         transform: 'rotate(0deg)',

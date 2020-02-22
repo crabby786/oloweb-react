@@ -35,7 +35,7 @@ const DishSlider = (props: any) => {
                         </div>
           </div>
           <CardMedia
-            className={classes.media}
+            className={classes.detailMedia}
             image={imgBase + dish.DishImage}
             title="dish"
           />
@@ -83,13 +83,16 @@ class RestDetails extends React.Component<any, any> {
     expanded: false,
     index: 0
   }
-  componentWillMount() {
+  componentDidMount() {
     let IntLocRestaurantId = this.props.match.params.restid;
     const query = {
       IntLocRestaurantId,
     }
     const type = 'GETDETAIL';
     return this.props.getDetail(query, type);
+  }
+  componentWillUnmount() {
+    this.props.restDetail.data = null
   }
   handleChangeCarouselIndex = (index: number) => {
     this.setState({ index });
@@ -130,9 +133,9 @@ class RestDetails extends React.Component<any, any> {
       return (
         <div>
           
-            <Grid container justify="space-between" alignItems="center" wrap="nowrap" className="mt-2 p-1" >
+            <Grid container justify="space-between" alignItems="center" wrap="nowrap" className="mt-2  p-1" >
               <Grid item xs={2} md={1}>
-                <img src={data.RestaurantLogo == "" ? logoPlaceholder : imgBase + data.RestaurantLogo} style={{ maxWidth: '100%' }} alt="img" />
+                <img src={data.RestaurantLogo == "" ? logoPlaceholder : imgBase + data.RestaurantLogo} style={{ maxWidth: '100%' }} alt="img"  />
               </Grid>
               <Grid item >
                 <h4> {data.RestaurantName} </h4>
@@ -154,6 +157,7 @@ class RestDetails extends React.Component<any, any> {
 
 
           {/* carousel starts */}
+          <div className="detail-carousel">
           <div className="carousel-root">
             <DishSlider RestaurantDishes={data.RestaurantDishes} handleChangeCarouselIndex={this.handleChangeCarouselIndex} classes={classes} index={this.state.index}></DishSlider>
             <div className="nav">
@@ -165,7 +169,7 @@ class RestDetails extends React.Component<any, any> {
               </div>
             </div>
           </div>
-
+          </div>
           {/*_________ Menu Item ______*/}
           <div>
             <Grid container className={classes.menuContainer}>

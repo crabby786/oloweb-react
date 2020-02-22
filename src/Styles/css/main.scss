@@ -1,52 +1,63 @@
-@import './constants';
-@import './bootstrap.css';
+@import "./constants";
+@import "./bootstrap.css";
 
 @font-face {
-  font-family: 'Geometria';
-  src: url("/assets/fonts/Geometria.woff2") format("woff2"), url("/assets/fonts/Geometria.woff") format("woff");
+  font-family: "Geometria";
+  src: url("/assets/fonts/Geometria.woff2") format("woff2"),
+    url("/assets/fonts/Geometria.woff") format("woff");
   font-weight: normal;
-  font-style: normal; }
+  font-style: normal;
+}
 
-html, body {
-  font-family: 'Geometria';
-  line-height: 1.1; 
+html,
+body {
+  font-family: "Geometria";
+  line-height: 1.1;
   font-size: 14px;
   margin: 0;
   background-color: #ffffff;
 }
 
 p {
-  margin: 0; }
+  margin: 0;
+}
 
-h2, h3, h4, h5, h6 {
-  margin: 0; }
-  h1{
-    font-size: 2rem;
-  }
-  h2{
-    font-size: 1.75rem;
-  }
-  h3{
-    font-size: 1.5rem;
-  }
-  h4{
-    font-size: 1.2rem;
-  }
-  h5{
-    font-size: 0.8rem;
-  }
-  h6{
-    font-size: 0.8rem;
-  }
-  a, a:hover, a:active {
-    text-decoration: none;
-    color: initial;
-    cursor: pointer;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h5 {
+  font-size: 0.8rem;
+}
+h6 {
+  font-size: 0.8rem;
+}
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: initial;
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 .preLoader {
   position: fixed;
   top: 0;
@@ -56,133 +67,169 @@ h2, h3, h4, h5, h6 {
   z-index: 9999;
   background-color: rgba(64, 62, 62, 0.62);
 }
+.bottom-loader {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  // width: 100%;
+}
 
 .MuiCircularProgress-root {
   position: absolute;
   top: calc(50% - 20px);
-  left: calc(50% - 20px); }
+  left: calc(50% - 20px);
+}
 
 .text-center {
-  text-align: center; }
+  text-align: center;
+}
 .text-muted {
-  color:$muted;
+  color: $muted;
 }
 .text-light {
-  color:#fff;
+  color: #fff;
 }
 .text-secondary {
-  color:$secondary;
+  color: $secondary;
 }
 .bg-mute {
   background-color: $muted;
 }
-.MuiIcon-root {vertical-align: top;}
+.MuiIcon-root {
+  vertical-align: top;
+}
 .rupee::before {
-  content: '\20B9';
+  content: "\20B9";
   margin-right: 4px;
   color: inherit;
-  font-family: Arial !important; }
+  font-family: Arial !important;
+}
 
 #city {
   display: inline-block;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 5px;
 }
 
 .carousel-root {
-  position: relative; }
-
-.carousel-root .nav .material-icons {
-  font-size: 4rem;
-  color: #fff; }
-
-.carousel-root .nav > div {
-  position: absolute;
-  top: 45%;
-  background: rgba(68, 64, 64, 0.44);
-  width: 46px; }
-
-.carousel-root .nav .left-nav {
-  /* left: -12px; */ }
-
-.carousel-root .nav .right-nav {
-  right: 0; }
-
-.carousel-root .nav .right-nav > .material-icons {
-  transform: translateX(-14px); }
+  position: relative;
+  // max-width: 600px;
+  // margin: auto;
+  .nav .material-icons {
+    font-size: 4rem;
+    color: #fff;
+  }
+  .nav > div {
+    position: absolute;
+    top: 45%;
+    background: rgba(68, 64, 64, 0.44);
+    width: 46px;
+  }
+  .nav .right-nav {
+    right: 0;
+  }
+  .nav .right-nav > .material-icons {
+    transform: translateX(-3px);
+  }
+  .nav .left-nav > .material-icons {
+    transform: translateX(-5px);
+  }
+}
 
 .credit-card-container img {
   width: 40px;
-  display: inline-block; }
+  display: inline-block;
+}
 
 .details-tab1 {
   min-height: 125px;
   align-items: center;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .menu-box {
   padding: 4px 4px;
   text-align: center;
   display: block;
   text-decoration: none;
-  color: initial; }
+  color: initial;
+}
 
-.menu-box > img {
-  width: 50px; }
-  .slider-card {
-    .card-header {
-      background-color: $primary;
-      display: flex;
-      padding: 2px 6px;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .rate {
-      font-size:12px; 
-      color:#f02508 ;
-      max-width:110px;
-      line-height:1.5;
-    }
-  }
-  .header, .mob-footer {
-    min-height: 56px;
+.menu-box > div img {
+  width: 50px;
+}
+.slider-card {
+  .card-header {
+    background-color: $primary;
     display: flex;
-    justify-content: center;
+    padding: 2px 6px;
+    justify-content: space-between;
     align-items: center;
   }
-  .listType-1 {
-    
-    .list {
-      max-height: calc(100vh - 112px);
-      overflow-y: auto;
-    }
-    .listItem {
-      display: flex;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid $muted;
-      height: 70px;
-      text-overflow: ellipsis;
-      .img-box {
-        padding: 0 8px;
-        margin-right: 4px;
-        width: 80px;
-        @include media(max-mob) {
-          width: 60px;
-        }
+  .rate {
+    font-size: 12px;
+    color: #f02508;
+    max-width: 110px;
+    line-height: 1.5;
+  }
+}
+.header,
+.mob-footer {
+  min-height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-avatar-container {
+  height: 60px;
+  width: 60px;
+  background-image: url("/assets/images/other/img/DishCo_49.png");
+  background-size: contain;
+  background-color: rgba(255, 255, 255, 0.51);
+  background-blend-mode: color;
+}
+.list-placeholder {  
+  height: 106px;
+  width: 100vw;
+  background-image: url('/assets/images/other/list_placeholder1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgba(255, 255, 255, 0.51);
+  background-blend-mode: color;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.listType-1 {
+  .list {
+    max-height: calc(100vh - 112px);
+    overflow-y: auto;
+  }
+  .listItem {
+    display: flex;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $muted;
+    height: 70px;
+    text-overflow: ellipsis;
+    .img-box {
+      padding: 0 8px;
+      margin-right: 4px;
+      width: 80px;
+      @include media(max-mob) {
+        width: 60px;
       }
     }
   }
-  @include media(max-mob) {
-    .mob-footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width:100%
-    }
-
+}
+@include media(max-mob) {
+  .mob-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
+}
 
 /*# sourceMappingURL=main.css.map */

@@ -3,16 +3,17 @@
   const initialState = {
     isLoading:false,
     isError: false,
-    data: null 
+    data: null,
+    AllRestaurantDishes:[] ,
   }
 
 export const restListReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-    case 'LOAD_REQUEST':
+    case 'LOAD_RESTLIST_REQUEST':
         return { ...state, isLoading:true }
-    case 'LOAD_SUCCESS':
+    case 'LOAD_RESTLIST_SUCCESS':
         return { ...state, ...payload, isLoading:false }
-    case 'LOAD_FAILURE':
+    case 'LOAD_RESTLIST_FAILURE':
         return { ...state, ...payload , isLoading:false, isError:true}
     default:
         return state

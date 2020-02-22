@@ -29,7 +29,9 @@ const dashboardStyle = (theme:Theme) =>
                     {menus.map((menu, i)=> (
                         <Grid item xs={4} md={4} key={i} >
                             <Link to={ menu.route} className={clsx("menu-box", classes.imgBox)} >
-                                <img src={menu.img} alt="menu item"></img>
+                                <div style={{height:'50px'}} >
+                                    <img src={menu.img} alt="menu item"></img>
+                                </div>
                                 <Typography component="div" variant="caption"> {menu.name} </Typography>
                             </Link>
                         </Grid>

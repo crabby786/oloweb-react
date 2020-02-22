@@ -3,15 +3,10 @@ import RestDetails from "./Pages/RestDetails";
 import Dashboard from "./Pages/Dashboard";
 import MerchantList from "./Pages/MerchantLogin/MerchantList";
 import HomePage from "./Pages/Home";
+import TopTen from "./Pages/TopDishes/topTen";
 import SubAccountList from "./Pages/MerchantLogin/SubAccountList";
 import RestrauntServices from "./Pages/MerchantLogin/Services";
   export const HomeRoutes = [
-    {
-      path: "/dashboard",
-      name: "Dashboard",
-      icon: 'art_track',
-      component: Dashboard,
-    },
     {
       path: "/restraunts",
       name: "Restraunts",
@@ -24,6 +19,19 @@ import RestrauntServices from "./Pages/MerchantLogin/Services";
         icon: 'my_location',
         component: RestDetails,
       },
+    {
+        path: "/top10",
+        name: "Top 10 Dishes",
+        icon: 'restaurant',
+        component: TopTen,
+      },
+    {
+      path: "/",
+      name: "Dashboard",
+      icon: 'art_track',
+      component: Dashboard,
+      
+    },
  ]
  export const RootRoutes = [
   {
@@ -31,12 +39,6 @@ import RestrauntServices from "./Pages/MerchantLogin/Services";
     name: "Home",
     icon: 'art_track',
     component: HomePage,
-  },
-  {
-    path: "/merchants",
-    name: "Merchant Login",
-    icon: 'recent_actors',
-    component: MerchantList,
     exact:true
   },
 
@@ -51,5 +53,12 @@ import RestrauntServices from "./Pages/MerchantLogin/Services";
     name: "sub account",
     icon: 'recent_actors',
     component: SubAccountList,
+  },
+  {
+    path: "/merchants",
+    name: "Merchant Login",
+    icon: 'recent_actors',
+    component: MerchantList,
+    exact:true
   },
 ]

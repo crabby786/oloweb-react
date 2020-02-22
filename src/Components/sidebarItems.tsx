@@ -19,15 +19,15 @@ export const MainListItems = (props:any)=> {
   return (
     <div>
       {HomeRoutes.map((route, i)=> (
-          <NavLink key={i} to={match.path +route.path} activeClassName="active" className={"navItem"} 
-          isActive={()=> activeRoute(route.path) } >
-          <ListItem button>
+          // <NavLink key={i} to={match.path +route.path} activeClassName="active" className={"navItem"} 
+          // isActive={()=> activeRoute(route.path) } >
+          <ListItem button  key={i}>
             <ListItemIcon>
               <Icon> {route.icon} </Icon>
             </ListItemIcon>
             <ListItemText primary= {route.name} />
           </ListItem>
-          </NavLink>
+          // </NavLink>
         ) )}
     </div>
   );

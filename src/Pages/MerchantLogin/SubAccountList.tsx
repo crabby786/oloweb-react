@@ -12,7 +12,7 @@ import { ISubAccount} from '../../Models/MerchantListModel'
 import {GetRestaurantLoginDetails_Api} from '../../Constants/DishCoApi'
 class SubAccountList extends React.Component<any, any> {
 
-  componentWillMount() {      
+  componentDidMount() {      
     let IntLocFlag = 1;
     let IntLocCustomerId = 8;
     const query = {

@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,28 +13,60 @@ import compose from 'recompose/compose';
 import { restListAction } from '../Store/Actions/restListAction';
 import { homeStyle } from '../Styles/jss/homePageStyles';
 import { MainListItems } from '../Components/sidebarItems';
-import { Divider, List, Hidden, CircularProgress } from '@material-ui/core';
-import RestDetails from './RestDetails';
+import { Divider, List, Hidden, CircularProgress, Badge, Menu, MenuItem } from '@material-ui/core';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
-import Restraunts from './Restraunts';
-import Dashboard from './Dashboard';
-import MerchantList from './MerchantLogin/MerchantList';
 import { HomeRoutes } from '../routes';
+import MoreIcon from '@material-ui/icons/MoreVert';
 
 
 // const drawerWidth = 240;
 // export interface Iprops extends WithStyles<typeof homeStyle> { };
+declare global {
+  interface Window {
+      ReactNativeWebView:any
+ }
+}
+
 class HomePage extends React.Component<any, any> {
   state: any = {
     appBarOpen: true,
+    MobileMoreAnchorEl:null,
+    AnchorEl:null,
+    isMenuOpen:false,
+    isMobileMenuOpen :false,
   }
-  componentWillMount() {
-    this.props.getRestList();
+  handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+     this.setState ({ ...this.state, MobileMoreAnchorEl:event.currentTarget, isMobileMenuOpen:true});
+  };
+  componentDidMount() {
+    // alert(localStorage.getItem('nativeData'))
+    let queryParams = {IntLocNoOfRecords:0}
+    this.props.getRestList(queryParams);
   }
 
   setAppbarOpen = (isOpen: boolean) => {
     this.setState({ ...this.state, appBarOpen: isOpen })
   }
+   handleMobileMenuClose = () => {
+    this.setState({ ...this.state, MobileMoreAnchorEl:null, isMobileMenuOpen:false})
+  };
+  handleMenuClose = () => {
+    this.setState({ ...this.state, AnchorEl:null,isMenuOpen:false})
+    // this.handleMobileMenuClose();
+  };
+  handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+     this.setState({ ...this.state, AnchorEl:event.currentTarget, isMenuOpen:true});
+  };
+ menuId = 'primary-search-account-menu';
+mobileMenuId = 'primary-search-account-menu-mobile';
+
+handleLogout = ()=> {
+  let dataForNative = {
+    logOut : true
+  }
+  window.ReactNativeWebView.postMessage(JSON.stringify(dataForNative));
+}
+ 
   render() {
     const { classes, restData, match } = this.props;
     const {path, url, isExact, params} = match;
@@ -67,11 +98,105 @@ class HomePage extends React.Component<any, any> {
                 } Restraurants
                 </div>
             </Box>
-            <IconButton color="inherit">
-              <img src="/assets/images/other/img/pledge_logo.png" alt="logo2" style={{ height: '30px' }}></img>
+            
+          <div className={classes.sectionDesktop}>
+            <IconButton aria-label="show 4 new emails" color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <Icon>email</Icon>
+              </Badge>
             </IconButton>
-          </Toolbar>
+            <IconButton aria-label="show 17 new notificationss" color="inherit">
+              <Badge badgeContent={17} color="secondary">
+                <Icon>notifications</Icon>
+              </Badge>
+            </IconButton>
+            <IconButton
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              onClick={this.handleProfileMenuOpen}
+              color="inherit"
+            >
+              <Icon> account_circle </Icon>
+            </IconButton>
+          </div>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-haspopup="true"
+              onClick={this.handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </div>
+
+          
+            </Toolbar>
         </AppBar>
+        {/* {this.RenderMobileMenu} */}
+        <Menu
+    anchorEl={this.state.MobileMoreAnchorEl}
+    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+    id={this.mobileMenuId}
+    keepMounted
+    transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+    open={this.state.isMobileMenuOpen}
+    onClose={this.handleMobileMenuClose}
+  >
+    <MenuItem>
+      <IconButton aria-label="show 4 new emails" color="inherit">
+        <Badge badgeContent={4} color="secondary">
+          <Icon>email</Icon>
+        </Badge>
+      </IconButton>
+      <p>Messages</p>
+    </MenuItem>
+    <MenuItem>
+      <IconButton aria-label="show 11 new notificationss" color="inherit">
+        <Badge badgeContent={11} color="secondary">
+          <Icon>notifications</Icon>
+        </Badge>
+      </IconButton>
+      <p>notifications</p>
+    </MenuItem>
+    <MenuItem onClick={this.handleProfileMenuOpen}>
+      <IconButton
+        aria-label="account of current user"
+        aria-controls="primary-search-account-menu"
+        aria-haspopup="true"
+        color="inherit"
+      >
+        <Icon>account_circle</Icon>
+      </IconButton>
+      <p>Profile</p>
+    </MenuItem>
+    <MenuItem onClick={this.handleLogout}>
+    <IconButton
+        aria-label="account of current user"
+        aria-controls="primary-search-account-menu"
+        aria-haspopup="true"
+        color="inherit"
+      >
+        <Icon>exit_to_app</Icon>
+      </IconButton>
+      <p>Logout</p>
+    </MenuItem>
+  </Menu>
+
+      {/* {this.renderMenu} */}
+      <Menu
+    anchorEl={ this.state.AnchorEl}
+    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+    id={this.menuId}
+    keepMounted
+    transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+    open={this.state.isMenuOpen}
+    onClose={this.handleMenuClose}
+  >
+    <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
+    
+  </Menu>
         <Hidden xsDown implementation="css">
           <Drawer
             variant="permanent"
@@ -102,19 +227,19 @@ class HomePage extends React.Component<any, any> {
         </div> :
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
-            <Container maxWidth="lg" className={classes.container}>
+            <div >
               {
                 (this.props.restData && this.props.restData.data != null ) ?
                 <Switch>
                 {HomeRoutes.map((route, i)=> (
-                    <Route key={'homeroute' +i} path={path + route.path}  component={route.component}></Route>
+                    <Route key={'homeroute' +i} path={ path + route.path}  component={route.component}></Route>
                 ) )}
               </Switch>
               : <div className="preLoader">
               <CircularProgress color="primary" />
             </div>
               }
-            </Container>
+            </div>
           </main>
         }
       </div>
@@ -130,7 +255,7 @@ const mapStateToProps = (state: any, ownProps:any) => {
 }
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    getRestList: () => dispatch(restListAction())
+    getRestList: (queryParams:any) => dispatch(restListAction(queryParams))
   }
 }
 export default compose(

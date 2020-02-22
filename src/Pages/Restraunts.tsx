@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { RestList } from '../Components/lists';
+import RestList from '../Components/lists';
 import Icon from '@material-ui/core/Icon';
 import { SwitchA } from '../Components/FormComps';
 import { connect } from 'react-redux';
@@ -28,7 +28,7 @@ class Restaurants extends React.Component<any, any> {
     
     return (
           <div>
-            <Grid component="div" className="p-2 mt-2" container justify="space-between" alignItems="center" spacing={1}>
+            <Grid component="div" className="p-2 mt-2" container justify="space-between" alignItems="center" >
               <Grid item>
                 <SwitchA
                   leftKey="Rank"
@@ -52,7 +52,7 @@ class Restaurants extends React.Component<any, any> {
               </Grid>
             </Grid>
             <div>
-                < RestList classesUp = {classes} restData={this.props.restData.data.AllRestaurantDishes} /> 
+                <RestList  classesUp = {classes} /> 
             </div>
           </div>
       

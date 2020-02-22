@@ -13,7 +13,7 @@ export const homeStyle = (theme: Theme) =>
           '& .MuiListItem-root' :{cursor: 'pointer'},
         },
         toolbar: {
-          paddingRight: 24, // keep right padding when drawer closed
+          paddingRight: '16px', // keep right padding when drawer closed
           background:palette.error.main
         },
         toolbarIcon: {
@@ -113,6 +113,18 @@ export const homeStyle = (theme: Theme) =>
         },
         iconWithText: {
           verticalAlign: 'middle'
+        },
+        sectionDesktop: {
+          display: 'none',
+          [theme.breakpoints.up('md')]: {
+            display: 'flex',
+          },
+        },
+        sectionMobile: {
+          display: 'flex',
+          [theme.breakpoints.up('md')]: {
+            display: 'none',
+          },
         },
       }
   ) 

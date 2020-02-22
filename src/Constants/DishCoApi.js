@@ -9,8 +9,6 @@ export const RestListApi = "RestaurantDetailsByFilter/GetFunPubRestaurantDetails
 export const RestDetailApi = "SingleRestaurantDetails/GetFunPubGetSingleRestaurantDetails";
 export const MerchantApi = "AccountDetailsByCustId/FunGetAccountListByCustId";
 
-
-
 const RetrieveFormatedAddress_Api = 'GetFormatedAddress/FunPubRetrieveFormatedAddress?Strloclatitude=19.11603339&Strloclongitude=73.00768316';
 const CityId_Api = 'GetCityId/GetFunPubCityId?StrLocCityName=Navi+Mumbai';
 const CuisinesAndCreditCardTypes_Api = 'CuisinesAndCreditCardTypes/GetFunPubCuisinesAndCreditCardTypes';

@@ -13,7 +13,7 @@ import {  IAccountList } from '../../Models/MerchantListModel';
 
 class MerchantList extends React.Component<any, any> {
 
-  componentWillMount() {
+  componentDidMount() {
     // let IntLocRestaurantId = this.props.match.params.restid;
     let IntLocFlag = 1;
     let IntLocCustomerId = 8;

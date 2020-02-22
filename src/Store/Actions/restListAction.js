@@ -1,17 +1,26 @@
 import { RestListApi,MerchantApi, BaseApi, RestDetailApi } from '../../Constants/DishCoApi'
 import { androidHeader } from '../../Constants/DishCoApi'
 
-export function restListAction() {
+export function restListAction(queryParams) {
     const options = {
-        headers: {...androidHeader}
+        headers: {...androidHeader},
+        params: {
+          StrLocChannelCode:'001',IntLocCustomerId:21257,
+          StrLocCityName:'Navi Mumbai',
+          IntLocLastAdevrtisementId:0,
+          IntLocAvgMealRate:0,
+          IntLocOrderby:2,
+          StrLocLatitude:'19.1110512',
+          StrLocLongitude:'73.0153251',
+          IntLocNoOfRecords:0,
+          ...queryParams,
+        }
       };
-      let query = `?StrLocDishName=&StrLocIsFacilitieIds=&StrLocCountryName=&StrLocCuisines=&StrLocRestaurantName=&IntLocCustomerId=21257&StrLocCityName=Navi+Mumbai&IntLocLastAdevrtisementId=0&StrLocLocationName1=&DecimalLocTime=&IntLocNoOfRecords=0&StrLocCreditCardType=&IntLocAvgMealRate=0&IntLocOrderby=2&StrLocLocationName=&StrLocLatitude=19.1110512&StrLocLongitude=73.0153251
-    `;
     return {
-      type: 'LOAD',
+      type: 'LOAD_RESTLIST',
       payload: {
         request:{
-          url:RestListApi + query,
+          url:RestListApi ,
           ...options
         }
       }
@@ -72,7 +81,7 @@ export function getRestaurantLoginDetailsAction(queryParams, type) {
       }
     }
   }
-export function getDataAction(url,queryParams, type) {
+export function getDataAction(url,queryParams,type) {
   
     const options = {
         headers: {...androidHeader},
