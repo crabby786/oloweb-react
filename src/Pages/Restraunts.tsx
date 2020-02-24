@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import RestList from '../Components/lists';
+import RestList from '../Components/lists2';
 import Icon from '@material-ui/core/Icon';
 import { SwitchA } from '../Components/FormComps';
 import { connect } from 'react-redux';

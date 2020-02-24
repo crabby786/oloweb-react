@@ -1,121 +1,125 @@
-import React, { useMemo, useState, useRef, useEffect } from 'react';
-import { connect } from 'react-redux'
-import { compose } from 'recompose'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import React, { useRef, useState, useEffect } from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import { FixedSizeList, ListChildComponentProps } from 'react-window';
-import { Virtuoso } from 'react-virtuoso'
-import { restListAction } from '../../Store/Actions/restListAction';
+import { List, makeStyles,  ListItemAvatar, Avatar, Grid, Icon, Divider, Typography, CircularProgress, LinearProgress } from '@material-ui/core';
+import clsx from 'clsx';
+import { IRestList, IAllRestaurantDish } from '../../Models/RestListModel';
+import { useHistory, withRouter } from "react-router-dom";
 import { imgBase } from '../../Constants/DishCoApi';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { restListAction } from '../../Store/Actions/restListAction';
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      height: 400,
-      maxWidth: 300,
-      backgroundColor: theme.palette.background.paper,
-    },
-  }),
-);
 
-const ListContainer = ({ listRef, style, children }: any) => {
-  return (
-    <List ref={listRef} style={{ ...style, padding: 0 }}>
-      {children}
-    </List>
-  );
-};
-
-const ItemContainer = ({ children, ...props }: any) => {
-
-  return (
-    <ListItem {...props} style={{ margin: 0 }}>
-      {children}
-    </ListItem>
-  );
-};
-const ItemContainerMemo = React.memo(ItemContainer, (pre,current)=> pre['data-index'] == current['data-index'])
-
-function TopTen(props: any) {
-  const classes = useStyles();
-  const { restData } = props;
-  const dishes:any[] = restData.data.AllRestaurantDishes;
-  const allDishes = [];
-  // const TOTAL_COUNT: number = dishes.length;
-  const TOTAL_COUNT: number = restData.data.NoOfRestaurants.NoOfRestaurants;
-  const loadedCount = useRef(0);
-  const endReached = useRef(false);
-  const [loadedRests, setLoadedRests] = useState<any[]>([]);
-  const [IntLocNoOfRecords, setIntLocNoOfRecords] = useState<any>(0);
-
-  const loadMore = () => {
-    const getData = async() => {
-      if (!endReached.current) {
-          loadedCount.current += 30;
-  
-          if (loadedCount.current === TOTAL_COUNT) {
-            endReached.current = true;
-          }
-          setIntLocNoOfRecords((prev:any) => prev + 30)          
-          let queryParams = {IntLocNoOfRecords}
-          await props.getRestList(queryParams);  
-
-          setLoadedRests(val=> [...val, ...dishes] );
-        }
-    }
-    
-     getData();
+class RestList extends React.Component<any, any> {
+  state = {
+    items: [],
+    hasMore: true,
+    total: 0,
+    loaded: 0
   };
+  componentDidMount= ()=> {
+    const { restData } = this.props;
+    let dishes = restData.data.AllRestaurantDishes;
+    this.setState({
+      ...this.state,items:[...dishes]
+    })
+  }
+  // static getDerivedStateFromProps(props: any, state: any) {}
+  
+   showDetails =  (restId:number) => {
+    this.props.history.push("/home/restdetail/"+ restId );
+  }
+  fetchMoreData = async () => {
+    const { items, hasMore, total, loaded } = this.state;
+    const { restData } = this.props;
+    let dishes = restData.data.AllRestaurantDishes;
+    this.setState({
+      items: [...this.state.items, ...dishes],
+      loaded: this.state.loaded + 30
+    });
+    if (this.state.items.length >= restData.data.NoOfRestaurants.NoOfRestaurants) {
+      this.setState({ hasMore: false });
+      return;
+    }
+    let query = {IntLocNoOfRecords:loaded}
+    this.props.getRestList(query)
+  };
+  render() {
+    return (
+      <InfiniteScroll
+        dataLength={this.state.items.length}
+        next={this.fetchMoreData}
+        hasMore={this.state.hasMore}
+        // loader={<div className="bottom-loader"><LinearProgress /></div>}
+        loader={<div >Loading...</div>}
+        height={'100vh'}
+        style={{margin:0, padding:0}}
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
+      >
+        {this.state.items.map((obj:IAllRestaurantDish, index) => (
+          <div key={index} onClick={() => this.showDetails(obj.RestaurantId)} style={{ width: '100%', height: 110,borderBottom:'1px solid #ccc',overflow:'hidden' }}>
+            <div style={{alignItems:"flex-start" ,display:"flex"}}>
+              <div style={{padding:'8px'}}>
+                <span style={{ whiteSpace: "nowrap", fontSize: "small" }} >By Locals</span>
+                <div className='list-avatar-container' >
+                  <img alt="" 
+                    src={imgBase + obj.DishImage} />
+                    </div>
+              </div>
+              <div className="d-flex nowrap p-2"  >
+                <div  >
+                  <Icon fontSize="small" className={clsx(obj.DishType == 1 ? 'text-success' : 'text-danger')} >fiber_manual_record</Icon>
 
-  useEffect(loadMore, []);
-  return (
-    <Virtuoso
-      ListContainer={ListContainer}
-      ItemContainer={ItemContainerMemo}
-      style={{ width: '400px', height: '300px' }}
-      totalCount={loadedRests.length}
-      footer={() => {
-        return (
-          <div>
-            {loadedRests.length === TOTAL_COUNT ? '-- end -- ' : ' loading...'}
+                </div>
+                <div>
+                  <div className="dataContainer" >
+                    <h5> {obj.RestaurantDishName} </h5>
+                    <p className='text-danger' >{'@ ' + obj.RestaurantName} </p>
+                    <h5> {obj.LocationName} </h5>
+                    <p className="text-muted" style={{ whiteSpace: "nowrap", fontSize: "small",width:'220px',textOverflow:'ellipsis' }}  > {obj.Cuisines} </p>
+                    <div className='mt2'>
+                      <div className='d-flex align-center'>
+                        <div  >
+                          <Icon fontSize="small" className={'iconWithText'} >directions_walk</Icon>
+                          <small> {obj.Distance.toFixed(2)} </small>
+                          <small>Km</small>
+                        </div>
+                        <div>
+                          <Icon fontSize="small" className={'iconWithText'} >check_div</Icon>
+                          <small> {obj.Votes} </small>
+                          <small>Votes</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>            
           </div>
-        );
-      }}
-      endReached={loadMore}
-      overscan={29}
-      item={index => {
-        return (
-          <>
-            <ListItemAvatar>
-              <h4> {index} </h4>
-              <Avatar alt="A" src={imgBase + loadedRests[index].DishImage} />
-            </ListItemAvatar>
-            <ListItemText
-              primary={`${loadedRests[index].RestaurantDishName}`}
-              secondary={<span>{loadedRests[index].LocationName}</span>}
-            />
-          </>
-        );
-      }}
-    />
-  );
+        ))
+        }
+      </InfiniteScroll>
+
+    )
+  }
 }
 
-const mapStateToProps = (state: any) => ({
-  restData: state.restListReducer
-})
-
+const mapStateToProps = (state: any, ownProps: any) => {
+  return {
+    restData: state.restListReducer
+  }
+}
 const mapDispatchToProps = (dispatch: any) => {
   return {
     getRestList: (queryParams: any) => dispatch(restListAction(queryParams))
   }
 }
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps)
-)(TopTen)
+export default compose<any, any>(
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter
+)(RestList);

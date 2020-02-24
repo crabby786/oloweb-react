@@ -2,18 +2,19 @@ import React, { useRef, useState, useEffect } from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import { List, makeStyles, Box, ListItemAvatar, Avatar, Grid, Icon, Divider, Typography, CircularProgress, LinearProgress } from '@material-ui/core';
 import clsx from 'clsx';
-import { IRestList, IAllRestaurantDish } from '../Models/RestListModel';
-import { useHistory, withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { imgBase } from '../Constants/DishCoApi';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { Virtuoso } from 'react-virtuoso'
 import { restListAction } from '../Store/Actions/restListAction';
-import InfiniteScroll from "react-infinite-scroll-component";
+import { onError } from 'redux-axios-middleware';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    // maxWidth: 360,
+    padding: 0,
     backgroundColor: theme.palette.background.paper,
     fontSize: "small",
     marginTop: 0,
@@ -46,85 +47,103 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-class RestList extends React.Component<any, any> {
-  state = {
-    items: [],
-    hasMore: true,
-    total: 0,
-    loaded: 0
+
+const ListContainer = ({ listRef, style, children }: any) => {
+  const classes = useStyles();
+  return (
+    <List ref={listRef} style={{ ...style }} className={classes.root}>
+      {children}
+    </List>
+  );
+};
+
+const ItemContainer = ({ children, ...props }: any) => {
+  return (
+    <ListItem {...props} alignItems="flex-start" disableGutters style={{ margin: 0 }} >
+      {children}
+    </ListItem>
+  );
+};
+const ItemContainerMemo = React.memo(ItemContainer, (pre, current) => {
+  return pre['data-index'] == current['data-index']
+})
+
+
+const RestList = (props: any) => {
+  const { restData, classesUp } = props;
+  const classes = useStyles();
+  let history = useHistory();
+  const showDetails = (restId: number) => {
+    history.push("/home/restdetail/" + restId);
   };
-  componentDidMount= ()=> {
-    const { restData } = this.props;
-    let dishes = restData.data.AllRestaurantDishes;
-    this.setState({
-      ...this.state,items:[...dishes]
-    })
-  }
-  // static getDerivedStateFromProps(props: any, state: any) {}
-  
-   showDetails =  (restId:number) => {
-    this.props.history.push("/home/restdetail/"+ restId );
-  }
-  fetchMoreData = async () => {
-    const { items, hasMore, total, loaded } = this.state;
-    const { restData } = this.props;
-    let dishes = restData.data.AllRestaurantDishes;
-    this.setState({
-      items: [...this.state.items, ...dishes],
-      loaded: this.state.loaded + 30
-    });
-    if (this.state.items.length >= restData.data.NoOfRestaurants.NoOfRestaurants) {
-      this.setState({ hasMore: false });
-      return;
-    }
-    let query = {IntLocNoOfRecords:loaded}
-    this.props.getRestList(query)
-  };
-  render() {
-    return (
-      <InfiniteScroll
-        dataLength={this.state.items.length}
-        next={this.fetchMoreData}
-        hasMore={this.state.hasMore}
-        loader={<div className="bottom-loader"><LinearProgress /></div>}
-        height={'82vh'}
-        endMessage={
-          <p style={{ textAlign: "center" }}>
-            <b>Yay! You have seen it all</b>
-          </p>
+
+  const dishes: any[] = restData.data.AllRestaurantDishes;
+  const TOTAL_COUNT: number = restData.data.NoOfRestaurants.NoOfRestaurants;
+  const loadedCount = useRef(0);
+  const endReached = useRef(false);
+  const [listLoading, setListLoading] = useState(false);
+  const [loadedRests, setLoadedRests] = useState<any[]>([]);
+  const [IntLocNoOfRecords, setIntLocNoOfRecords] = useState<any>(0);
+  const loadMore = () => {
+    const getData = async () => {
+      if (!endReached.current) {
+        loadedCount.current += 30;
+        if (loadedCount.current === TOTAL_COUNT) {
+          endReached.current = true;
         }
-      >
-        {this.state.items.map((obj:IAllRestaurantDish, index) => (
-          <div key={index} onClick={() => this.showDetails(obj.RestaurantId)} style={{ width: '100%', height: 110, overflow:'hidden' }}>
+        setIntLocNoOfRecords((prev: any) => prev + 30)
+        let queryParams = { IntLocNoOfRecords }
+        await props.getRestList(queryParams);
+        setLoadedRests(val => [...val, ...dishes]);
+      }
+    }
+    getData();
+  };
+
+  useEffect(loadMore, []);
+  const [visibleRange, setVisibleRange] = useState<string[] | number[]>(['-', '-'])
+
+  return (
+    <Virtuoso
+      ListContainer={ListContainer}
+      ItemContainer={ItemContainer}
+      style={{ width: '100%', height: '100vh', }}
+      totalCount={loadedRests.length}
+      // scrollingStateChange={isScrolling => setListLoading(prev => isScrolling)}
+      endReached={loadMore}
+      overscan={100}
+      
+      item={index => (
+        <div onClick={() => showDetails(loadedRests[index].RestaurantId)} style={{ width: '100%' }}>
             <Box alignItems="flex-start" display="flex">
               <Box px={1}>
                 <span style={{ whiteSpace: "nowrap", fontSize: "small" }} >By Locals</span>
                 <ListItemAvatar>
-                  <Avatar alt="dish1" variant="square"
-                    src={imgBase + obj.DishImage} />
+                  <Avatar alt="dish1" variant="rounded"
+                    src={imgBase + loadedRests[index].DishImage} imgProps={{ onError: (e: any) => e.target.src = '/assets/images/other/img/DishCo_49.png' }} >
+                  </Avatar>
                 </ListItemAvatar>
               </Box>
               <Grid component="div" container spacing={1} wrap="nowrap" >
                 <Grid item  >
-                  <Icon fontSize="small" className={clsx(obj.DishType == 1 ? 'text-success' : 'text-danger')} >fiber_manual_record</Icon>
-
+                  <Icon fontSize="small" className={clsx(loadedRests[index].DishType == 1 ? classes.success : classes.error)} >fiber_manual_record</Icon>
                 </Grid>
                 <Grid item>
                   <div className="dataContainer" >
-                    <h5> {obj.RestaurantDishName} </h5>
-                    <Typography color="error" >{'@ ' + obj.RestaurantName} </Typography >
-                    <h5> {obj.LocationName} </h5>
-                    <Typography className="text-muted" style={{ whiteSpace: "nowrap", fontSize: "small",width:'220px',textOverflow:'ellipsis' }}  > {obj.Cuisines} </Typography>
+                    <h5> {loadedRests[index].RestaurantDishName} </h5>
+                    <Typography color="error" >{'@ ' + loadedRests[index].RestaurantName} </Typography >
+                    <h5> {loadedRests[index].LocationName} </h5>
+                    <Typography className="text-muted" > {loadedRests[index].Cuisines} </Typography>
                     <Box mt={2}>
                       <Grid container spacing={1} alignItems="center">
                         <Grid item  >
-                          <Icon fontSize="small" className={'iconWithText'} >directions_walk</Icon>
-                          <small> {obj.Distance.toFixed(2)} </small>
+                          <Icon fontSize="small" className={classesUp.iconWithText} >directions_walk</Icon>
+                          <small> {loadedRests[index].Distance.toFixed(2)} </small>
                           <small>Km</small>
                         </Grid>
                         <Grid item>
-                          <Icon fontSize="small" className={'iconWithText'} >check_box</Icon>
-                          <small> {obj.Votes} </small>
+                          <Icon fontSize="small" className={classesUp.iconWithText} >check_box</Icon>
+                          <small> {loadedRests[index].Votes} </small>
                           <small>Votes</small>
                         </Grid>
                       </Grid>
@@ -133,18 +152,57 @@ class RestList extends React.Component<any, any> {
                 </Grid>
               </Grid>
             </Box>
-            <Divider variant="fullWidth" component="div" />
-          </div>
-        ))
-        }
-      </InfiniteScroll>
 
-    )
-  }
+          <Divider variant="fullWidth" component="div" />
+        </div>
+        )
+      }
+      footer={() => {
+        return (
+          <div className="bottom-loader">
+            <LinearProgress />
+          </div>
+        );
+      }}
+      scrollSeek={{
+        enter: velocity => Math.abs(velocity) > 100,
+        exit: velocity => {
+          const shouldExit = Math.abs(velocity) < 50
+          if (shouldExit) {
+            setVisibleRange(['-', '-'])
+          }
+          return shouldExit
+        },
+        change: (_velocity, { startIndex, endIndex }) =>
+          setVisibleRange([startIndex, endIndex]),
+        placeholder: ({ height, index }) => (
+          <div
+            style={{
+              height,
+              width:'100vw',
+              backgroundColor: index % 2 ? '#fff' : '#f4f4f4',
+              padding: '8px',
+              boxSizing: 'border-box',
+              overflow: 'hidden',
+            }}
+          >
+            <div
+              style={{
+                background: '#ccc',
+                height: '10px',
+              }}
+            ></div>
+          </div>
+        ),
+      }}
+    />
+
+  )
 }
 
 const mapStateToProps = (state: any, ownProps: any) => {
   return {
+    // restData:state.restListReducer.data.AllRestaurantDishes
     restData: state.restListReducer
   }
 }
@@ -155,5 +213,4 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 export default compose<any, any>(
   connect(mapStateToProps, mapDispatchToProps),
-  withRouter
 )(RestList);
