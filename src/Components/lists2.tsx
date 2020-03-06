@@ -1,115 +1,151 @@
-import React, { useRef, useState, useEffect } from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import {  makeStyles,  ListItemAvatar, Avatar, Grid, Icon, Divider, Typography, CircularProgress, LinearProgress } from '@material-ui/core';
-import clsx from 'clsx';
-import { IRestList, IAllRestaurantDish } from '../Models/RestListModel';
-import { useHistory, withRouter } from "react-router-dom";
-import { imgBase } from '../Constants/DishCoApi';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { restListAction } from '../Store/Actions/restListAction';
-import InfiniteScroll from "react-infinite-scroll-component";
-import { FixedSizeList as List } from "react-window";
+import React, { Fragment, PureComponent } from "react";
+import { FixedSizeList } from "react-window";
 import InfiniteLoader from "react-window-infinite-loader";
+import { compose } from "recompose";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { Icon, Fade } from "@material-ui/core";
+import { imgBase } from "../Constants/DishCoApi";
+import { restListAction } from "../Store/Actions/restListAction";
+import { ListPlaceHolder } from "./UiComps/ListPlaceHolder";
 
- function ExampleWrapper(props:any) {
-  const {
-    hasNextPage,
-    isNextPageLoading,
-    items,
-    loadNextPage
-  }= props;
-    // If there are more items to be loaded then add an extra row to hold a loading indicator.
-    const itemCount = hasNextPage ? items.length + 1 : items.length;
 
-    // Only load 1 page of items at a time.
-    // Pass an empty callback to InfiniteLoader in case it asks us to load more than once.
-    const loadMoreItems = isNextPageLoading ? () => {} : loadNextPage;
-  
-    // Every row is loaded except for our loading indicator row.
-    const isItemLoaded = (index:number) => !hasNextPage || index < items.length;
-  
-    // Render an item or a loading indicator.
-    const Item = ({ index, style }:any) => {
-      let content;
-      if (!isItemLoaded(index)) {
-        content = "Loading...";
-      } else {
-        content = items[index];
-      }
-  
-      return <div style={style}>
-        <div style={{display:'flex'}}>
-          <div style={{backgroundImage:"url(https://foodmarshal.blob.core.windows.net/fmstorage/DG2109-53920252-ff9c-4ba5-a06e-6dfc3e0fd150)",width:'60px', height:'60px', backgroundSize:'contain'}} > </div>
-          <div> {content.RestaurantName} </div>
-        </div>
-      </div>;
-    };
-  
-    return (
-      <InfiniteLoader
-        isItemLoaded={isItemLoaded}
-        itemCount={itemCount}
-        loadMoreItems={loadMoreItems}
-      >
-        {({ onItemsRendered, ref }) => (
-          <List
-            className="List"
+
+function ExampleWrapper({
+  // Are there more items to load?
+  // (This information comes from the most recent API request.)
+  hasNextPage,
+
+  // Are we currently loading a page of items?
+  // (This may be an in-flight flag in your Redux store for example.)
+  isNextPageLoading,
+
+  // Array of items loaded so far.
+  items,
+
+  // Callback function responsible for loading the next page of items.
+  loadNextPage
+}) {
+  // If there are more items to be loaded then add an extra row to hold a loading indicator.
+  const itemCount = hasNextPage ? items.length + 1 : items.length;
+
+  // Only load 1 page of items at a time.
+  // Pass an empty callback to InfiniteLoader in case it asks us to load more than once.
+  const loadMoreItems = isNextPageLoading ? () => { } : loadNextPage;
+
+  // Every row is loaded except for our loading indicator row.
+  const isItemLoaded = index => !hasNextPage || index < items.length;
+
+  // Render an item or a loading indicator.
+  const Item = ({ index, style,isScrolling }:any) => {
+    let content;
+    
+    if (!isItemLoaded(index)) {
+      return (<h1> 
+        ...loading
+        {/* <ListPlaceHolder Height="106px"/> */}
+         </h1>);
+      
+    } else {
+      content = items[index];
+      return (
+        <div style={style} className='listItem' >   
+        {isScrolling ? < ListPlaceHolder Height="100%" className="list-skeleton" />:  <>
+            <div className="list-avatar-container">
+              <img src={imgBase + content.DishImage} alt='' />
+            </div>
+            <div className='pr-1'>
+              <Icon fontSize="small" className={true ? 'text-success' : 'text-error'} >
+                fiber_manual_record
+                 </Icon>
+            </div>
+            <div className='content'>
+              <h4> {content.RestaurantDishName} </h4>
+              <h5 className='text-danger' >{content.RestaurantName}</h5>
+            </div>
+            </>
+            }    
+          </div>
+        
+      )
+    }
+  };
+
+  return (
+    <InfiniteLoader
+      isItemLoaded={isItemLoaded}
+      itemCount={itemCount}
+      loadMoreItems={loadMoreItems}
+    >
+      {({ onItemsRendered, ref}) => (
+
+
+        <div className='listType-1'>
+          <FixedSizeList
+            className="list"
             height={800}
             itemCount={itemCount}
-            itemSize={60}
+            itemSize={70}
             onItemsRendered={onItemsRendered}
             ref={ref}
             width={'100%'}
-          >
+            useIsScrolling           >            
             {Item}
-          </List>
-        )}
-      </InfiniteLoader>
-    );
-  }
-class RestList extends React.Component<any, any> {
+          </FixedSizeList>
+        </div>
+      )}
+    </InfiniteLoader>
+  );
+}
+
+
+class App extends React.Component<any, any> {
   state = {
     hasNextPage: true,
     isNextPageLoading: false,
     items: []
   };
-  componentWillMount() {
-    this.setState({...this.state, items:[...this.props.restData.data.AllRestaurantDishes]})
+  componentWillMount = () => {
+    const { restData } = this.props;
+    let dishes = restData.data.AllRestaurantDishes;
+    this.setState({
+      ...this.state, items: [...dishes]
+    })
   }
-   showDetails =  (restId:number) => {
-    this.props.history.push("/home/restdetail/"+ restId );
-  }
-  _loadNextPage = (...args:any) => {
-    // console.log("loadNextPage", ...args);
-    
+
+  _loadNextPage = async (...args) => {
+    const { restData, getRestList } = this.props;
     this.setState({ isNextPageLoading: true }, async() => {
-      let queryParams = { IntLocNoOfRecords: this.state.items.length}
-        await this.props.getRestList(queryParams);
-        const dishes: any[] = this.props.restData.data.AllRestaurantDishes;
-      this.setState((state:any) => ({
-        hasNextPage: state.items.length < this.props.restData.data.NoOfRestaurants.NoOfRestaurants,
+
+    let dishes = restData.data.AllRestaurantDishes;
+    let counter = this.state.items.length;
+    await getRestList(counter);
+
+      this.setState(state => ({
+        hasNextPage: state.items.length < 1000,
         isNextPageLoading: false,
         items: [...state.items, ...dishes]
       }));
+
     });
   };
+
   render() {
     const { hasNextPage, isNextPageLoading, items } = this.state;
 
     return (
-      <div>
-
+      <Fragment>
         <ExampleWrapper
           hasNextPage={hasNextPage}
           isNextPageLoading={isNextPageLoading}
           items={items}
           loadNextPage={this._loadNextPage}
         />
-      </div>
+      </Fragment>
     );
   }
 }
+
 
 const mapStateToProps = (state: any, ownProps: any) => {
   return {
@@ -124,4 +160,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export default compose<any, any>(
   connect(mapStateToProps, mapDispatchToProps),
   withRouter
-)(RestList);
+)(App);

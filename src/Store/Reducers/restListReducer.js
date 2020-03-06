@@ -5,6 +5,8 @@
     isError: false,
     data: null,
     AllRestaurantDishes:[] ,
+    status: 200,
+    statusText: ""
   }
 
 export const restListReducer = (state = initialState, { type, payload }) => {
@@ -12,9 +14,23 @@ export const restListReducer = (state = initialState, { type, payload }) => {
     case 'LOAD_RESTLIST_REQUEST':
         return { ...state, isLoading:true }
     case 'LOAD_RESTLIST_SUCCESS':
-        return { ...state, ...payload, isLoading:false }
+        return { ...state, ...payload, isLoading:false }   
+    case 'FILTER_RESTLIST_SUCCESS':
+        return { ...state, ...payload, isLoading:false }       
     case 'LOAD_RESTLIST_FAILURE':
         return { ...state, ...payload , isLoading:false, isError:true}
+    default:
+        return state
+    }
+}
+export const filteredListReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+    // case 'FILTER_RESTLIST_REQUEST':
+    //     return { ...state, isLoading:true }
+    // case 'FILTER_RESTLIST_SUCCESS':
+    //     return { ...state, ...payload, isLoading:false }
+    // case 'FILTER_RESTLIST_FAILURE':
+    //     return { ...state, ...payload , isLoading:false, isError:true}
     default:
         return state
     }
@@ -36,7 +52,6 @@ export const getMerchantListReducer = (state = initialState, { type, payload }) 
     case 'GETMERCHANTLIST_REQUEST':
         return { ...state, isLoading:true }
     case 'GETMERCHANTLIST_SUCCESS':
-        // console.log('rdx', payload)
         return { ...state, ...payload, isLoading:false }
     case 'GETMERCHANTLIST_FAILURE':
         return { ...state, ...payload , isLoading:false, isError:true}

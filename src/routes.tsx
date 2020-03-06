@@ -6,6 +6,7 @@ import HomePage from "./Pages/Home";
 import TopTen from "./Pages/TopDishes/topTen";
 import SubAccountList from "./Pages/MerchantLogin/SubAccountList";
 import RestrauntServices from "./Pages/MerchantLogin/Services";
+import TableBook from "./Pages/BookTable/TableBook";
   export const HomeRoutes = [
     {
       path: "/restraunts",
@@ -24,6 +25,12 @@ import RestrauntServices from "./Pages/MerchantLogin/Services";
         name: "Top 10 Dishes",
         icon: 'restaurant',
         component: TopTen,
+      },
+    {
+        path: "/book_table",
+        name: "Book Table",
+        icon: 'restaurant',
+        component: TableBook,
       },
     {
       path: "/",

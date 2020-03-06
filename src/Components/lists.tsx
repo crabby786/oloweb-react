@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import { List, makeStyles, Box, ListItemAvatar, Avatar, Grid, Icon, Divider, Typography, CircularProgress, LinearProgress } from '@material-ui/core';
+import { List, makeStyles, Box, ListItemAvatar, Avatar, Grid, Icon, Divider, Typography, LinearProgress } from '@material-ui/core';
 import clsx from 'clsx';
 import { useHistory } from "react-router-dom";
 import { imgBase } from '../Constants/DishCoApi';
@@ -8,16 +8,16 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { Virtuoso } from 'react-virtuoso'
 import { restListAction } from '../Store/Actions/restListAction';
-import { onError } from 'redux-axios-middleware';
 
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     padding: 0,
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#cab6b6',
     fontSize: "small",
-    marginTop: 0,
+    // marginTop: 0,
     '& h4': {
       marginTop: 0,
     },
@@ -50,6 +50,7 @@ const useStyles = makeStyles(theme => ({
 
 const ListContainer = ({ listRef, style, children }: any) => {
   const classes = useStyles();
+  
   return (
     <List ref={listRef} style={{ ...style }} className={classes.root}>
       {children}
@@ -107,12 +108,11 @@ const RestList = (props: any) => {
     <Virtuoso
       ListContainer={ListContainer}
       ItemContainer={ItemContainer}
-      style={{ width: '100%', height: '100vh', }}
+      style={{ width: '100%', height: '600px', }}
       totalCount={loadedRests.length}
       // scrollingStateChange={isScrolling => setListLoading(prev => isScrolling)}
       endReached={loadMore}
-      overscan={100}
-      
+      overscan={200}
       item={index => (
         <div onClick={() => showDetails(loadedRests[index].RestaurantId)} style={{ width: '100%' }}>
             <Box alignItems="flex-start" display="flex">
@@ -163,37 +163,6 @@ const RestList = (props: any) => {
             <LinearProgress />
           </div>
         );
-      }}
-      scrollSeek={{
-        enter: velocity => Math.abs(velocity) > 100,
-        exit: velocity => {
-          const shouldExit = Math.abs(velocity) < 50
-          if (shouldExit) {
-            setVisibleRange(['-', '-'])
-          }
-          return shouldExit
-        },
-        change: (_velocity, { startIndex, endIndex }) =>
-          setVisibleRange([startIndex, endIndex]),
-        placeholder: ({ height, index }) => (
-          <div
-            style={{
-              height,
-              width:'100vw',
-              backgroundColor: index % 2 ? '#fff' : '#f4f4f4',
-              padding: '8px',
-              boxSizing: 'border-box',
-              overflow: 'hidden',
-            }}
-          >
-            <div
-              style={{
-                background: '#ccc',
-                height: '10px',
-              }}
-            ></div>
-          </div>
-        ),
       }}
     />
 

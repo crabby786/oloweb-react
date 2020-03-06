@@ -1,8 +1,8 @@
 import {
-    restListReducer, restDetailReducer, getMerchantListReducer,SubAccountListReducer 
+    restListReducer, restDetailReducer, getMerchantListReducer,SubAccountListReducer ,filteredListReducer
 }  from './restListReducer'
 
 export  {
     restListReducer, restDetailReducer,
-    getMerchantListReducer,SubAccountListReducer
+    getMerchantListReducer,SubAccountListReducer,filteredListReducer
 } 

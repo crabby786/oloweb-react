@@ -10,13 +10,14 @@ import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-import { restListAction } from '../Store/Actions/restListAction';
+import { restListAction, filterListAction } from '../Store/Actions/restListAction';
 import { homeStyle } from '../Styles/jss/homePageStyles';
 import { MainListItems } from '../Components/sidebarItems';
 import { Divider, List, Hidden, CircularProgress, Badge, Menu, MenuItem } from '@material-ui/core';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import { HomeRoutes } from '../routes';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { extractQuery } from '../Constants/DishCoApi';
 
 
 // const drawerWidth = 240;
@@ -34,14 +35,35 @@ class HomePage extends React.Component<any, any> {
     AnchorEl:null,
     isMenuOpen:false,
     isMobileMenuOpen :false,
+    queryParams: {
+      StrLocLocationName1: "",
+      IntLocAvgMealRate: 0,
+      IntLocCustomerId: 21257,
+      StrLocDishName: "",
+      StrLocLatitude: "19.032204151153564",
+      StrLocLongitude: "73.01880598068237",
+      StrLocCreditCardType: "",
+      StrLocLocationName: "",
+      StrLocCountryName: "",
+      StrLocCuisines: "",
+      StrLocCityName: "Navi Mumbai",
+      StrLocIsFacilitieIds: "",
+      IntLocLastAdevrtisementId: 0,
+      IntLocOrderby: 2,
+      DecimalLocTime: "",
+      StrLocRestaurantName: "",
+      IntLocNoOfRecords: 0,
+    },
   }
   handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
      this.setState ({ ...this.state, MobileMoreAnchorEl:event.currentTarget, isMobileMenuOpen:true});
   };
   componentDidMount() {
-    // alert(localStorage.getItem('nativeData'))
-    let queryParams = {IntLocNoOfRecords:0}
-    this.props.getRestList(queryParams);
+    let queryParams = {}
+    let api  = extractQuery('RestaurantDetailsByFilter/GetFunPubRestaurantDetailsByFilter?StrLocChannelCode=001&IntLocCustomerId=21257&StrLocCityName=Navi+Mumbai&IntLocLastAdevrtisementId=0&IntLocAvgMealRate=0&IntLocOrderby=2&StrLocLatitude=19.1110512&StrLocLongitude=73.0153251&IntLocNoOfRecords=0');
+    queryParams = {...api.queryParams};
+    let url = api.url;
+    this.props.getRestList(this.state.queryParams, url);
   }
 
   setAppbarOpen = (isOpen: boolean) => {
@@ -64,6 +86,7 @@ handleLogout = ()=> {
   let dataForNative = {
     logOut : true
   }
+  if(window.ReactNativeWebView )
   window.ReactNativeWebView.postMessage(JSON.stringify(dataForNative));
 }
  
@@ -94,7 +117,7 @@ handleLogout = ()=> {
               </div>
               <div style={{ color: "#000" }} >
                 { restData.data &&
-                  <span id="restCount"> {restData.data.NoOfRestaurants.NoOfRestaurants} </span>
+                  <span id="restCount"> {restData.data.NoOfRestaurants !== null ?restData.data.NoOfRestaurants.NoOfRestaurants : 0} </span>
                 } Restraurants
                 </div>
             </Box>
@@ -197,7 +220,7 @@ handleLogout = ()=> {
     <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
     
   </Menu>
-        <Hidden xsDown implementation="css">
+        <Hidden smDown implementation="css">
           <Drawer
             variant="permanent"
             classes={{
@@ -232,7 +255,7 @@ handleLogout = ()=> {
                 (this.props.restData && this.props.restData.data != null ) ?
                 <Switch>
                 {HomeRoutes.map((route, i)=> (
-                    <Route key={'homeroute' +i} path={ path + route.path}  component={route.component}></Route>
+                    <Route key={'homeroute' +i} path={ path + route.path}  component={route.component} ></Route>
                 ) )}
               </Switch>
               : <div className="preLoader">
@@ -248,14 +271,14 @@ handleLogout = ()=> {
 }
 const mapStateToProps = (state: any, ownProps:any) => {
   // console.log(ownProps);
-
+// console.log(state);
   return {
     restData: state.restListReducer
   }
 }
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    getRestList: (queryParams:any) => dispatch(restListAction(queryParams))
+    getRestList: (queryParams:any, url) => dispatch(filterListAction(queryParams,url))
   }
 }
 export default compose(

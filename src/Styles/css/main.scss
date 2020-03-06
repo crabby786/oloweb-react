@@ -39,7 +39,8 @@ h3 {
   font-size: 1.5rem;
 }
 h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 h5 {
   font-size: 0.8rem;
@@ -195,16 +196,35 @@ img {
     margin-right: 10px;
   }
 }
-.list-placeholder {  
+.list-skeleton {
+  transition: all 300ms fade;
+}
+.list-placeholder {
   height: 106px;
   width: 100vw;
-  background-image: url('/assets/images/other/list_placeholder3.png');
+  background-image: url("/assets/images/other/list_placeholder3.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-color: rgba(255, 255, 255, 0.75);
   background-blend-mode: color;
   box-sizing: border-box;
   overflow: hidden;
+}
+.inset-4 {
+  margin: -4px;
+}
+.home-header {
+  background: #2d120b;
+  color: #ccc;
+  padding: 16px;
+  font-size: 1rem;
+  text-align: center;
+}
+.MuiDialog-container {
+  .heading {
+    margin-left: 16px;
+    flex: 1;
+  }
 }
 .listType-1 {
   .list {
@@ -213,11 +233,10 @@ img {
   }
   .listItem {
     display: flex;
-    display: flex;
-    align-items: center;
     border-bottom: 1px solid $muted;
     height: 70px;
     text-overflow: ellipsis;
+    padding: 4px;
     .img-box {
       padding: 0 8px;
       margin-right: 4px;
@@ -228,12 +247,100 @@ img {
     }
   }
 }
+#bookNow-container {
+  margin-top: 1.5rem;
+  .MuiButtonGroup-root {
+    margin: 4px 0;
+  }
+  .chip-container {
+    padding-bottom: 6px;
+    .MuiChip-root {
+      margin: 0 2px;
+    }
+  }
+  .selectors {
+    margin-top: 10px;
+    .MuiButtonGroup-root {
+      .MuiFormControl-root {
+        border: 1px solid;
+        border-color: inherit;
+        border-radius: 4px;
+      }
+    }
+    .MuiButtonBase-root.active {
+      background: $primary;
+      color: #fff;
+      border-color: $primary;
+    }
+  }
+}
 @include media(max-mob) {
   .mob-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+  }
+}
+.book-table-container {
+  .MuiGrid-item {
+    border: 1px solid #999;
+    border-left: none;
+    border-top: none;
+    &:nth-of-type(even) {
+      border-right: none;
+    }
+  }
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 160px;
+    & > img {
+      height: 60px;
+      width: 60px;
+      margin-bottom: 10px;
+    }
+    & > .label {
+      font-size: 14px;
+      text-align: center;
+      color: #7b7a7a;
+    }
+  }
+}
+.guestSlider {
+  margin-top: 35px;
+}
+.filter-container {
+  margin-top: 16px;
+  padding: 0px 10px;
+  border-bottom: 1px solid #ccc;
+}
+.hr-list {
+  width: 100%;
+  overflow-x: auto;
+  height: 40px;
+  overflow-y: hidden;
+  // background: #ece9e9;
+  padding: 6px 0;
+  margin: 10px 0;
+  white-space: nowrap;
+  // box-sizing: content-box;
+  .MuiButton-root {
+    margin: 0 8px;
+    .btn-badge {
+      background-color: hsla(0, 100%, 27%, 0.48);
+    padding: 0 7px;
+    font-size: inherit;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 1.6;
+    }
+    .MuiIcon-root {
+      font-size: inherit;
+      color: inherit;
+    }
   }
 }
 
