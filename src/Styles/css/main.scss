@@ -344,4 +344,16 @@ img {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+// @include crossBrowser(transition, 0.2s ease-out);
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.infinite-scroll-component  {
+  width: 100vw;
+  overflow-x: hidden;
+}
+.Marquee { overflow-x: hidden; white-space: nowrap;}
+.MarqueeContent { display: inline-block; }
+

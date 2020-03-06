@@ -17,3 +17,50 @@ $success:  #81c784;
       @media (max-width: 600px)  { @content; }
     }
   }
+  // @include crossBrowser(transition, 0.2s ease-out);
+  @mixin crossBrowser($property, $css) {
+    -webkit-#{$property} : $css;
+    -moz-#{$property} : $css;
+    -o-#{$property} : $css;
+    #{$property} : $css;
+}
+// animate with prefixes
+// @include animation(ANIMATIONNAME LENGTH REPEAT INOUT,ANIMATIONNAME LENGTH REPEAT INOUT,ANIMATIONNAME LENGTH REPEAT INOUT);
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+      $animations: #{$animations + nth($animate, $i)};
+
+      @if $i < $max {
+          $animations: #{$animations + ", "};
+      }
+  }
+
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+
+// animation keyframes
+// @include keyframes(ANIMATIONNAME) {
+//   0% { ATTRIBUTE: VALUE; ATTRIBUTE: VALUE; }
+//   50% { ATTRIBUTE: VALUE; ATTRIBUTE: VALUE; }
+//   100% { ATTRIBUTE: VALUE; ATTRIBUTE: VALUE; }
+// }
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+  @-o-keyframes #{$animationName} {
+      @content;
+  }
+  @keyframes #{$animationName} {
+      @content;
+  }
+}
