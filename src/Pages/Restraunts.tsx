@@ -8,7 +8,7 @@ import { SwitchA } from '../Components/FormComps';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { homeStyle } from '../Styles/jss/homePageStyles'
-import { InputBase, Button, GridList, GridListTile, RadioGroup, FormControlLabel, Radio, FormControl } from '@material-ui/core';
+import { InputBase, Button, GridList, GridListTile, RadioGroup, FormControlLabel, Radio, FormControl, IconButton } from '@material-ui/core';
 import FullScreenDialog from '../Components/full_dialog';
 import VerticalTabs from '../Components/UiComps/VerticalTabs';
 import { filterListAction } from '../Store/Actions/restListAction';
@@ -146,7 +146,8 @@ class Restaurants extends React.Component<any, any> {
             </div>
             <div className='hr-list' >
               <Button variant="outlined" onClick={this.handleOpenDialoge} size="small" disableRipple endIcon={<span className="btn-badge">{this.state.filterApplied}</span>} color="primary" style={{ marginLeft: 0 }}> Filter</Button>
-              <Button variant="outlined" size="small" disableRipple disabled={this.state.sortByRankDistance == 'distance'} endIcon={this.state.sortByRankDistance == 'rank' && <Icon onClick={(e) => this.removeFilter('sortByRankDistance', 'distance')} name="sortByRankDistance">close</Icon>} > Rank</Button>
+               <Button variant="outlined" size="small" disableRipple disabled={this.state.sortByRankDistance == 'distance'} endIcon={this.state.sortByRankDistance == 'rank' && 
+              <Icon onClick={(e) => this.removeFilter('sortByRankDistance', 'distance')}>close</Icon>} > Rank</Button>
               <Button disabled={this.state.sortByLocalTourist == 'local'} variant="outlined" size="small" disableRipple  endIcon={this.state.sortByLocalTourist == 'tourist' && <Icon onClick={(e) => this.removeFilter('sortByLocalTourist', 'local')} >close</Icon>} > Tourist</Button>
               <Button variant="outlined" size="small" disableRipple disabled endIcon={<Icon>close</Icon>} > Filter</Button>
               <Button variant="outlined" size="small" disableRipple disabled endIcon={<Icon>close</Icon>} > Rank</Button>

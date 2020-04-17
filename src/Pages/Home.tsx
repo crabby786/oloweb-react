@@ -107,9 +107,14 @@ handleLogout = ()=> {
               className={clsx(classes.menuButton, this.state.appBarOpen && classes.menuButtonHidden)}>
               <Icon>menu</Icon>
             </IconButton>
-            <IconButton color="inherit"  >
-              <Icon>search</Icon>
-            </IconButton>
+              { this.props.history.location.pathname  == '/home' ?
+              <IconButton color="inherit"  >
+               <Icon>search</Icon> 
+              </IconButton>  : 
+              <IconButton color="inherit" onClick = { () =>  this.props.history.goBack() }  >
+               <Icon >arrow_back</Icon> 
+               </IconButton>
+              }
             <Box className={clsx(classes.title)} style={{ textAlign: 'center' }} >
               <div>
                 <span id="city" >Navi Mumbai</span>

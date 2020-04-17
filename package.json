@@ -39,8 +39,7 @@
     "redux": "^4.0.5",
     "redux-axios-middleware": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "typescript": "latest",
-    "webpack": "^4.41.2"
+    "typescript": "latest"
   },
   "scripts": {
     "start": "react-scripts start --no-cache",
