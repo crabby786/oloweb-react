@@ -10,13 +10,7 @@
 }
 
 html,
-body {
-  font-family: "Geometria";
-  line-height: 1.1;
-  font-size: 14px;
-  margin: 0;
-  background-color: #ffffff;
-}
+body {  font-family: 'Open Sans', sans-serif; font-family: 'Roboto', sans-serif; font-weight: normal; font-style: normal; font-size: 14px; line-height: 24px; color: #aaaaaa; background-color:#ffffff;}
 
 p {
   margin: 0;
@@ -80,7 +74,12 @@ img {
   top: calc(50% - 20px);
   left: calc(50% - 20px);
 }
-
+.btn-primary {
+  background-color: $primary !important
+}
+.btn-primary:hover {
+  background-color:$primary !important;
+}
 .text-center {
   text-align: center;
 }
@@ -343,7 +342,43 @@ img {
     }
   }
 }
+//sidebar
+.side-image {
+  max-width: 100%;
+  height:auto;
+  margin-bottom:10px;
+}
+// top nav 
+.pcMenu {  
+  .MuiList-root {  display: flex;
+    widows: 60%
+  }
 
+  .MuiListItemIcon {
+    color: inherit;
+    min-width: 28px;
+  }
+  span.MuiListItemIcon.material-icons {
+    font-size: 1rem;
+}
+.logo-container {
+  width: 25%;
+    text-align: center;
+    transform: translateX(-8px);
+}
+.pc-logo {
+  max-height: 56px;
+  max-width: 100%;
+  margin-right:4px;
+}
+}
+
+.MuiListItemIcon {
+  color: rgba(0, 0, 0, 0.54);
+  display: inline-flex;
+  min-width: 56px;
+  flex-shrink: 0;
+}
 // @include crossBrowser(transition, 0.2s ease-out);
 .marquee-container {
   width: 100%;

@@ -1,9 +1,10 @@
 $muted:#e0e0e0;
-$primary: #2d120b;
+$primary: rgba(255, 168, 3, 0.84);
 $secondary: #fbb03b;
 $warning: #ff9800;
 $error: #e45b47;
 $success:  #81c784;
+$nav:  #212529;
 
 
 @mixin media($point) {

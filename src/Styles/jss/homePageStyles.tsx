@@ -7,7 +7,7 @@ export const homeStyle = (theme: Theme) =>
     const {palette, typography} = theme;
     return createStyles(
       {
-        root: {
+        homeroot: {
           display: 'flex',
           '& .MuiAvatar-root' :{width:'60px', height:'60px'},
           '& .MuiListItem-root' :{cursor: 'pointer'},

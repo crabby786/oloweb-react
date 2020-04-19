@@ -1,6 +1,7 @@
 import Restraunts from "./Pages/Restraunts";
 import RestDetails from "./Pages/RestDetails";
 import Dashboard from "./Pages/Dashboard";
+import OloHome from "./Pages/Olo_home";
 import MerchantList from "./Pages/MerchantLogin/MerchantList";
 import HomePage from "./Pages/Home";
 import TopTen from "./Pages/TopDishes/topTen";
@@ -37,6 +38,33 @@ import TableBook from "./Pages/BookTable/TableBook";
       name: "Dashboard",
       icon: 'art_track',
       component: Dashboard,
+      
+    },
+ ]
+  export const NavRoutes = [
+    {
+      path: "/restraunts",
+      name: "Restraunts",
+      icon: 'restaurant',
+      component: OloHome,
+    },
+    {
+        path: "/top10",
+        name: "Top Dishes",
+        icon: 'album',
+        component: TopTen,
+      },
+    {
+        path: "/book_table",
+        name: "About Us",
+        icon: 'games',
+        component: TableBook,
+      },
+    {
+      path: "/",
+      name: "Contact",
+      icon: 'perm_phone_msg',
+      component: OloHome,
       
     },
  ]

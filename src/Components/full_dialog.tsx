@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -57,3 +58,4 @@ export default function FullScreenDialog( props) {
     </div>
   );
 }
+
