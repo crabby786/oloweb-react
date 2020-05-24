@@ -1,14 +1,24 @@
 import 'date-fns';
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
+  TimePicker,
 } from '@material-ui/pickers';
+import { makeStyles, createStyles } from '@material-ui/core';
 
-export  function InlinePicker({selectedDate,handleDateChange}:any) {
+const pickerStyles = makeStyles(
+  createStyles({
+    pickerRoot:{
+      '& label.Mui-focused': {display:'none'},
+      '& legend': {display:'none'},
+    }
+  })
+)
+
+export  function InlinePicker({selectedDate,handleDateChange}) {
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker
@@ -27,7 +37,7 @@ export  function InlinePicker({selectedDate,handleDateChange}:any) {
         </MuiPickersUtilsProvider>
     )
 }
-export  function DefaultDatePicker({selectedDate,handleDateChange}:any) {
+export  function DefaultDatePicker({selectedDate,handleDateChange}) {
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker
@@ -45,18 +55,18 @@ export  function DefaultDatePicker({selectedDate,handleDateChange}:any) {
         </MuiPickersUtilsProvider>
     )
 }
-export  function DefaultTimePicker({selectedDate,handleDateChange}:any) {
+export  function DefaultTimePicker(props) {
+  const classes = pickerStyles();
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardTimePicker
-          margin="normal"
-          id="time-picker"
-          label="Time picker"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
+          id={props.id}
+          value={props.value}
+          onChange={props.onChange}
+          fullWidth
+          inputVariant="outlined"
+          open = {props.open}
+          onClose = {props.onClose}
         />
         </MuiPickersUtilsProvider>
     )

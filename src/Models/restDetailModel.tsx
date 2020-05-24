@@ -1,4 +1,3 @@
-import * as React from "react";
 
 export const menuItem = [
     { name: "For You", icon: "restaurant_menu" },
@@ -120,3 +119,125 @@ export const menuItem = [
         RestaurantImage: string;
         WeekTime: any[];
     }
+
+    //------------------------------------OLO models ------------------------
+
+    export interface Modifier {
+        ModifierGroupCode: number;
+        ModifierGroupName: string;
+        ModifierCode: number;
+        ModifierName: string;
+        TouchScreenDescription: string;
+        Chargeable: string;
+        AllowChange: boolean;
+        Price: number;
+        MenuItemCode?: string;
+    }
+    export interface MenuItemList {
+        PropPubMenuHeadCode?: string;
+        PropMenuItemCode?: string;
+        PropPubMenuItemDescription?: string;
+        PropPubMenuItemlineDescription?: string;
+        PropPubIncomeHeadCode?: string;
+        PropPubImagePath?: string;
+        PropPubVegNonVeg?: string;
+        PropPubRate?: number;
+        PropPubQuantityDeciaml?: string;
+        Status?: any;
+        Modifier?: Modifier[];
+    }
+    
+
+    export interface IMenuHeadListWithItems {
+        PropPubMenuHeadCode?: string;
+        MenuHead?: MenuHeadList;
+        MenuItemList?: MenuItemList[];
+    }
+    export interface AddonList {
+        ProPubIntMenuComboModifier: string;
+        ProPubStrItemDescription: string;
+        ProPubBoolIsAllowChange: boolean;
+        ProPubStrModifierQtyCode: string;
+        ProPubStrPreModifierCode: string;
+        ProPubIntQty: number;
+        ProPubStrModifierCode: string;
+        ProPubSessionId: string;
+        ProPubIntSelectedRowIndex: number;
+    }
+    export interface IPropMenuItemDetails {
+        ProPubStrMenuItemCode: string;
+        ProPubIntQty: number;
+        ProPubIntMenuComboModifier: string;
+        ProPubStrCurrentIncomeHeadCode: string;
+        ProPubIntSelectedRowIndex: number;
+        ProPubSessionId: string;
+        ProPubStrPreModifierCode: string;
+        ProPubStrItemDescription: string;
+        ProPubBoolIsAllowChange?: boolean;
+        ProPubStrModifierQtyCode: string;
+        ProPubStrModifierCode: string;
+    }
+    export interface ImyCart {
+        ProPubStrMenuItemCode: string;
+        ProPubIntQty: number;
+        ProPubStrCurrentIncomeHeadCode: string;
+        ProPubStrPreModifierCode: string;
+        ProPubIntMenuComboModifier: number;
+        ProPubIntSelectedRowIndex?: number;
+        ProPubSessionId?: string;
+        PropPubRate: number;
+        PropPubPrice?: number;
+        MenuItem: MenuItemList;
+        addonList?: AddonList[];
+        addonPrice?: number;
+        addonRate?: number;
+    }
+
+//new meals
+export interface MenuHeadList {
+    PropPubModifierLinked: string;
+    PropPubMenuHeadCode: string;
+    PropPubPopularMenuHeadCode?: any;
+    PropPubMenuHeadDescription: string;
+    PropPubTaxType: string;
+    PropDeciamlAllowed: string;
+    Status: string;
+}
+export interface MenuItemModifierList {
+    Modifier: Modifier[];
+    PreModifier?: any;
+    Status?: any;
+}
+
+export interface IMenuDetailsSingleApi {
+    MenuHeadList: MenuHeadList[];
+    MenuItemList: MenuItemList[];
+    MenuItemModifierList?: MenuItemModifierList;
+}
+    
+//checkout
+export interface PropPubOrderCharge {
+    PropPubMenuHeadCode: string;
+    PropMenuItemCode: string;
+    PropPubMenuItemDescription: string;
+    PropPubMenuItemlineDescription: string;
+    PropPubIncomeHeadCode: string;
+    PropPubImagePath?: any;
+    PropPubVegNonVeg: string;
+    PropPubRate: number;
+    PropPubQuantityDeciaml: string;
+    Status?: any;
+    ItemType: string;
+}
+
+export interface CheckTotalAmount {
+    PropTotalDiscount: number;
+    PropDeliveryChanges: number;
+    PropMessageCode: string;
+    PropPubMessage: string;
+    PropTotalAmount: number;
+    PropTotalTax: number;
+    Status?: any;
+    PropGrandTotalAmount: number;
+    PropPubOrderCharges: PropPubOrderCharge[];
+}

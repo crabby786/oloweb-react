@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import clsx from 'clsx'
+import React from 'react'
 import { connect } from 'react-redux'
 import { withStyles, CircularProgress } from '@material-ui/core'
 import { detailStyle } from '../../Styles/jss/detailsPageStyle'
@@ -22,8 +21,8 @@ class SubAccountList extends React.Component<any, any> {
     return this.props.getList(GetRestaurantLoginDetails_Api, query, type);
   }
   render() {
-    const { classes, match, subAccountList, history } = this.props;
-    const { isError, isLoading, data } = subAccountList;
+    const { match, subAccountList, history } = this.props;
+    const { isLoading, data } = subAccountList;
     const logoPlaceholder = '/assets/images/other/img/for_you.png';
     if(isLoading || data == null ) {
       return (<div className="preLoader">
@@ -33,15 +32,15 @@ class SubAccountList extends React.Component<any, any> {
     else { 
         let AccountId = match.params.merchantId; 
         
-      const accountList:ISubAccount[] = data.filter((obj:any) => obj.AccountId == AccountId );
+      const accountList:ISubAccount[] = data.filter((obj) => obj.AccountId == AccountId );
       if (accountList.length > 0) {
       return (
           <div className="listType-1">
             <div className="bg-mute  text-center font-weight-bold header">
-              Select Restraunt
+              Select Restaurant
             </div>
             <div className="list">
-            {accountList.map((list:any, i:number)=> {
+            {accountList.map((list, i:number)=> {
               return (
 
             <Link key ={i} to={ match.url + "/" + list.RestaurantId} className="listItem">
@@ -66,21 +65,21 @@ class SubAccountList extends React.Component<any, any> {
           </div>
          )
         }
-        else {  alert('Please link Restraunt to your account'); return (<Redirect to="/merchants" ></Redirect>) }
+        else {  alert('Please link Restaurant to your account'); return (<Redirect to="/merchants" ></Redirect>) }
     }
     
   }
 }
 
-function mapStateToProps(state: any, ownProps: any) {
+function mapStateToProps(state) {
   return {
     subAccountList: state.SubAccountListReducer
   }
 }
-function mapDispatchToProps(dispatch: any, ownProps: any) {
+function mapDispatchToProps(dispatch) {
 
   return {
-    getList: (url:any,query: any, type: any) => dispatch(getDataAction(url, query, type))
+    getList: (url,query, type) => dispatch(getDataAction(url, query, type))
   }
 }
 

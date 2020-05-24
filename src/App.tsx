@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/css/main.scss'
-import { BrowserRouter, HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 // import {Router } from 'react-router'
 import { createBrowserHistory } from "history";
 import { RootRoutes } from "./routes";
@@ -9,8 +9,7 @@ import theme from './theme';
 import { Provider } from 'react-redux';
 import { store } from './Store/Store';
 
-export default function App(props: any) {
-  const history = createBrowserHistory(props);
+export default function App(props) {
   return (
     <Provider store = {store}>
   <ThemeProvider theme={theme}>
@@ -19,7 +18,7 @@ export default function App(props: any) {
         {RootRoutes.map((route, i)=> (
             <Route key={'route'+i}  path={route.path} component={route.component} ></Route>
         ) )}
-        <Redirect from='/' to='/home' ></Redirect>        
+        {/* <Redirect from='/' to='/home/:restType' ></Redirect>         */}
       </Switch>
     </Router>
   </ThemeProvider>

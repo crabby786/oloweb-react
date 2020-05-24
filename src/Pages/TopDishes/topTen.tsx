@@ -32,7 +32,7 @@ class TopTenList extends React.Component<any, any> {
         </header>
         <div className='listType-1'>
           <div className="list">
-          {this.state.items.length && this.state.items.map((obj: any, i: number) => (            
+          {this.state.items.length && this.state.items.map((obj, i: number) => (            
               <div className='listItem' >
                 <h2 className="align-self-center pr-2"> #{1} </h2>
                 <div className="list-avatar-container">
@@ -65,14 +65,14 @@ class TopTenList extends React.Component<any, any> {
   }
 }
 
-const mapStateToProps = (state: any, ownProps: any) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     restData: state.restListReducer
   }
 }
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    // getRestList: (queryParams: any) => dispatch(restListAction(queryParams))
+    // getRestList: (queryParams) => dispatch(restListAction(queryParams))
   }
 }
 export default compose<any, any>(

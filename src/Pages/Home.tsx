@@ -1,111 +1,81 @@
 import React from "react";
-import clsx from "clsx";
-import { withStyles, WithStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Container from "@material-ui/core/Container";
-import IconButton from "@material-ui/core/IconButton";
-import Icon from "@material-ui/core/Icon";
+import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import compose from "recompose/compose";
 import {
-  restListAction,
-  filterListAction,
+  changeLocationAction,
+  getDataWithTypeAction,
 } from "../Store/Actions/restListAction";
 import { homeStyle } from "../Styles/jss/homePageStyles";
-import { MainListItems } from "../Components/sidebarItems";
-import {
-  Divider,
-  List,
-  Hidden,
-  CircularProgress,
-  Badge,
-  Menu,
-  MenuItem,
-} from "@material-ui/core";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
-import { HomeRoutes, NavRoutes } from "../routes";
-import MoreIcon from "@material-ui/icons/MoreVert";
-import { extractQuery } from "../Constants/DishCoApi";
+import { Switch, Route, withRouter, } from "react-router-dom";
+import { NavRoutes } from "../routes";
+import * as oloApi from "../Constants/OloApi";
+import FooterSection from "../Components/custom/footer";
+import { LinearProgress } from "@material-ui/core";
+import { getLocationAction } from "../Store/Actions/helperAction";
 import TopNav from "../Components/appbar";
-
-// const drawerWidth = 240;
-// export interface Iprops extends WithStyles<typeof homeStyle> { };
+import { GetFormatedAddress } from "../Constants/OloApi";
+import { AlertDialog } from "../Components/UiComps/alerts";
 declare global {
   interface Window {
-    ReactNativeWebView: any;
+    ReactNativeWebView;
   }
 }
-
 class HomePage extends React.Component<any, any> {
-  state: any = {
-    appBarOpen: true,
-    MobileMoreAnchorEl: null,
-    AnchorEl: null,
-    isMenuOpen: false,
-    isMobileMenuOpen: false,
-    queryParams: {
-      StrLocLocationName1: "",
-      IntLocAvgMealRate: 0,
-      IntLocCustomerId: 21257,
-      StrLocDishName: "",
-      StrLocLatitude: "19.032204151153564",
-      StrLocLongitude: "73.01880598068237",
-      StrLocCreditCardType: "",
-      StrLocLocationName: "",
-      StrLocCountryName: "",
-      StrLocCuisines: "",
-      StrLocCityName: "Navi Mumbai",
-      StrLocIsFacilitieIds: "",
-      IntLocLastAdevrtisementId: 0,
-      IntLocOrderby: 2,
-      DecimalLocTime: "",
-      StrLocRestaurantName: "",
-      IntLocNoOfRecords: 0,
+  state = {
+    location: {
+      lattitute: null,
+      longitude: null,
     },
+    isLocation: false,
+    storeUpdate:{homeDetails: false,},
+    formatedAdd:{}
   };
-  handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    this.setState({
-      ...this.state,
-      MobileMoreAnchorEl: event.currentTarget,
-      isMobileMenuOpen: true,
-    });
-  };
-  componentDidMount() {
-    let queryParams = {};
-    let api = extractQuery(
-      "RestaurantDetailsByFilter/GetFunPubRestaurantDetailsByFilter?StrLocChannelCode=001&IntLocCustomerId=21257&StrLocCityName=Navi+Mumbai&IntLocLastAdevrtisementId=0&IntLocAvgMealRate=0&IntLocOrderby=2&StrLocLatitude=19.1110512&StrLocLongitude=73.0153251&IntLocNoOfRecords=0"
-    );
-    queryParams = { ...api.queryParams };
-    let url = api.url;
-    this.props.getRestList(this.state.queryParams, url);
+
+  static getDerivedStateFromProps(props, state) {
+    let { restData } = props;
+    let { storeUpdate } = state;
+    return null;
   }
 
-  setAppbarOpen = (isOpen: boolean) => {
-    this.setState({ ...this.state, appBarOpen: isOpen });
+// https://shawmanolo.page.link/CafeSanchit - AccountID
+// https://shawmanolo.page.link/CafeSanchitGoa - CityID
+// https://shawmanolo.page.link/CafeSanchitAssagaon - location
+// https://shawmanolo.page.link/CafeSanchitOutlet - Restaurant
+
+  
+  componentDidMount = () => {
+    let query = { ...oloApi.getHomeDetailsParams };
+    switch (this.props.location.pathname) {
+      case '/CafeSanchitGoa':
+        query = {...query,IntLocAccountId:3385,IntLocCityId:1190 }
+        break;
+      case '/CafeSanchitAssagaon':
+        query = {...query,IntLocAccountId:3385,IntLocCityId:1190 ,IntLocLocationId:1123}
+        break;
+        case '/CafeSanchit':{
+          query = {...query,IntLocAccountId:3385}
+          this.props.getLocation()
+          .then((obj) => {
+                const { Strloclatitude, strLocLongitude } = obj.payload.location;
+                const loc = { Strloclatitude, strLocLongitude };
+                this.props.getDataWithParams(loc, GetFormatedAddress, "formatedAdd",{minLoading:true})
+              })
+          .catch((err) => console.log(err.message));
+          }
+          break;
+      case '/CafeSanchitOutlet':
+        query = {...query,IntLocAccountId:3385,IntLocCityId:1190 ,IntLocLocationId:1123,IntLocRestaurantId:642477}
+        break;
+    
+      default:
+        query = {...query,IntLocAccountId:3385 }
+        break;
+    }
+    let url = oloApi.getHomeDetails;
+    // if(this.props.restData.allCities.length < 1)
+    this.props.getData(query, url, "homeDetails");
   };
-  handleMobileMenuClose = () => {
-    this.setState({
-      ...this.state,
-      MobileMoreAnchorEl: null,
-      isMobileMenuOpen: false,
-    });
-  };
-  handleMenuClose = () => {
-    this.setState({ ...this.state, AnchorEl: null, isMenuOpen: false });
-    // this.handleMobileMenuClose();
-  };
-  handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    this.setState({
-      ...this.state,
-      AnchorEl: event.currentTarget,
-      isMenuOpen: true,
-    });
-  };
-  menuId = "primary-search-account-menu";
-  mobileMenuId = "primary-search-account-menu-mobile";
 
   handleLogout = () => {
     let dataForNative = {
@@ -116,56 +86,61 @@ class HomePage extends React.Component<any, any> {
   };
 
   render() {
-    const { classes, restData, match } = this.props;
-    const { path, url, isExact, params } = match;
-
+    const { classes, match,restData } = this.props;
+    const { path } = match;
+    
     return (
       <div className={classes.homeroot}>
-        <TopNav />
-        {restData.isLoading ? (
-          <div className="preLoader">
-            <CircularProgress color="primary" />
-          </div>
-        ) : (
+        {!restData.isLoading ? (<>
+          <TopNav />
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
-            <div>
-              {this.props.restData && this.props.restData.data != null ? (
-                <Switch>
-                  {NavRoutes.map((route, i) => (
-                    <Route
-                      key={"NavRoutes" + i}
-                      path={path + route.path}
-                      component={route.component}
-                    ></Route>
-                  ))}
-                </Switch>
-              ) : (
-                <div className="preLoader">
-                  <CircularProgress color="primary" />
-                </div>
-              )}
+            <div className={classes.container}>
+              <Switch>
+                {NavRoutes.map((route, i) => (
+                  <Route
+                    key={"NavRoutes" + i}
+                    path={ route.path}
+                    component={route.component}
+                  ></Route>
+                ))}
+              </Switch>
             </div>
+
+            <FooterSection homeDetails= {restData.homeDetails} />
           </main>
+          <AlertDialog open= {restData.isError} 
+          handleClose={this.props.errorConfirmed}
+           txt={restData.errorObj.Message || restData.errorObj.Error} />
+        </>)
+         : (
+          <div className="progress1" style= {{width:"100%"}}>
+            <LinearProgress color="primary" />
+          </div>
         )}
       </div>
     );
   }
 }
-const mapStateToProps = (state: any, ownProps: any) => {
+const mapStateToProps = (state) => {
   // console.log(ownProps);
   // console.log(state);
   return {
     restData: state.restListReducer,
   };
 };
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getRestList: (queryParams: any, url) =>
-      dispatch(filterListAction(queryParams, url)),
+    getData: (queryParams, url, type) =>
+      dispatch(getDataWithTypeAction(queryParams, url, type)),
+    getDataWithParams: (queryParams, url, type, other) =>
+      dispatch(getDataWithTypeAction(queryParams, url, type, other)),
+      getLocation: () => dispatch(getLocationAction()),
+      errorConfirmed: ()=> dispatch({type:'error_confirmed'})
   };
 };
 export default compose(
   withStyles(homeStyle),
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter
 )(HomePage);

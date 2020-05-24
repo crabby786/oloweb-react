@@ -54,7 +54,7 @@ class NativeTest extends Component<any, any> {
   }
 }
 
-const mapStateToProps = (state: any) => ({});
+const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -2,38 +2,40 @@ import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
-  index: any;
-  value: any;
+  index;
+  value;
 }
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
 
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </Typography>
-  );
-}
 
-function a11yProps(index: any) {
+export function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
     'aria-controls': `vertical-tabpanel-${index}`,
   };
 }
+
+export function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <div>{children}</div>}
+    </div>
+  );
+}
+
 
 const useStyles = makeStyles((theme: Theme) => ({
     verticalTabRoot: {
@@ -56,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   tabSelected: {}
 }));
 
-export default function VerticalTabs(props) {
+export  function VerticalTabs(props) {
   const classes = useStyles();
   const [tabValue, setTabValue] = React.useState(0);
 

@@ -1,23 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 import clsx from 'clsx'
 import { connect } from 'react-redux'
 import { withStyles, CircularProgress, Typography, Grid } from '@material-ui/core'
 import { detailStyle } from '../../Styles/jss/detailsPageStyle'
 import compose from 'recompose/compose'
-import { withRouter, Link, Redirect } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { getDataAction } from '../../Store/Actions/restListAction'
-import { imgBase } from '../../Constants/DishCoApi'
 import { ISubAccount} from '../../Models/MerchantListModel'
 
-import {GetRestaurantLoginDetails_Api} from '../../Constants/DishCoApi'
-class RestrauntServices extends React.Component<any, any> {
+class RestaurantServices extends React.Component<any, any> {
 
   
   render() {
-    const { classes, match, subAccountList, history } = this.props;
-    const { isError, isLoading, data } = subAccountList;
-    const logoPlaceholder = '/assets/images/other/img/for_you.png';
-    if(isLoading || data == null ) {
+    const { classes, match, subAccountList } = this.props;
+    const { isLoading, data } = subAccountList;
+    if(isLoading || data === null ) {
       return (<div className="preLoader">
         <CircularProgress color="primary" />
       </div>)
@@ -25,7 +22,7 @@ class RestrauntServices extends React.Component<any, any> {
     else { 
         let AccountId = match.params.RestaurantId; 
         
-      const account:ISubAccount = data.find((obj:any) => obj.RestaurantId == AccountId );
+      const account:ISubAccount = data.find((obj) => obj.RestaurantId === AccountId );
       const ServicesRights = account.ServicesRights.split(',');
 
       return (
@@ -55,15 +52,15 @@ class RestrauntServices extends React.Component<any, any> {
   }
 }
 
-function mapStateToProps(state: any, ownProps: any) {
+function mapStateToProps(state) {
   return {
     subAccountList: state.SubAccountListReducer
   }
 }
-function mapDispatchToProps(dispatch: any, ownProps: any) {
+function mapDispatchToProps(dispatch) {
 
   return {
-    getList: (url:any,query: any, type: any) => dispatch(getDataAction(url, query, type))
+    getList: (url,query, type) => dispatch(getDataAction(url, query, type))
   }
 }
 
@@ -71,4 +68,4 @@ export default compose(
   withRouter,
   withStyles(detailStyle),
   connect(mapStateToProps, mapDispatchToProps),
-)(RestrauntServices);
+)(RestaurantServices);

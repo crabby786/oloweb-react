@@ -8,12 +8,12 @@ import FullScreenDialog from '../../Components/full_dialog';
 import BookNow from './BookNow';
 import BookLater from './BookLater';
 
-const BookHistory = (props:any)=> {
+const BookHistory = (props)=> {
   return(
     <div>BookHistory</div>
   )
 }
-const FutureReserve = (props:any)=> {
+const FutureReserve = (props)=> {
   return(
     <div>FutureReserve</div>
   )
@@ -25,7 +25,7 @@ class TableBook extends React.Component<any, any> {
     isDialogeOpen:false,
     openedDialoge:{} as any
   };
-  dialogs:any = {
+  dialogs = {
     BookNow:{isOpen:false, heading:'Book Now', container:<BookNow />},
     BookLater:{isOpen:false, heading:'Book Later', container:<BookLater />},
     BookHistory:{isOpen:false, heading:'Booking History', container:<BookHistory />},
@@ -37,14 +37,14 @@ class TableBook extends React.Component<any, any> {
     this.setState({
       ...this.state, items: [...dishes]
     });
-    document.querySelectorAll('.box').forEach((item:any)=> item.addEventListener('click', this.handleOpenDialoge) )
+    document.querySelectorAll('.box').forEach((item)=> item.addEventListener('click', this.handleOpenDialoge) )
 
   }
 
   showDetails = (restId: number) => {
     this.props.history.push("/home/restdetail/" + restId);
   }
-  handleOpenDialoge = (event: any)=> {
+  handleOpenDialoge = (event)=> {
     let container = event.currentTarget.id ;
     let currentDialoge = this.dialogs[container];
     this.setState({
@@ -101,14 +101,14 @@ class TableBook extends React.Component<any, any> {
   }
 }
 
-const mapStateToProps = (state: any, ownProps: any) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     restData: state.restListReducer
   }
 }
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    // getRestList: (queryParams: any) => dispatch(restListAction(queryParams))
+    // getRestList: (queryParams) => dispatch(restListAction(queryParams))
   }
 }
 export default compose<any, any>(

@@ -1,6 +1,7 @@
 
 export const androidHeader = { "AndroidPhone": 'EV6FTlgBhOalM+qjJpr2OZpAEpPkYJHC5I1aOWyeLevwSIpuzyKEAg==' };
-export const imgBase = `https://foodmarshal.blob.core.windows.net/fmstorage/`;
+// export const imgBase = `https://foodmarshal.blob.core.windows.net/fmstorage/`;
+export const imgBase = `https://foodmarshal.blob.core.windows.net/fmtesting/`;
 
 export const BaseApi = "https://fmtest.dishco.com/shawmanservices/api/";
 
@@ -40,7 +41,7 @@ export function extractQuery(str) {
 export const appLaunchParams = {
   IntLocFlag:1,
   IntLocCustomerId:21257,
-  Strloclatitude:'19.032204151153564',
+  Strloclattitute:'19.032204151153564',
   Strloclongitude:'73.01880598068237',
   intLocCountryId:1,
   StrLocCityName:'Navi Mumbai',

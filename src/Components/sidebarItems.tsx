@@ -9,12 +9,12 @@ import {HomeRoutes} from '../routes';
 import clsx from "clsx";
 import { Icon } from '@material-ui/core';
 
-function activeRoute(routeName:any) {
+function activeRoute(routeName) {
   let route = window.location.hash
   return route.indexOf(routeName) > -1 ? true : false;
 }
 
-export const MainListItems = (props:any)=> {
+export const MainListItems = (props)=> {
   const {match}= props;
   return (
     <div>

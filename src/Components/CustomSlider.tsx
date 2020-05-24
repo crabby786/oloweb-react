@@ -155,7 +155,7 @@ export const AirbnbSlider = withStyles({
   },
 })(Slider);
 
-function AirbnbThumbComponent(props: any) {
+function AirbnbThumbComponent(props) {
   return (
     <span {...props}>
       <span className="bar" />

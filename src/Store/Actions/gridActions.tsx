@@ -34,7 +34,7 @@ array.reduce((objectsByKeyValue, obj) => {
   return objectsByKeyValue;
 }, {});
 
-export const filterByKeyValue = (list:any[],filterKeyValue:{}) =>{
+export const filterByKeyValue = (list,filterKeyValue:{}) =>{
   let filterKeys = Object.keys(filterKeyValue);
     return filterKeys.reduce((total, currentValue, i, arr)=> {
         return total.filter(dishObj=> dishObj[filterKeys[i]]== filterKeyValue[filterKeys[i]] );

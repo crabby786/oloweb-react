@@ -15,8 +15,8 @@ import { imgBase } from "../Constants/DishCoApi";
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
-  index: any;
-  value: any;
+  index;
+  value;
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -36,7 +36,7 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: any) {
+function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
     "aria-controls": `full-width-tabpanel-${index}`
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function FullWidthTabs(props: any) {
+export default function FullWidthTabs(props) {
   const [value, setValue] = React.useState(0);
   const { tabData, classes, content } = props;
   
@@ -118,7 +118,7 @@ export default function FullWidthTabs(props: any) {
               Cash is always welcome <br></br>
               Following Cards are accepted
             </h5>
-            {content.CrediteCards.map((card:any,i:number)=> <img src={imgBase + card.CrediteCardsImage} alt={card} key={'slideImg'+i}></img>  )}
+            {content.CrediteCards.map((card,i:number)=> <img src={imgBase + card.CrediteCardsImage} alt={card} key={'slideImg'+i}></img>  )}
           </div>
         </TabPanel>
       </SwipeableViews>

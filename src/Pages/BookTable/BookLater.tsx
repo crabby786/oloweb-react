@@ -13,7 +13,7 @@ export default class BookLater extends Component<any, any> {
         guestNumber: 1,
         allCuisines: ['All Cusines'],
         favCuisines: ['Favourite Cuisines'],
-        chooseCuisines: [] as any[],
+        chooseCuisines:[] ,
         cuisines: { selected: 0, chips: [] },
         cuisineMenuAnchor: null as null | HTMLElement,
         rests: { selected: 1, chips: ['All in City'] },
@@ -21,7 +21,7 @@ export default class BookLater extends Component<any, any> {
         selectedDate:new Date('2020-01-01T21:11:54') as Date | null
     }
     componentDidMount = () => {
-        this.setState((prev: any) => {
+        this.setState((prev) => {
             return {
                 ...prev,
                 cuisines: { ...prev.cuisines, chips: prev.allCuisines }
@@ -36,25 +36,25 @@ export default class BookLater extends Component<any, any> {
         })
       };
 
-    handleNearMe = (event: React.MouseEvent<HTMLElement>) => { 
+    handleNearMe = (event) => { 
         this.setState({
             ...this.state,
             rests:{selected:0, chips:['5 Km']}
         })
     }
-    handleAllInCity = (event: React.MouseEvent<HTMLElement>) => { 
+    handleAllInCity = (event) => { 
         this.setState({
             ...this.state,
             rests:{selected:1, chips:['All In City']}
         })
      }
-    handleSelectRests = (event: React.MouseEvent<HTMLElement>) => { 
+    handleSelectRests = (event) => { 
         this.setState({
             ...this.state,
             rests:{selected:2, chips:[]}
         })
      }
-    showCusines = (event: React.MouseEvent<HTMLElement>) => {
+    showCusines = (event) => {
         this.setState({
             ...this.state,
             cuisineMenuAnchor: event.currentTarget,
@@ -62,16 +62,16 @@ export default class BookLater extends Component<any, any> {
         })
     };
 
-    closeMenu = (event: React.MouseEvent<HTMLElement>, key: string) => {
+    closeMenu = (event, key: string) => {
         this.setState({
             ...this.state,
             [key]: null
         })
     };
-    addCuisines = (value: string, e: any) => {
+    addCuisines = (value: string, e) => {
         let isChecked = e.currentTarget.checked;
         if (isChecked) {
-            this.setState((prev: any, props: any) => {
+            this.setState((prev, props) => {
                 // const all: string = prev.allCuisines[0];
                 // const id = prev.cuisines.chips.indexOf(all);
                 // if (id !== -1)
@@ -85,7 +85,7 @@ export default class BookLater extends Component<any, any> {
             })
         }
         else {
-            this.setState((prev: any) => {
+            this.setState((prev) => {
                 let index = prev.chooseCuisines.indexOf(value);
                 prev.chooseCuisines.splice(index, 1);
                 return {
@@ -113,11 +113,11 @@ export default class BookLater extends Component<any, any> {
             session:{breakfast:false, lunch:false, brunch:false, dinner:false, [session]:true}
         })
     }
-    // removeCuisines = (value: any) => {
+    // removeCuisines = (value) => {
     //     let currentChips = this.state.cuisines.chips;
     //     let chipIndex = currentChips.indexOf(value);
     //     if (chipIndex !== -1) {
-    //         this.setState((prev: any) => {
+    //         this.setState((prev) => {
     //             prev.cuisines.chips.splice(chipIndex, 1)
     //         })
     //     }
@@ -162,10 +162,10 @@ export default class BookLater extends Component<any, any> {
                         anchorEl={this.state.cuisineMenuAnchor}
                         keepMounted
                         open={openCuisineMenu}
-                        onClose={(event: any) => this.closeMenu(event, 'cuisineMenuAnchor')}
+                        onClose={(event) => this.closeMenu(event, 'cuisineMenuAnchor')}
                         TransitionComponent={Fade}
                     >
-                        {cuisineList.map((cuisine: any, i: number) => (
+                        {cuisineList.map((cuisine, i: number) => (
                             <MenuItem key={'cuisine' + i}>
                                 <FormControlLabel
                                     control={<Checkbox checked={this.state.chooseCuisines.indexOf(cuisine) !== -1}
@@ -187,11 +187,11 @@ export default class BookLater extends Component<any, any> {
                     )) : ''}
                 </div>
                 <div className="selectors">
-                    <h4>Restraunts</h4>
+                    <h4>Restaurants</h4>
                     <ButtonGroup color="primary" aria-label="outlined primary button group">
-                        <Button className={this.state.rests.selected == 0 ? 'active' : ''} onClick={(e:any) =>this.handleNearMe(e)}>Near Me</Button>
-                        <Button className={this.state.rests.selected == 1 ? 'active' : ''} onClick={(e:any) =>this.handleAllInCity(e)}>All in City</Button>
-                        <Button className={this.state.rests.selected == 2 ? 'active' : '' }onClick={(e:any) => this.handleSelectRests(e)}
+                        <Button className={this.state.rests.selected == 0 ? 'active' : ''} onClick={(e) =>this.handleNearMe(e)}>Near Me</Button>
+                        <Button className={this.state.rests.selected == 1 ? 'active' : ''} onClick={(e) =>this.handleAllInCity(e)}>All in City</Button>
+                        <Button className={this.state.rests.selected == 2 ? 'active' : '' }onClick={(e) => this.handleSelectRests(e)}
                         >Select</Button>
 
                     </ButtonGroup>
@@ -201,11 +201,11 @@ export default class BookLater extends Component<any, any> {
                             key={i}
                             label={data} color="secondary" variant="outlined"
                         />
-                    )) : <div className='mt-2' ><TextField placeholder="Search Restraunts" fullWidth ></TextField> </div>}
+                    )) : <div className='mt-2' ><TextField placeholder="Search Restaurants" fullWidth ></TextField> </div>}
                 </div>
                 </div>
             <Button variant="contained" color="secondary" fullWidth className='mt-5'>
-                Find Restraunts
+                Find Restaurants
                 </Button>
             </Container >
         )

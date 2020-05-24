@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { withRouter, Link } from 'react-router-dom'
-import { Grid, Box, Typography } from '@material-ui/core'
-import { detailStyle } from '../Styles/jss/detailsPageStyle'
+import { Grid, Typography } from '@material-ui/core'
 import { dasboardModel as menus } from "../Models/dashboardModel";
-import { withStyles, Theme, createStyles, WithStyles } from '@material-ui/core/styles';
+import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import clsx from 'clsx'
 import { appLaunchAction } from '../Store/Actions/restListAction'
 
-const dashboardStyle = (theme: Theme) =>
+const dashboardStyle = () =>
     createStyles({
         dashboardContainer: {
             background: '#fff',
@@ -25,7 +24,7 @@ class Dashboard extends Component<any, any> {
         appLaunchAction();
     }
     render() {
-        const { classes, match } = this.props
+        const { classes } = this.props
 
         return (
             <div className={classes.dashboardContainer}>
@@ -50,7 +49,7 @@ class Dashboard extends Component<any, any> {
     }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = () => ({
 
 })
 

@@ -1,14 +1,12 @@
-import React, { Fragment, PureComponent } from "react";
+import React, {  } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { compose } from "recompose";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { Icon, Fade, Box, ListItemAvatar, Avatar, Grid, Typography, Divider } from "@material-ui/core";
+import { Icon, Box, ListItemAvatar, Avatar, Grid } from "@material-ui/core";
 import { imgBase } from "../Constants/DishCoApi";
-import { restListAction, filterListAction } from "../Store/Actions/restListAction";
+import { filterListAction } from "../Store/Actions/restListAction";
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { groupBy, filterByKeyValue } from '../Store/Actions/gridActions';
-import { ListPlaceHolder } from "./UiComps/ListPlaceHolder";
 import clsx from "clsx";
 import Marquee from "react-smooth-marquee"
 
@@ -27,14 +25,14 @@ class App extends React.Component<any, any> {
     isMarquee: false
   };
   componentWillMount = () => {
-    const { restData, query, url } = this.props;
+    const { restData } = this.props;
     let dishes = restData.data.AllRestaurantDishes;
     this.setState({
       ...this.state, items: [...dishes], totalRestCount: restData.data.NoOfRestaurants.NoOfRestaurants
     })
   }
   componentWillReceiveProps(nextProps) {
-    let { query, url, initialList, totalCount, restData, getRestList } = this.props;
+    let { query, url, getRestList } = this.props;
     if (nextProps.query.IntLocOrderby !== query.IntLocOrderby || nextProps.url !== url) {
       getRestList(nextProps.query, nextProps.url)
         .then(obj => {
@@ -50,9 +48,8 @@ class App extends React.Component<any, any> {
     history.push("/home/restdetail/" + restId);
   };
   fetchMoreData = async () => {
-    let { query, url, totalCount, restData } = this.props;
+    let { query, url, restData } = this.props;
     let loadedItems = this.state.items.length;
-    const { isError, status, statusText } = restData;
     if (loadedItems >= this.state.totalRestCount) {
       this.setState({ hasMore: false });
       return;
@@ -89,14 +86,15 @@ class App extends React.Component<any, any> {
               </p>
             }
           >
-            {this.state.items.map((content: any, i) =>
+            {this.state.items.map((content, i) =>
               <div key={i} onClick={() => this.showDetails(content.RestaurantId)} style={{ width: '100%', maxWidth: '100vw', padding: '10px 0', borderBottom: '1px solid #ccc' }}>
                 <Box alignItems="flex-start" display="flex">
                   <Box px={1}>
                     <span style={{ whiteSpace: "nowrap", fontSize: "small" }} >By Locals</span>
                     <ListItemAvatar>
                       <Avatar alt="dish1" variant="rounded"
-                        src={imgBase + content.DishImage} imgProps={{ onError: (e: any) => e.target.src = '/assets/images/other/img/DishCo_49.png' }} >
+                        src={imgBase + content.DishImage} 
+                         >
                       </Avatar>
                     </ListItemAvatar>
                   </Box>
@@ -143,15 +141,15 @@ class App extends React.Component<any, any> {
 }
 
 
-const mapStateToProps = (state: any, ownProps: any) => {
+const mapStateToProps = (state) => {
   // console.log(state);
   return {
     restData: state.restListReducer
   }
 }
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getRestList: (queryParams: any, url) => dispatch(filterListAction(queryParams, url))
+    getRestList: (queryParams, url) => dispatch(filterListAction(queryParams, url))
   }
 }
 export default compose<any, any>(

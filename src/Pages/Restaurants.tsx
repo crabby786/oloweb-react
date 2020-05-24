@@ -1,22 +1,18 @@
-import React, { ChangeEvent } from 'react';
-import clsx from 'clsx';
-import { withStyles, WithStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import RestList from '../Components/lists3';
 import Icon from '@material-ui/core/Icon';
-import { SwitchA } from '../Components/FormComps';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { homeStyle } from '../Styles/jss/homePageStyles'
-import { InputBase, Button, GridList, GridListTile, RadioGroup, FormControlLabel, Radio, FormControl, IconButton } from '@material-ui/core';
+import { InputBase, Button, RadioGroup, FormControlLabel, Radio, FormControl } from '@material-ui/core';
 import FullScreenDialog from '../Components/full_dialog';
-import VerticalTabs from '../Components/UiComps/VerticalTabs';
+import {VerticalTabs} from '../Components/UiComps/VerticalTabs';
 import { filterListAction } from '../Store/Actions/restListAction';
-import { TouristDishesRankWiseFilter_Api, extractQuery, BaseApi } from '../Constants/DishCoApi';
 
 // export interface Iprops extends WithStyles<typeof homeStyle> { };
 class Restaurants extends React.Component<any, any> {
-  state: any = {
+  state = {
     TouristSwitch: true,
     distanceSwitch: true,
     isDialogeOpen: false,
@@ -45,7 +41,7 @@ class Restaurants extends React.Component<any, any> {
     },
     totalRestCount: 0
   }
-  handleSwitchChange = (name: string) => (event: any) => {
+  handleSwitchChange = (name: string) => (event) => {
     this.setState({ ...this.state, [name]: event.target.checked });
   };
 
@@ -53,7 +49,7 @@ class Restaurants extends React.Component<any, any> {
     this.setState({ ...this.state, appBarOpen: isOpen })
   }
 
-  handleOpenDialoge = (event: any) => {
+  handleOpenDialoge = () => {
     this.setState({
       ...this.state, isDialogeOpen: true,
     })
@@ -64,24 +60,22 @@ class Restaurants extends React.Component<any, any> {
     })
   }
   handleChangeFilterList = (event, value: string, useFunction?: boolean) => {
-    const { sortByRankDistance, sortByLocalTourist } = this.state;
-    const { filterList } = this.props;
     //if event.currentTarget.name cannot get use useFunction
     let radioName = useFunction ? event : event.currentTarget.name
     
-    this.setState((prev,prop) => {
+    this.setState((prev) => {
       prev = { ...prev, [radioName]: value, };
       ;
       switch (prev.sortByLocalTourist) {
         case 'local':
           prev.listUrl = `RestaurantDetailsByFilter/GetFunPubRestaurantDetailsByFilter`;
-          if (prev.sortByRankDistance == 'rank')
+          if (prev.sortByRankDistance === 'rank')
             {prev.queryParams = { ...prev.queryParams, IntLocOrderby:1};}
             else {prev.queryParams = { ...prev.queryParams, IntLocOrderby:2};}
           break;
         case 'tourist':
           prev.listUrl = `AllTouristDishesRankWiseFilter/GetFunPubAllTouristDishesRankWiseFilter`;
-          if (prev.sortByRankDistance == 'rank')
+          if (prev.sortByRankDistance === 'rank')
             {prev.queryParams = { ...prev.queryParams,IntLocOrderby:1 };}
             else {prev.queryParams = { ...prev.queryParams,IntLocOrderby:2 };}
           break;
@@ -101,7 +95,7 @@ class Restaurants extends React.Component<any, any> {
   }
 
   render() {
-    const { classes, restData } = this.props;
+    const { classes } = this.props;
     
     return (
       <div>
@@ -145,10 +139,10 @@ class Restaurants extends React.Component<any, any> {
               />
             </div>
             <div className='hr-list' >
-              <Button variant="outlined" onClick={this.handleOpenDialoge} size="small" disableRipple endIcon={<span className="btn-badge">{this.state.filterApplied}</span>} color="primary" style={{ marginLeft: 0 }}> Filter</Button>
-               <Button variant="outlined" size="small" disableRipple disabled={this.state.sortByRankDistance == 'distance'} endIcon={this.state.sortByRankDistance == 'rank' && 
-              <Icon onClick={(e) => this.removeFilter('sortByRankDistance', 'distance')}>close</Icon>} > Rank</Button>
-              <Button disabled={this.state.sortByLocalTourist == 'local'} variant="outlined" size="small" disableRipple  endIcon={this.state.sortByLocalTourist == 'tourist' && <Icon onClick={(e) => this.removeFilter('sortByLocalTourist', 'local')} >close</Icon>} > Tourist</Button>
+              <Button variant="outlined" onClick={this.handleOpenDialoge} size="small" disableRipple endIcon={<span className="btn-badge"></span>} color="primary" style={{ marginLeft: 0 }}> Filter</Button>
+               <Button variant="outlined" size="small" disableRipple disabled={this.state.sortByRankDistance === 'distance'} endIcon={this.state.sortByRankDistance === 'rank' && 
+              <Icon onClick={() => this.removeFilter('sortByRankDistance', 'distance')}>close</Icon>} > Rank</Button>
+              <Button disabled={this.state.sortByLocalTourist === 'local'} variant="outlined" size="small" disableRipple  endIcon={this.state.sortByLocalTourist === 'tourist' && <Icon onClick={() => this.removeFilter('sortByLocalTourist', 'local')} >close</Icon>} > Tourist</Button>
               <Button variant="outlined" size="small" disableRipple disabled endIcon={<Icon>close</Icon>} > Filter</Button>
               <Button variant="outlined" size="small" disableRipple disabled endIcon={<Icon>close</Icon>} > Rank</Button>
               <Button variant="outlined" size="small" disableRipple disabled endIcon={<Icon>close</Icon>} > Distance</Button>
@@ -158,6 +152,7 @@ class Restaurants extends React.Component<any, any> {
             <div>
             </div>
           </div>
+         
           <RestList classesUp={classes} query={this.state.queryParams} totalCount={this.state.totalRestCount} url={this.state.listUrl}  />
           {/* <RestList  />  */}
           <FullScreenDialog semiFull heading={'Sort and Filters'} headerColor='default' dialogContent={<div></div>} handleClose={this.closeDialoge} isOpen={this.state.isDialogeOpen} noGutter>
@@ -187,12 +182,12 @@ class Restaurants extends React.Component<any, any> {
     );
   }
 }
-const mapStateToProps = (state: any, ownProps: any) => {
+const mapStateToProps = (state) => {
   return {
     restData: state.restListReducer
   }
 }
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     filterList: (query, url) => dispatch(filterListAction(query, url))
   }

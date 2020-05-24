@@ -1,5 +1,5 @@
 export const dasboardModel = [
-    {id:1,route:'/home/restraunts',name:'Best Dish', img:'/assets/images/icons/dashboard/best_dish.jpg'},
+    {id:1,route:'/home/restaurants',name:'Best Dish', img:'/assets/images/icons/dashboard/best_dish.jpg'},
     {id:2,route:'/home/top10',name:'Top 10', img:'/assets/images/icons/dashboard/top10.jpg'},
     {id:3,route:'/',name:'Tiffin Box', img:'/assets/images/icons/dashboard/tiffin.jpg'},
     {id:4,route:'/home/book_table',name:'Table Booking', img:'/assets/images/icons/dashboard/table_book.jpg'},
@@ -113,10 +113,10 @@ export interface IFormatedAddress {
     CityName: string;
     CountryName: string;
     CountryId: number;
-    Message?: any;
+    Message?;
 }
 export interface IAccountListByCustId {
     StatusCode: number;
     StatusDescription: string;
-    AccountList?: any;
+    AccountList?;
 }

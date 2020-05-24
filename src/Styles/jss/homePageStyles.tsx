@@ -140,8 +140,16 @@ export const homeStyle = (theme: Theme) =>
           [theme.breakpoints.down('xs')]:{
             paddingLeft: 0,
           paddingRight: 0,
-          paddingTop: 0,
-          paddingBottom: 0,
+          paddingTop: theme.spacing(1),
+          paddingBottom: theme.spacing(1),
+          }
+        },
+        oloHomeContainer: {
+          marginTop: theme.spacing(1) * -1 ,
+          marginBottom: theme.spacing(1) * -1,
+          [theme.breakpoints.down('xs')]:{
+          marginTop: theme.spacing(1) * -1,
+          marginBottom: theme.spacing(1) * -1,
           }
         },
         paper: {
@@ -168,6 +176,34 @@ export const homeStyle = (theme: Theme) =>
             display: 'none',
           },
         },
+        moreLbl:{
+          '& .txt': {
+            display:'inline',
+          [theme.breakpoints.down('xs')]: {
+            display: 'none',
+          },
+          },
+          '& .MuiButton-endIcon': {
+            [theme.breakpoints.down('xs')]: {
+              marginLeft:'39px'
+            },
+          }
+        },
+        // banner section
+        homeDropdown : {
+          "& label.Mui-focused":{ display:"none" },
+          "& .MuiOutlinedInput-root":{ border:"none" }
+        },
+        pickupRadios: {
+          color:'#ffffff',
+          '& .MuiRadio-colorPrimary':{
+            color:'inherit'
+          }
+        },
+        //detail section
+        hrTabIndicator:{
+          // color:'red'
+        }
       }
   ) 
   }

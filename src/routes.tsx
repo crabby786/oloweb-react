@@ -1,19 +1,20 @@
-import Restraunts from "./Pages/Restraunts";
+import Restaurants from "./Pages/Restaurants";
 import RestDetails from "./Pages/RestDetails";
 import Dashboard from "./Pages/Dashboard";
-import OloHome from "./Pages/Olo_home";
+import OloHome from "./Pages/comps/Olo_home";
 import MerchantList from "./Pages/MerchantLogin/MerchantList";
 import HomePage from "./Pages/Home";
 import TopTen from "./Pages/TopDishes/topTen";
 import SubAccountList from "./Pages/MerchantLogin/SubAccountList";
-import RestrauntServices from "./Pages/MerchantLogin/Services";
+import RestaurantServices from "./Pages/MerchantLogin/Services";
 import TableBook from "./Pages/BookTable/TableBook";
+import Checkout from "./Pages/Checkout";
   export const HomeRoutes = [
     {
-      path: "/restraunts",
-      name: "Restraunts",
+      path: "/restaurants",
+      name: "Restaurants",
       icon: 'restaurant',
-      component: Restraunts,
+      component: Restaurants,
     },
     {
         path: "/restdetail/:restid",
@@ -42,46 +43,46 @@ import TableBook from "./Pages/BookTable/TableBook";
     },
  ]
   export const NavRoutes = [
+    
     {
-      path: "/restraunts",
-      name: "Restraunts",
-      icon: 'restaurant',
+        path: "/restdetail/:id",
+        name: "Restaurants",
+        icon: 'games',
+        component: RestDetails,
+      },
+    {
+      path: "/Contact",
+      name: "Contact",
+      icon: 'perm_phone_msg',
+      component: null,
+      href: "https://shawmansoftware.com/contact-us/"
+    },
+    {
+      path: "/checkout",
+      name: "Checkout",
+      icon: 'perm_phone_msg',
+      component: Checkout,
+    },
+    ,
+    {
+      path: "/:restType",
+      name: "Home",
+      icon: 'album',
       component: OloHome,
     },
     {
-        path: "/top10",
-        name: "Top Dishes",
-        icon: 'album',
-        component: TopTen,
-      },
-    {
-        path: "/book_table",
-        name: "About Us",
-        icon: 'games',
-        component: TableBook,
-      },
-    {
       path: "/",
-      name: "Contact",
-      icon: 'perm_phone_msg',
+      name: "Home",
+      icon: 'album',
       component: OloHome,
-      
     },
  ]
  export const RootRoutes = [
   {
-    path: "/home",
-    name: "Home",
-    icon: 'art_track',
-    component: HomePage,
-    exact:true
-  },
-
-  {
     path: "/merchants/:merchantId/:RestaurantId",
     name: "sub account",
     icon: 'recent_actors',
-    component: RestrauntServices,
+    component: RestaurantServices,
   },
   {
     path: "/merchants/:merchantId",
@@ -95,5 +96,11 @@ import TableBook from "./Pages/BookTable/TableBook";
     icon: 'recent_actors',
     component: MerchantList,
     exact:true
+  },,
+  {
+    path: "/",
+    name: "Home",
+    icon: 'album',
+    component: HomePage,
   },
 ]

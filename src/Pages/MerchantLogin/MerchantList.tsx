@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-import * as Redux from 'redux'
-import clsx from 'clsx'
+import React from 'react'
 import { connect } from 'react-redux'
 import { withStyles, CircularProgress,  } from '@material-ui/core'
 import { detailStyle } from '../../Styles/jss/detailsPageStyle'
@@ -24,15 +22,15 @@ class MerchantList extends React.Component<any, any> {
     return this.props.getList(query, type);
   }
   render() {
-    const { classes, match, merchantList, history } = this.props;
-    const { isError, isLoading, data } = merchantList;
+    const { match, merchantList, history } = this.props;
+    const { isLoading, data } = merchantList;
     const logoPlaceholder = '/assets/images/other/img/for_you.png'
-    if(isLoading || data == null ) {
+    if(isLoading || data === null ) {
       return (<div className="preLoader">
         <CircularProgress color="primary" />
       </div>)
     }
-    else if(data.StatusCode == 0 ){ 
+    else if(data.StatusCode === 0 ){ 
       const accountList:IAccountList[] = data.AccountList;
 
       return (
@@ -41,12 +39,12 @@ class MerchantList extends React.Component<any, any> {
               Select Account
             </div>
             <div className="list">
-            {accountList.map((list:any, i:number)=> {
+            {accountList.map((list, i:number)=> {
               return (
 
             <Link key ={i} to={ match.url + "/" + list.AccountId} className="listItem">
             <div className="img-box" >
-                <img src={list.Logo ==""? logoPlaceholder : imgBase + list.Logo} alt="account logo" ></img>
+                <img src={list.Logo ===""? logoPlaceholder : imgBase + list.Logo} alt="account logo" ></img>
             </div>
             <div className="data-container" >
                 <h5> {list.AccountName} </h5>
@@ -75,15 +73,15 @@ class MerchantList extends React.Component<any, any> {
   }
 }
 
-function mapStateToProps(state: any, ownProps: any) {
+function mapStateToProps(state) {
   return {
     merchantList: state.getMerchantListReducer
   }
 }
-function mapDispatchToProps(dispatch: any, ownProps: any) {
+function mapDispatchToProps(dispatch) {
 
   return {
-    getList: (query: any, type: any) => dispatch(getMerchantListAction(query, type))
+    getList: (query, type) => dispatch(getMerchantListAction(query, type))
   }
 }
 

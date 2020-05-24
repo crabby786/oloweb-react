@@ -1,10 +1,13 @@
 $muted:#e0e0e0;
-$primary: rgba(255, 168, 3, 0.84);
+$primary: #ffa803;
+$invertPrimary: #48453e;
 $secondary: #fbb03b;
 $warning: #ff9800;
-$error: #e45b47;
-$success:  #81c784;
+$error: #f13014;
+$success:  #4CAF50;
 $nav:  #212529;
+$transBlack:  rgba(33, 37, 41, 0.8);
+$transWhite:  rgba(255, 255, 255, 0.22);
 
 
 @mixin media($point) {

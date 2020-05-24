@@ -37,7 +37,7 @@ function ExampleWrapper({
   const isItemLoaded = index => !hasNextPage || index < items.length;
 
   // Render an item or a loading indicator.
-  const Item = ({ index, style,isScrolling }:any) => {
+  const Item = ({ index, style,isScrolling }) => {
     let content;
     
     if (!isItemLoaded(index)) {
@@ -90,7 +90,7 @@ function ExampleWrapper({
             ref={ref}
             width={'100%'}
             useIsScrolling           >            
-            {Item}
+            {/* {Item} */}
           </FixedSizeList>
         </div>
       )}
@@ -147,14 +147,14 @@ class App extends React.Component<any, any> {
 }
 
 
-const mapStateToProps = (state: any, ownProps: any) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     restData: state.restListReducer
   }
 }
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getRestList: (queryParams: any) => dispatch(restListAction(queryParams))
+    getRestList: (queryParams) => dispatch(restListAction(queryParams))
   }
 }
 export default compose<any, any>(
