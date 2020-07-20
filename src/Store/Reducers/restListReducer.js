@@ -3,27 +3,35 @@
   minLoading: false,
   isError: false,
   data: null,
-  AllRestaurantDishes: [],
   status: 200,
   statusText: "",
   Strloclatitude: "",
   strLocLongitude: "",
   errorMsg: "",
   errorObj:{Message:""},
-  AllLocations: [],
-  allCities: [],
-  homeDetails: {},
+  homeDetails: {CityList:[],LocationList:[],RestaurantList:[{RestaurantDeliveryList:[]}]},
   selectObj: {
         restId: null,
         cityId: null,
         areaId: null,
-        pickStatus: undefined,
+        pickStatus: 'delivery',
         pickupTime: null,
   },
-  formatedAdd:{},
-  restList: { RestaurantDeliveryList: [], StatusCode: 0 },
+  restObj:{},
+  custObj:{},
+  landingPageBanner:{ImageAdvertisement:[]},
+  myCart:[],
+  updatedMenuItemList:[],
+  orderStatus:[],
+  cartTotal:0,
+  formatedAdd:{CityId:null},
+  totalAmountObj:{},
+  restList: { },
   menuDetails: {MenuHeadList: [],MenuItemList: [],MenuItemModifierList: []},
-  IntLocRestaurantId:642420,
+  insertOrderDetails:{MessageCode:"",Message:""},
+  PropMenuItemDetails:"",
+  PropCounterSaleOrderDetail:"",
+  tableList:[],
 };
 const userState = {
   location: {
@@ -65,6 +73,10 @@ export const restListReducer = (state = initialState, action) => {
       return { ...state, isError: false };
     case "set_restdetail":
       return { ...state, ...payload };
+    case "Set_Data":
+      return { ...state, ...payload };
+    case "local_error":
+      return { ...state, ...payload,isError:true };
     default:
       return state;
   }

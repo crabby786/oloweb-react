@@ -21,6 +21,7 @@ export const d_myCart = [
      "ProPubSessionId":"e198fa90-92d5-11ea-d69c-450d36e5fca4",
      "PropPubRate":200,
      "PropPubPrice":200,
+      "addonRate": 15,
      "MenuItem":{
         "PropPubMenuHeadCode":"39",
         "PropMenuItemCode":"5770",
@@ -425,7 +426,7 @@ export const d_myCart = [
            "ProPubIntMenuComboModifier":"0",
            "ProPubStrItemDescription":"1 PLATE",
            "ProPubBoolIsAllowChange":false,
-           "ProPubStrModifierQtyCode":"0",
+           
            "ProPubStrPreModifierCode":"",
            "ProPubIntQty":1,
            "ProPubStrModifierCode":"629",
@@ -436,7 +437,7 @@ export const d_myCart = [
            "ProPubIntMenuComboModifier":"0",
            "ProPubStrItemDescription":"BUTTER",
            "ProPubBoolIsAllowChange":false,
-           "ProPubStrModifierQtyCode":"0",
+           
            "ProPubStrPreModifierCode":"",
            "ProPubIntQty":1,
            "ProPubStrModifierCode":"623",
@@ -859,7 +860,7 @@ export const d_myCart = [
            "ProPubIntMenuComboModifier":"0",
            "ProPubStrItemDescription":"1 PLATE",
            "ProPubBoolIsAllowChange":false,
-           "ProPubStrModifierQtyCode":"0",
+           
            "ProPubStrPreModifierCode":"",
            "ProPubIntQty":1,
            "ProPubStrModifierCode":"629",
@@ -870,7 +871,7 @@ export const d_myCart = [
            "ProPubIntMenuComboModifier":"0",
            "ProPubStrItemDescription":"BUTTER",
            "ProPubBoolIsAllowChange":false,
-           "ProPubStrModifierQtyCode":"0",
+           
            "ProPubStrPreModifierCode":"",
            "ProPubIntQty":1,
            "ProPubStrModifierCode":"623",
@@ -881,7 +882,7 @@ export const d_myCart = [
            "ProPubIntMenuComboModifier":"0",
            "ProPubStrItemDescription":"1 X 2",
            "ProPubBoolIsAllowChange":false,
-           "ProPubStrModifierQtyCode":"0",
+           
            "ProPubStrPreModifierCode":"",
            "ProPubIntQty":1,
            "ProPubStrModifierCode":"625",
@@ -892,7 +893,7 @@ export const d_myCart = [
            "ProPubIntMenuComboModifier":"0",
            "ProPubStrItemDescription":"CADDY",
            "ProPubBoolIsAllowChange":false,
-           "ProPubStrModifierQtyCode":"0",
+           
            "ProPubStrPreModifierCode":"",
            "ProPubIntQty":1,
            "ProPubStrModifierCode":"620",
@@ -904,1292 +905,7 @@ export const d_myCart = [
   }
 ] 
 
-export const d_MenuHeadListWithItems = [
-  {
-     "MenuHead":{
-        "PropPubModifierLinked":"1",
-        "PropPubMenuHeadCode":"39",
-        "PropPubPopularMenuHeadCode":null,
-        "PropPubMenuHeadDescription":"Abecon",
-        "PropPubTaxType":"F",
-        "PropDeciamlAllowed":"2",
-        "Status":null
-     },
-     "PropPubMenuHeadCode":"39",
-     "MenuItemList":[
-        {
-           "PropPubMenuHeadCode":"39",
-           "PropMenuItemCode":"5770",
-           "PropPubMenuItemDescription":"Chicken Chilli",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Non veg",
-           "PropPubRate":200,
-           "PropPubQuantityDeciaml":"3",
-           "Status":null,
-           "Modifier":[
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":629,
-                 "ModifierName":"1 PLATE",
-                 "TouchScreenDescription":"1 PLATE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":625,
-                 "ModifierName":"1 X 2",
-                 "TouchScreenDescription":"1 X 2",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":626,
-                 "ModifierName":"2 X 4",
-                 "TouchScreenDescription":"2 X 4",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":654,
-                 "ModifierName":"299 modifier",
-                 "TouchScreenDescription":"299 modifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":10,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":623,
-                 "ModifierName":"BUTTER",
-                 "TouchScreenDescription":"BUTTER",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":620,
-                 "ModifierName":"CADDY",
-                 "TouchScreenDescription":"CADDY",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":638,
-                 "ModifierName":"ChetanModifier",
-                 "TouchScreenDescription":"ChetanModifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":2,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":636,
-                 "ModifierName":"Chilli Sauce",
-                 "TouchScreenDescription":"Chilli Sauce",
-                 "Chargeable":"1     ",
-                 "AllowChange":true,
-                 "Price":20,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":630,
-                 "ModifierName":"CHILLY",
-                 "TouchScreenDescription":"CHILLY",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":631,
-                 "ModifierName":"CUCUMBER",
-                 "TouchScreenDescription":"CUCUMBER",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":619,
-                 "ModifierName":"DO NOT SEND",
-                 "TouchScreenDescription":"DO NOT SEND",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":621,
-                 "ModifierName":"EGG",
-                 "TouchScreenDescription":"EGG",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":646,
-                 "ModifierName":"FROZEN",
-                 "TouchScreenDescription":"FROZEN",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":647,
-                 "ModifierName":"FROZEN 1",
-                 "TouchScreenDescription":"FROZEN 1",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":651,
-                 "ModifierName":"frozon212",
-                 "TouchScreenDescription":"frozon212",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":10,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":648,
-                 "ModifierName":"FROZON3",
-                 "TouchScreenDescription":"FROZON3",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":649,
-                 "ModifierName":"FROZON989",
-                 "TouchScreenDescription":"FROZON989",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":633,
-                 "ModifierName":"MAYONNAISE",
-                 "TouchScreenDescription":"MAYONNAISE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":635,
-                 "ModifierName":"MEDIUM",
-                 "TouchScreenDescription":"MEDIUM",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":624,
-                 "ModifierName":"MIX",
-                 "TouchScreenDescription":"MIX",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":637,
-                 "ModifierName":"Modi",
-                 "TouchScreenDescription":"Modi",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":50,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":618,
-                 "ModifierName":"OILY",
-                 "TouchScreenDescription":"OILY",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":627,
-                 "ModifierName":"ONION",
-                 "TouchScreenDescription":"ONION",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":100,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":643,
-                 "ModifierName":"POS12",
-                 "TouchScreenDescription":"POS12",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":634,
-                 "ModifierName":"RARE",
-                 "TouchScreenDescription":"RARE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":640,
-                 "ModifierName":"Regular",
-                 "TouchScreenDescription":"Regular",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":628,
-                 "ModifierName":"SEPARATE",
-                 "TouchScreenDescription":"SEPARATE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":639,
-                 "ModifierName":"ShawManFreeModifier",
-                 "TouchScreenDescription":"ShawManFreeModifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":617,
-                 "ModifierName":"SPICY",
-                 "TouchScreenDescription":"SPICY",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":650,
-                 "ModifierName":"Sugar syrup",
-                 "TouchScreenDescription":"ss",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":642,
-                 "ModifierName":"test modifier",
-                 "TouchScreenDescription":"test modifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":2,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":632,
-                 "ModifierName":"TOMATO",
-                 "TouchScreenDescription":"TOMATO",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":622,
-                 "ModifierName":"WHITE EGG",
-                 "TouchScreenDescription":"WHITE EGG",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":644,
-                 "ModifierName":"With extra cheese",
-                 "TouchScreenDescription":"With extra cheese",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":645,
-                 "ModifierName":"with salt",
-                 "TouchScreenDescription":"with salt",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              }
-           ]
-        },
-        {
-           "PropPubMenuHeadCode":"39",
-           "PropMenuItemCode":"478",
-           "PropPubMenuItemDescription":"Coldcofee Abeecon 200ml",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Veg",
-           "PropPubRate":40,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null,
-           "Modifier":[
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":629,
-                 "ModifierName":"1 PLATE",
-                 "TouchScreenDescription":"1 PLATE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":625,
-                 "ModifierName":"1 X 2",
-                 "TouchScreenDescription":"1 X 2",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":626,
-                 "ModifierName":"2 X 4",
-                 "TouchScreenDescription":"2 X 4",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":654,
-                 "ModifierName":"299 modifier",
-                 "TouchScreenDescription":"299 modifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":10,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":623,
-                 "ModifierName":"BUTTER",
-                 "TouchScreenDescription":"BUTTER",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":620,
-                 "ModifierName":"CADDY",
-                 "TouchScreenDescription":"CADDY",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":638,
-                 "ModifierName":"ChetanModifier",
-                 "TouchScreenDescription":"ChetanModifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":2,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":636,
-                 "ModifierName":"Chilli Sauce",
-                 "TouchScreenDescription":"Chilli Sauce",
-                 "Chargeable":"1     ",
-                 "AllowChange":true,
-                 "Price":20,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":630,
-                 "ModifierName":"CHILLY",
-                 "TouchScreenDescription":"CHILLY",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":631,
-                 "ModifierName":"CUCUMBER",
-                 "TouchScreenDescription":"CUCUMBER",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":619,
-                 "ModifierName":"DO NOT SEND",
-                 "TouchScreenDescription":"DO NOT SEND",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":621,
-                 "ModifierName":"EGG",
-                 "TouchScreenDescription":"EGG",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":646,
-                 "ModifierName":"FROZEN",
-                 "TouchScreenDescription":"FROZEN",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":647,
-                 "ModifierName":"FROZEN 1",
-                 "TouchScreenDescription":"FROZEN 1",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":651,
-                 "ModifierName":"frozon212",
-                 "TouchScreenDescription":"frozon212",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":10,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":648,
-                 "ModifierName":"FROZON3",
-                 "TouchScreenDescription":"FROZON3",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":649,
-                 "ModifierName":"FROZON989",
-                 "TouchScreenDescription":"FROZON989",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":633,
-                 "ModifierName":"MAYONNAISE",
-                 "TouchScreenDescription":"MAYONNAISE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":635,
-                 "ModifierName":"MEDIUM",
-                 "TouchScreenDescription":"MEDIUM",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":624,
-                 "ModifierName":"MIX",
-                 "TouchScreenDescription":"MIX",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":637,
-                 "ModifierName":"Modi",
-                 "TouchScreenDescription":"Modi",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":50,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":618,
-                 "ModifierName":"OILY",
-                 "TouchScreenDescription":"OILY",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":627,
-                 "ModifierName":"ONION",
-                 "TouchScreenDescription":"ONION",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":100,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":643,
-                 "ModifierName":"POS12",
-                 "TouchScreenDescription":"POS12",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":634,
-                 "ModifierName":"RARE",
-                 "TouchScreenDescription":"RARE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":640,
-                 "ModifierName":"Regular",
-                 "TouchScreenDescription":"Regular",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":628,
-                 "ModifierName":"SEPARATE",
-                 "TouchScreenDescription":"SEPARATE",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":639,
-                 "ModifierName":"ShawManFreeModifier",
-                 "TouchScreenDescription":"ShawManFreeModifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":617,
-                 "ModifierName":"SPICY",
-                 "TouchScreenDescription":"SPICY",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":650,
-                 "ModifierName":"Sugar syrup",
-                 "TouchScreenDescription":"ss",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":642,
-                 "ModifierName":"test modifier",
-                 "TouchScreenDescription":"test modifier",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":2,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":632,
-                 "ModifierName":"TOMATO",
-                 "TouchScreenDescription":"TOMATO",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":622,
-                 "ModifierName":"WHITE EGG",
-                 "TouchScreenDescription":"WHITE EGG",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":644,
-                 "ModifierName":"With extra cheese",
-                 "TouchScreenDescription":"With extra cheese",
-                 "Chargeable":"1     ",
-                 "AllowChange":false,
-                 "Price":1,
-                 "MenuItemCode":null
-              },
-              {
-                 "ModifierGroupCode":0,
-                 "ModifierGroupName":"",
-                 "ModifierCode":645,
-                 "ModifierName":"with salt",
-                 "TouchScreenDescription":"with salt",
-                 "Chargeable":"0     ",
-                 "AllowChange":false,
-                 "Price":0,
-                 "MenuItemCode":null
-              }
-           ]
-        },
-        {
-           "PropPubMenuHeadCode":"39",
-           "PropMenuItemCode":"480",
-           "PropPubMenuItemDescription":"Milkshake Abeecon 200ml",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Veg",
-           "PropPubRate":40,
-           "PropPubQuantityDeciaml":"1",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"39",
-           "PropMenuItemCode":"482",
-           "PropPubMenuItemDescription":"Swiss Hot Chocolate 200ml",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Veg",
-           "PropPubRate":40,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"39",
-           "PropMenuItemCode":"483",
-           "PropPubMenuItemDescription":"Teabag Abeecon 150ml",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Veg",
-           "PropPubRate":20,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        }
-     ]
-  },
-  {
-     "MenuHead":{
-        "PropPubModifierLinked":"1",
-        "PropPubMenuHeadCode":"89",
-        "PropPubPopularMenuHeadCode":null,
-        "PropPubMenuHeadDescription":"Add On (Foods)",
-        "PropPubTaxType":"F",
-        "PropDeciamlAllowed":"2",
-        "Status":null
-     },
-     "PropPubMenuHeadCode":"89",
-     "MenuItemList":[
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"1604",
-           "PropPubMenuItemDescription":"1 Egg Omlette (Plain)",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Non veg",
-           "PropPubRate":50.25,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"616",
-           "PropPubMenuItemDescription":"1 Pound Bread",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Veg",
-           "PropPubRate":800,
-           "PropPubQuantityDeciaml":"3",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"4527",
-           "PropPubMenuItemDescription":"Caesar Salad",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Veg",
-           "PropPubRate":25,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"4539",
-           "PropPubMenuItemDescription":"Crispy Chili Chicken",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Non veg",
-           "PropPubRate":100.5,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"5832",
-           "PropPubMenuItemDescription":"Fresh Lime Water",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"2",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Other",
-           "PropPubRate":500000,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"1059",
-           "PropPubMenuItemDescription":"Fried Egg",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Non veg",
-           "PropPubRate":500,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"1946",
-           "PropPubMenuItemDescription":"Green Apple",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Veg",
-           "PropPubRate":1000,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        },
-        {
-           "PropPubMenuHeadCode":"89",
-           "PropMenuItemCode":"5836",
-           "PropPubMenuItemDescription":"Potato Chips Zero Rate",
-           "PropPubMenuItemlineDescription":"",
-           "PropPubIncomeHeadCode":"1",
-           "PropPubImagePath":"",
-           "PropPubVegNonVeg":"Other",
-           "PropPubRate":10.8,
-           "PropPubQuantityDeciaml":"0",
-           "Status":null
-        }
-     ]
-  }
-]
-export var d_MenuHeadList = [
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "9",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "ADD ON FOOD",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "25",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "BAKERY & SAVOURY",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "45",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "BIRYANIS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "253",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "DOM ADD ONS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "256",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "DOM SIDES",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "61",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "DOSAS & UTTAPPAMS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "92",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "FOUNTAIN DRINKS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "115",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "HOT COFFEE",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "121",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "HOT TEA",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "133",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "IDLIS & WADAS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "157",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "INDIAN MINI MEALS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "186",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC 5 IN 1 MEAL BOX",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "185",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC BUCKETS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "184",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC BURGERS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "182",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC CHICKEN HC",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "181",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC CHICKEN SMOKY",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "180",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC FRIES",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "179",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC KRUSHERS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "177",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC RICE BOWLZ",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "175",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC SNACKS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "173",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KFC SWAP",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "218",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KK MEAL DEAL",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "220",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KK RINGS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "221",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "KK SHELLS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "132",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "MOCKTAILS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "135",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "MRP BEVERAGE",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "136",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "MRP FOOD",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "284",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "OLO-COEFFEE",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "285",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "OLO-Food",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "148",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "PERFECT PAIR",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "100",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "SANDWICHES",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "71",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "SNACKS",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  },
-  {
-    "PropPubModifierLinked": "0",
-    "PropPubMenuHeadCode": "197",
-    "PropPubPopularMenuHeadCode": null,
-    "PropPubMenuHeadDescription": "SUMMER COOLER",
-    "PropPubTaxType": "F",
-    "PropDeciamlAllowed": "2",
-    "Status": null
-  }
-]
-export const d_modifierObj = {
-  Modifier: [
-    {
-      AllowChange: false,
-      Chargeable: "0     ",
-      MenuItemCode: null,
-      ModifierCode: 626,
-      ModifierGroupCode: 0,
-      ModifierGroupName: "",
-      ModifierName: "2 X 4",
-      Price: 0,
-      TouchScreenDescription: "2 X 4",
-    },
-    {
-      AllowChange: false,
-      Chargeable: "1     ",
-      MenuItemCode: null,
-      ModifierCode: 654,
-      ModifierGroupCode: 0,
-      ModifierGroupName: "",
-      ModifierName: "299 modifier",
-      Price: 10,
-      TouchScreenDescription: "299 modifier", }
-  ],
-PreModifier: [],
-  Status: null
-}
+
 export const d_MenuDetails = {
    "MenuHeadList": [
      {
@@ -2201,33 +917,6 @@ export const d_MenuDetails = {
        "PropDeciamlAllowed": "2",
        "Status": ""
      },
-     {
-       "PropPubModifierLinked": "1",
-       "PropPubMenuHeadCode": "108",
-       "PropPubPopularMenuHeadCode": null,
-       "PropPubMenuHeadDescription": "Indian Special ",
-       "PropPubTaxType": "F",
-       "PropDeciamlAllowed": "2",
-       "Status": ""
-     },
-     {
-       "PropPubModifierLinked": "1",
-       "PropPubMenuHeadCode": "30",
-       "PropPubPopularMenuHeadCode": null,
-       "PropPubMenuHeadDescription": "Desserts ",
-       "PropPubTaxType": "F",
-       "PropDeciamlAllowed": "2",
-       "Status": ""
-     },
-     {
-       "PropPubModifierLinked": "1",
-       "PropPubMenuHeadCode": "110",
-       "PropPubPopularMenuHeadCode": null,
-       "PropPubMenuHeadDescription": "Amar Bangla ",
-       "PropPubTaxType": "F",
-       "PropDeciamlAllowed": "2",
-       "Status": ""
-     }
    ],
    "MenuItemList": [
      {
@@ -2470,493 +1159,244 @@ export const d_PropMenuItemDetails = [
       "ProPubSessionId":"249c0f20-95e8-11ea-c85b-616643f24c15",
       "ProPubStrPreModifierCode":""
    },
-   {
-      "ProPubStrMenuItemCode":"111339",
-      "ProPubIntQty":4,
-      "ProPubIntMenuComboModifier":"0",
-      "ProPubStrCurrentIncomeHeadCode":"",
-      "ProPubIntSelectedRowIndex":1,
-      "ProPubSessionId":"249c0f20-95e8-11ea-c85b-616643f24c15",
-      "ProPubStrPreModifierCode":""
-   },
-   {
-      "ProPubStrMenuItemCode":"111328",
-      "ProPubIntQty":3,
-      "ProPubIntMenuComboModifier":"0",
-      "ProPubStrCurrentIncomeHeadCode":"",
-      "ProPubIntSelectedRowIndex":2,
-      "ProPubSessionId":"249c0f20-95e8-11ea-c85b-616643f24c15",
-      "ProPubStrPreModifierCode":""
-   },
-   {
-      "ProPubStrMenuItemCode":"111334",
-      "ProPubIntQty":1,
-      "ProPubIntMenuComboModifier":"0",
-      "ProPubStrCurrentIncomeHeadCode":"",
-      "ProPubIntSelectedRowIndex":3,
-      "ProPubSessionId":"249c0f20-95e8-11ea-c85b-616643f24c15",
-      "ProPubStrPreModifierCode":""
-   },
-   {
-      "ProPubStrMenuItemCode":"111334",
-      "ProPubIntQty":1,
-      "ProPubIntMenuComboModifier":"0",
-      "ProPubStrCurrentIncomeHeadCode":"",
-      "ProPubIntSelectedRowIndex":4,
-      "ProPubSessionId":"249c0f20-95e8-11ea-c85b-616643f24c15",
-      "ProPubStrPreModifierCode":""
-   },
-   {
-      "ProPubIntMenuComboModifier":"0",
-      "ProPubStrItemDescription":"Extra Spicy",
-      "ProPubBoolIsAllowChange":true,
-      "ProPubStrModifierQtyCode":"0",
-      "ProPubStrPreModifierCode":"",
-      "ProPubIntQty":1,
-      "ProPubStrModifierCode":"81",
-      "ProPubSessionId":"249c0f20-95e8-11ea-c85b-616643f24c15",
-      "ProPubIntSelectedRowIndex":4
-   }
 ]
 
 //home
 export var d_homeDetails = {
-  "StrRestaurantLogo":"5718CC97-2CBD-4E65-AF80-243351CEC899",
-  "StrRestaurantBackImage":"E1D0066C-B29A-4991-9CC4-1AC418D96B3E",
-  "IntRestaurantTheme":0,
-  "StrRestaurantContactUs":"https://shawmansoftware.com/contact-us/",
-  "StrRestaurantAboutUs":"https://shawmansoftware.com/our-journey/",
-  "StrRestaurantMobileBackImage":"2AA92A58-136C-40AD-9149-F901A46797E5",
-  "StrDisplayText":"We are following safe and responsible dine-in",
-  "StrRestaurantDeliveryMsg":"We can only deliver order in {{minute}} minutes from now. Please select time after {{time}}",
-  "StrRestaurantClosedMsg":"As restaurant is closed please select the time between {{MorningTime}} and {{EveningTime}}",
-  "StrAccountName":"Taj Hotels",
-  "StrAccountDisplayMsg":"Order food online from the Taj Hotels restaurants",
-  "CityList":[
-     {
-        "CityId":1190,
-        "CityName":"Goa"
-     },
-     {
-        "CityId":1203,
-        "CityName":"Kolhapur"
-     },
-     {
-        "CityId":3,
-        "CityName":"Navi Mumbai"
-     },
-     {
-        "CityId":1034,
-        "CityName":"Thane"
-     }
-  ],
-  "LocationList":[
-     {
-        "CityId":3,
-        "LocationId":66,
-        "LocationName":"Airoli"
-     },
-     {
-        "CityId":1190,
-        "LocationId":1123,
-        "LocationName":"Assagao"
-     },
-     {
-        "CityId":3,
-        "LocationId":91,
-        "LocationName":"Ghansoli"
-     },
-     {
-        "CityId":3,
-        "LocationId":1162,
-        "LocationName":"Millenium Business Park"
-     },
-     {
-        "CityId":1203,
-        "LocationId":1144,
-        "LocationName":"Shahupuri"
-     },
-     {
-        "CityId":1034,
-        "LocationId":29,
-        "LocationName":"Thane Area"
-     }
-  ],
-  "RestaurantList":[
-     {
-        "RestaurantDeliveryList":[
-           {
-              "IsDeliver":0,
-              "RestaurantId":642213,
-              "AccountId":"844",
-              "GroupId":"844",
-              "RestaurantName":"Hammered",
-              "RestaurantLogo":"RL-6166c889-b2be-4788-afe5-b85d70a7b382",
-              "Cuisines":" Chinese Indian, Gujarati Indian, Kashmiri Indian, Mexican",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"1",
-              "MinTime":"90",
-              "IsRecentOrder":1,
-              "TotalPledge":31,
-              "Distance":"0",
-              "DeliveryFromTime":"11.00",
-              "DeliveryToTime":"19.00",
-              "FeedbackFacility":0,
-              "MorningDeliveryFromTime":"11:00 AM",
-              "MorningDeliveryToTime":" 7:00 PM",
-              "EveningDeliveryFromTime":" 7:00 PM",
-              "EveningDeliveryToTime":"11:00 PM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":90,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642242,
-              "AccountId":"907",
-              "GroupId":"907",
-              "RestaurantName":"Test Hotel",
-              "RestaurantLogo":"",
-              "Cuisines":" Andhra Indian, Bengali Indian",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"100",
-              "MinTime":"90",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0",
-              "DeliveryToTime":"0",
-              "FeedbackFacility":0,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":90,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642420,
-              "AccountId":"524",
-              "GroupId":"524",
-              "RestaurantName":"Cafe Sanchit",
-              "RestaurantLogo":"RL-6166c889-b2be-4788-afe5-b85d70a7b382",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"180",
-              "MinTime":"120",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0",
-              "DeliveryToTime":"0",
-              "FeedbackFacility":0,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":" 2:00 AM",
-              "ClosingTime":"12:30 PM",
-              "MinDeliveryTime":120,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642336,
-              "AccountId":"455",
-              "GroupId":"455",
-              "RestaurantName":"Tiffin Box",
-              "RestaurantLogo":"RL-2946f16b-3fab-4c11-9449-0c4e5854f495",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"100",
-              "MinTime":"50",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0.00",
-              "DeliveryToTime":"0.00",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":" 8:30 AM",
-              "EveningDeliveryToTime":"11:30 PM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":50,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642270,
-              "AccountId":"sb1",
-              "GroupId":"sb1",
-              "RestaurantName":"1 A Group",
-              "RestaurantLogo":"RL-38cf7dd9-055b-4c6a-83fb-06a29fd831d3",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"10",
-              "MinTime":"30",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0.00",
-              "DeliveryToTime":"0.00",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":" 7:00 PM",
-              "EveningDeliveryToTime":"11:30 PM",
-              "OpeningTime":"12:00 AM",
-              "ClosingTime":"12:30 AM",
-              "MinDeliveryTime":30,
-              "HomeDeliveryPickTime":"30",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642332,
-              "AccountId":"a2r",
-              "GroupId":"a2r",
-              "RestaurantName":"    The Yellow Chilly (Dineout Test)",
-              "RestaurantLogo":"logo-1.png-93cb51dd-9f53-406c-9e2a-0346ed3b8066",
-              "Cuisines":" Chinese Indian",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"01",
-              "MinTime":"180",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"7.00",
-              "DeliveryToTime":"5.30",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":" 7:00 AM",
-              "MorningDeliveryToTime":" 5:30 AM",
-              "EveningDeliveryFromTime":" 7:30 AM",
-              "EveningDeliveryToTime":"11:00 PM",
-              "OpeningTime":" 6:00 AM,  2:30 PM",
-              "ClosingTime":" 2:30 PM, 11:30 PM",
-              "MinDeliveryTime":180,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642347,
-              "AccountId":"524",
-              "GroupId":"524",
-              "RestaurantName":"Taj New",
-              "RestaurantLogo":"RL-a418e65f-0059-4f41-98e5-5ea13a62a050",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"200",
-              "MinTime":"0",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0",
-              "DeliveryToTime":"0",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":0,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642453,
-              "AccountId":"536",
-              "GroupId":"536",
-              "RestaurantName":"MUM CAFFECCINO T1C",
-              "RestaurantLogo":"RL-2946f16b-3fab-4c11-9449-0c4e5854f495",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"100",
-              "MinTime":"50",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0.00",
-              "DeliveryToTime":"24.00",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12.00 MN",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12.00 MN",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":50,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642454,
-              "AccountId":"536",
-              "GroupId":"536",
-              "RestaurantName":"MUM CURRY KITCHEN T1C",
-              "RestaurantLogo":"RL-2946f16b-3fab-4c11-9449-0c4e5854f495",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"100",
-              "MinTime":"50",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0.00",
-              "DeliveryToTime":"0.00",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":50,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642455,
-              "AccountId":"536",
-              "GroupId":"536",
-              "RestaurantName":"MUM FOOD@GATE B",
-              "RestaurantLogo":"RL-2946f16b-3fab-4c11-9449-0c4e5854f495",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"100",
-              "MinTime":"50",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"8.00",
-              "DeliveryToTime":"0.00",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":" 8:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":" 6:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":50,
-              "HomeDeliveryPickTime":"30",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642456,
-              "AccountId":"536",
-              "GroupId":"536",
-              "RestaurantName":"MUM FOOD@GATE C",
-              "RestaurantLogo":"RL-2946f16b-3fab-4c11-9449-0c4e5854f495",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"100",
-              "MinTime":"50",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0.00",
-              "DeliveryToTime":"0.00",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":50,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642457,
-              "AccountId":"536",
-              "GroupId":"536",
-              "RestaurantName":"MUM KFC",
-              "RestaurantLogo":"RL-2946f16b-3fab-4c11-9449-0c4e5854f495",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Navi Mumbai",
-              "MinOrder":"100",
-              "MinTime":"50",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0.00",
-              "DeliveryToTime":"0.00",
-              "FeedbackFacility":1,
-              "MorningDeliveryFromTime":"12:00 AM",
-              "MorningDeliveryToTime":"12:00 AM",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":50,
-              "HomeDeliveryPickTime":"",
-              "LocationId":1162
-           },
-           {
-              "IsDeliver":0,
-              "RestaurantId":642477,
-              "AccountId":"999",
-              "GroupId":"999",
-              "RestaurantName":"Sanchit's Cafe",
-              "RestaurantLogo":"",
-              "Cuisines":"",
-              "Location":"",
-              "City":"Goa",
-              "MinOrder":"100",
-              "MinTime":"40",
-              "IsRecentOrder":1,
-              "TotalPledge":0,
-              "Distance":"0",
-              "DeliveryFromTime":"0.30",
-              "DeliveryToTime":"23.30",
-              "FeedbackFacility":0,
-              "MorningDeliveryFromTime":"12:30 AM",
-              "MorningDeliveryToTime":"11:30 PM",
-              "EveningDeliveryFromTime":"12:00 AM",
-              "EveningDeliveryToTime":"12:00 AM",
-              "OpeningTime":"8.00 AM",
-              "ClosingTime":"11.59 PM",
-              "MinDeliveryTime":40,
-              "HomeDeliveryPickTime":"30",
-              "LocationId":1123
-           }
-        ],
-        "PolygonName":"",
-        "PolygonId":0,
-        "StatusCode":0,
-        "Status":"Success"
-     }
-  ]
+   "StrRestaurantLogo":"OLO/A-4/A-4A1-D07B35E7-96D0-4F2C-9005-0A0186D7F22A",
+   "StrRestaurantBackImage":"OLO/A-4/97365214-9B59-40FA-B789-A6088CDC5ABE",
+   "IntRestaurantTheme":0,
+   "StrRestaurantContactUs":"https://www.kahospitality.com/contact-us",
+   "StrRestaurantAboutUs":"https://www.kahospitality.com/about/overview",
+   "StrRestaurantMobileBackImage":"OLO/A-4/3F9F11D5-2FE4-421D-B804-224533FC93B8",
+   "StrDisplayText":"We are following safe and responsible dining.",
+   "StrRestaurantDeliveryMsg":"We can only deliver order in {{minute}} minutes from now. Please select time after {{time}}",
+   "StrRestaurantClosedMsg":"As restaurant is closed please select the time between {{MorningTime}} and {{EveningTime}}",
+   "StrAccountName":" KA Hospitality Pvt. Ltd",
+   "StrAccountDisplayMsg":"WELCOME TO KA HOSPITALITY",
+   "StrMinimumOrderMsg":",Minimum order value for online order is {Amount}, please add few more items.",
+   "CityList":[
+      {
+         "CityId":1201,
+         "CityName":"Bengaluru"
+      },
+      {
+         "CityId":278,
+         "CityName":"Kolkata"
+      },
+      {
+         "CityId":1,
+         "CityName":"Mumbai"
+      }
+   ],
+   "LocationList":[
+      {
+         "CityId":278,
+         "LocationId":927,
+         "LocationName":"Ballygunge"
+      },
+      {
+         "CityId":1,
+         "LocationId":6,
+         "LocationName":"Bandra Kurla Complex"
+      },
+      {
+         "CityId":1,
+         "LocationId":19,
+         "LocationName":"Colaba"
+      },
+      {
+         "CityId":1,
+         "LocationId":12,
+         "LocationName":"Linking Road"
+      },
+      {
+         "CityId":1201,
+         "LocationId":612,
+         "LocationName":"MG Road"
+      }
+   ],
+   "RestaurantList":[
+      {
+         "RestaurantDeliveryList":[
+            {
+               "IsDeliver":0,
+               "RestaurantId":9,
+               "AccountId":"656",
+               "GroupId":"656",
+               "RestaurantName":" Hakkasan Mumbai",
+               "RestaurantLogo":"RL-6993187d-1ab8-462b-be72-fdeb266cbac5",
+               "Cuisines":" Chinese",
+               "Location":"",
+               "City":"Mumbai",
+               "MinOrder":"100",
+               "MinTime":"10",
+               "IsRecentOrder":1,
+               "TotalPledge":0,
+               "Distance":"0",
+               "DeliveryFromTime":"0.00",
+               "DeliveryToTime":"24.00",
+               "FeedbackFacility":1,
+               "MorningDeliveryFromTime":"12:00 AM",
+               "MorningDeliveryToTime":"12.00 MN",
+               "EveningDeliveryFromTime":"12:00 AM",
+               "EveningDeliveryToTime":"12:00 AM",
+               "OpeningTime":"12:00 PM,  7:00 PM",
+               "ClosingTime":" 4:00 PM, 11:30 PM",
+               "MinDeliveryTime":10,
+               "HomeDeliveryPickTime":"10",
+               "LocationId":12
+            },
+            {
+               "IsDeliver":0,
+               "RestaurantId":11,
+               "AccountId":"656",
+               "GroupId":"656",
+               "RestaurantName":" Yauatcha - Mumbai",
+               "RestaurantLogo":"RL-5406b1b5-b969-4ece-9ddb-7eeddf6bbfd1",
+               "Cuisines":" Chinese",
+               "Location":"",
+               "City":"Mumbai",
+               "MinOrder":"500",
+               "MinTime":"30",
+               "IsRecentOrder":1,
+               "TotalPledge":0,
+               "Distance":"0",
+               "DeliveryFromTime":"0.00",
+               "DeliveryToTime":"24.00",
+               "FeedbackFacility":1,
+               "MorningDeliveryFromTime":"12:00 AM",
+               "MorningDeliveryToTime":"12.00 MN",
+               "EveningDeliveryFromTime":"12:00 AM",
+               "EveningDeliveryToTime":"12:00 AM",
+               "OpeningTime":"12:00 PM",
+               "ClosingTime":"11:30 PM",
+               "MinDeliveryTime":30,
+               "HomeDeliveryPickTime":"45",
+               "LocationId":6
+            },
+            {
+               "IsDeliver":0,
+               "RestaurantId":12,
+               "AccountId":"656",
+               "GroupId":"656",
+               "RestaurantName":" Yauatcha - Bangalore",
+               "RestaurantLogo":"RL-bf005ce8-417a-4355-963c-76d8338d2ca9",
+               "Cuisines":" Asian, Chinese",
+               "Location":"",
+               "City":"Bengaluru",
+               "MinOrder":"500",
+               "MinTime":"30",
+               "IsRecentOrder":1,
+               "TotalPledge":0,
+               "Distance":"0",
+               "DeliveryFromTime":"12.00",
+               "DeliveryToTime":"22.00",
+               "FeedbackFacility":1,
+               "MorningDeliveryFromTime":"12:00 PM",
+               "MorningDeliveryToTime":"10:00 PM",
+               "EveningDeliveryFromTime":"12:00 AM",
+               "EveningDeliveryToTime":"12:00 AM",
+               "OpeningTime":"12:00 PM",
+               "ClosingTime":"11:30 PM",
+               "MinDeliveryTime":30,
+               "HomeDeliveryPickTime":"45",
+               "LocationId":612
+            },
+            {
+               "IsDeliver":0,
+               "RestaurantId":43,
+               "AccountId":"656",
+               "GroupId":"656",
+               "RestaurantName":" Yauatcha - Kolkata",
+               "RestaurantLogo":"RL-c99ef142-8465-4ca3-8bfd-a92c205b82d3",
+               "Cuisines":" Asian, Chinese",
+               "Location":"",
+               "City":"Kolkata",
+               "MinOrder":"500",
+               "MinTime":"30",
+               "IsRecentOrder":1,
+               "TotalPledge":0,
+               "Distance":"0",
+               "DeliveryFromTime":"0.00",
+               "DeliveryToTime":"24.00",
+               "FeedbackFacility":1,
+               "MorningDeliveryFromTime":"12:00 AM",
+               "MorningDeliveryToTime":"12.00 MN",
+               "EveningDeliveryFromTime":"12:00 AM",
+               "EveningDeliveryToTime":"12:00 AM",
+               "OpeningTime":"12:00 PM",
+               "ClosingTime":"11:30 PM",
+               "MinDeliveryTime":30,
+               "HomeDeliveryPickTime":"45",
+               "LocationId":927
+            },
+            {
+               "IsDeliver":0,
+               "RestaurantId":680038,
+               "AccountId":"656",
+               "GroupId":"656",
+               "RestaurantName":" CinCin - BKC",
+               "RestaurantLogo":"RL-12d6cb6a-b637-4c80-9c90-01b8ae882fc2",
+               "Cuisines":"",
+               "Location":"",
+               "City":"Mumbai",
+               "MinOrder":"500",
+               "MinTime":"30",
+               "IsRecentOrder":1,
+               "TotalPledge":0,
+               "Distance":"0",
+               "DeliveryFromTime":"0.00",
+               "DeliveryToTime":"24.00",
+               "FeedbackFacility":1,
+               "MorningDeliveryFromTime":"12:00 AM",
+               "MorningDeliveryToTime":"12.00 MN",
+               "EveningDeliveryFromTime":"12:00 AM",
+               "EveningDeliveryToTime":"12:00 AM",
+               "OpeningTime":"8.00 AM",
+               "ClosingTime":"11.59 PM",
+               "MinDeliveryTime":30,
+               "HomeDeliveryPickTime":"45",
+               "LocationId":6
+            },
+            {
+               "IsDeliver":0,
+               "RestaurantId":680252,
+               "AccountId":"656",
+               "GroupId":"656",
+               "RestaurantName":" Nara Thai Colaba",
+               "RestaurantLogo":"RL-c7532b81-cf8a-44fd-8657-3456abe9fd33",
+               "Cuisines":"",
+               "Location":"",
+               "City":"Mumbai",
+               "MinOrder":"500",
+               "MinTime":"30",
+               "IsRecentOrder":1,
+               "TotalPledge":0,
+               "Distance":"0",
+               "DeliveryFromTime":"0.00",
+               "DeliveryToTime":"24.00",
+               "FeedbackFacility":1,
+               "MorningDeliveryFromTime":"12:00 AM",
+               "MorningDeliveryToTime":"12.00 MN",
+               "EveningDeliveryFromTime":"12:00 AM",
+               "EveningDeliveryToTime":"12:00 AM",
+               "OpeningTime":"12:00 PM",
+               "ClosingTime":"11:30 PM",
+               "MinDeliveryTime":30,
+               "HomeDeliveryPickTime":"45",
+               "LocationId":19
+            }
+         ],
+         "PolygonName":"",
+         "PolygonId":0,
+         "StatusCode":0,
+         "Status":"Success"
+      }
+   ],
+   "MyPOSMenuDetail":null
 }
+export var d_selectedRest = {"IsDeliver":0,"RestaurantId":642477,"AccountId":"sb1","GroupId":"sb1","RestaurantName":"Sanchit's Cafe","RestaurantLogo":"RL-d44b1559-1fe6-422e-8ce3-c1a27e5a28b0","Cuisines":"","Location":"","City":"Goa","MinOrder":"300","MinTime":"15","IsRecentOrder":1,"TotalPledge":0,"Distance":"0","DeliveryFromTime":"0.00","DeliveryToTime":"11.30","FeedbackFacility":0,"MorningDeliveryFromTime":"12:00 AM","MorningDeliveryToTime":"11:30 AM","EveningDeliveryFromTime":"12:00 PM","EveningDeliveryToTime":"12.00 MN","OpeningTime":" 7:00 AM,  7:00 AM","ClosingTime":"11:30 PM, 11:30 PM","MinDeliveryTime":15,"HomeDeliveryPickTime":"15","LocationId":1152};
 export const d_LandingPageBanner = {
    "AllRestaurantDishes":[
       {
@@ -2996,39 +1436,6 @@ export const d_LandingPageBanner = {
          "ChainOfRest":0,
          "LastFlag":0
       },
-      {
-         "Id":276,
-         "RestaurantId":642336,
-         "ImageName":"ACI-fd230098-dc48-42ce-a793-75d567f89195",
-         "TimePeriod":0,
-         "RankOrder":0,
-         "Message":null,
-         "AccountId":3385,
-         "ChainOfRest":0,
-         "LastFlag":0
-      },
-      {
-         "Id":277,
-         "RestaurantId":642336,
-         "ImageName":"ACI-0081263c-49e9-4210-9d43-64595d9df1b7",
-         "TimePeriod":0,
-         "RankOrder":0,
-         "Message":null,
-         "AccountId":3385,
-         "ChainOfRest":0,
-         "LastFlag":0
-      },
-      {
-         "Id":278,
-         "RestaurantId":642336,
-         "ImageName":"ACI-ddbb32c2-57c5-4ced-b098-4a9c572abb0a",
-         "TimePeriod":0,
-         "RankOrder":0,
-         "Message":null,
-         "AccountId":3385,
-         "ChainOfRest":0,
-         "LastFlag":0
-      }
    ],
    "SuggestedImages":null,
    "PopUpImages":[
@@ -3063,136 +1470,69 @@ export const d_LandingPageBanner = {
 //checkout page
 export const d_CheckTotalAmount = {
    "PropTotalDiscount":0.0,
-   "PropDeliveryChanges":50.0,
+   "PropDeliveryChanges":0.0,
    "PropMessageCode":"",
    "PropPubMessage":"",
-   "PropTotalAmount":471.0,
-   "PropTotalTax":28.55,
+   "PropTotalAmount":0,
+   "PropTotalTax":0,
    "Status":null,
-   "PropGrandTotalAmount":599.55,
-   "PropPubOrderCharges":[
-      {
-         "PropPubMenuHeadCode":"",
-         "PropMenuItemCode":"1",
-         "PropPubMenuItemDescription":"Delivery Charges ",
-         "PropPubMenuItemlineDescription":"Delivery Charges ",
-         "PropPubIncomeHeadCode":"1",
-         "PropPubImagePath":null,
-         "PropPubVegNonVeg":"",
-         "PropPubRate":50.0,
-         "PropPubQuantityDeciaml":"2",
-         "Status":null,
-         "ItemType":"1"
-      },
-      {
-         "PropPubMenuHeadCode":"",
-         "PropMenuItemCode":"2",
-         "PropPubMenuItemDescription":"Packaging Charges ",
-         "PropPubMenuItemlineDescription":"Packaging Charges ",
-         "PropPubIncomeHeadCode":"2",
-         "PropPubImagePath":null,
-         "PropPubVegNonVeg":"",
-         "PropPubRate":50.0,
-         "PropPubQuantityDeciaml":"2",
-         "Status":null,
-         "ItemType":"2"
-      }
-   ]
+   "PropGrandTotalAmount":0,
+   "PropPubOrderCharges":[]
 }
-export const d_otpSend = {"Message":"SMS Send Successfully","OTP":"1461"}
-export const d_createCustomerData = {"CustomerId":117542,"Name":"Deepak","Mobile":"8828292497","Message":"Success","CouponMessage":"Oops!! Coupons not added in your tiffin box."}
+export const d_otpSend = {"Message":"SMS Send Successfull","OTP":""}
+export const d_createCustomerData = {"CustomerId":undefined,"Name":"","Mobile":"","Message":"","CouponMessage":"Oops!! Coupons not added in your tiffin box."}
 export const d_getCustomerId = {
   CustomerCity: "Mumbai",
-CustomerId: 117519,
+CustomerId: undefined,
 CustomerImage: "",
-CustomerName: "Raju",
-EmailID: "abc@mail.com",
+CustomerName: "",
+EmailID: "",
 IsRestaurant: null,
 Message: null,
-Mobile: "8898367093",
+Mobile: "",
 RestaurantID: null,
 RestaurantName: null,
 VerificationStatus: null,
 }
 export const d_addressList = [{
-  Address: "abc bdc PIN:410200",
-  AddressId: 247,
+  Address: "",
+  AddressId: 0,
   Apartment_LocalityName: "Millenium Business Park",
   CityId: 3,
   CityName: "Navi Mumbai",
   CompanyName: "",
-  CustomerId: 117519,
+  CustomerId: 0,
   DeliveryArea: "Patel Wadi, Madh, Mumbai",
   FlatNo_HouseNo: "abc",
   Isdefault: 0,
-  LocationId: 1162,
+  LocationId: 0,
   LocationName: "",
-  PostCode: 410200,
+  PostCode: 0,
   Status: null
-},
-  {
-    Address: "abc bbc abc PIN:410212",
-  AddressId: 246,
-  Apartment_LocalityName: "Millenium Business Park",
-  CityId: 3,
-  CityName: "Navi Mumbai",
-  CompanyName: "",
-  CustomerId: 117519,
-  DeliveryArea: "Patel Wadi, Madh, Mumbai",
-  FlatNo_HouseNo: "abc bbc",
-  Isdefault: 0,
-  LocationId: 1162,
-  LocationName: "",
-  PostCode: 410212,
-  Status: null}
-]
-export const d_getOrder = {"OrderId":"609C3DA6DF3949B","Token":"","Status":null}
+}]
+export const d_getOrder = {"OrderId":"","Token":"","Status":null}
 export const d_paymentMethodList = [
-  {PaymentType: "Cash On Delivery", IsActive: 1, Status: null},
- {PaymentType: "Wallet", IsActive: 1, Status: null},
- {PaymentType: "Online Payment", IsActive: 1, Status: null}
+  {PaymentType: "", IsActive: 1, Status: null},
 ]
+export const d_InsertOrderDetails = {
+   Message: "POS Bill NO Updated Sucessfully",
+   MessageCode: "FB00000397",
+   PaymentFlag: false,
+   TransactionId: null,
+} 
+export const d_OrderStatus = [{"RestaurantId":642477,"RestaurantName":"Sanchit's Cafe","CityName":"Goa","LocationName":"Panaji","RestaurantLogo":"RL-d44b1559-1fe6-422e-8ce3-c1a27e5a28b0","Cuisines":"","OrderId":5376,"TotalAmount":"600.00","OrderDate":"19 May 2020","Time":"11:33AM","ContactNumber":"","OrderType":"COD","OrderStatus":"Delivered","BillNo":"FB00000144","FeedbackFacility":0,"Status":null,"SpecialInstruction":"","DeliveryAddress":"17 Pen","SubTotal":"600.00","TotalTax":"30.00","GrandTotal":"630.00","PropPubMenuItemList":[{"PropPubMenuHeadCode":"371","PropMenuItemCode":"111329","PropPubMenuItemDescription":"Malai kulfi","PropPubMenuItemlineDescription":"","PropPubIncomeHeadCode":null,"PropPubImagePath":"642477_111329","PropPubVegNonVeg":"Veg","PropPubRate":200.0,"PropPubQuantityDeciaml":null,"Status":null,"ItemType":"0","Quantity":"1"},{"PropPubMenuHeadCode":"371","PropMenuItemCode":"111322","PropPubMenuItemDescription":"Jamun e Rabdi","PropPubMenuItemlineDescription":"","PropPubIncomeHeadCode":null,"PropPubImagePath":"642477_111322","PropPubVegNonVeg":"Veg","PropPubRate":200.0,"PropPubQuantityDeciaml":null,"Status":null,"ItemType":"0","Quantity":"1"},{"PropPubMenuHeadCode":"371","PropMenuItemCode":"111328","PropPubMenuItemDescription":"Ice cream","PropPubMenuItemlineDescription":"","PropPubIncomeHeadCode":null,"PropPubImagePath":"","PropPubVegNonVeg":"Veg","PropPubRate":200.0,"PropPubQuantityDeciaml":null,"Status":null,"ItemType":"0","Quantity":"1"}],"PropPubPackingDeliveryList":[],"PropPubModifierList":[],"PropPubTaxList":[{"TaxCode":"543","TaxTitle":"SGST 2.5 %","TaxDescription":"SGST 2.5 %","TaxType":"percentage","ApplicableOn":"item.price","Value":"2.500000","TaxAmount":"15"},{"TaxCode":"542","TaxTitle":"CGST 2.5 %","TaxDescription":"CGST 2.5 %","TaxType":"percentage","ApplicableOn":"item.price","Value":"2.500000","TaxAmount":"15"}]}]
+const abc = `https://fmtest.dishco.com/shawmanservices/api/HDInsertOrder/FunPubInsertOrderDetails?strLocPaymentOrderId=329D740E502045F&IntLocRestaurantId=642477&strLoCPaymentMode=COD%7CNA%7CNA%7CNA&IntLocCustomerId=117519&strLocCardNumber=&strLocOrderDate=06/02/2020&strLocDeliveryArea=Patel%20Wadi,%20Madh,%20Mumbai&TotalAmount=575&strLocTransactionStatus=Success&strLocMerchantId=&intLocAddressId=247&strLocTocken=&strLocTransactionId=&PropMenuItemDetails=%5B%7B%22ProPubStrMenuItemCode%22:%22111341%22,%22ProPubIntQty%22:5,%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrCurrentIncomeHeadCode%22:%22%22,%22ProPubIntSelectedRowIndex%22:0,%22ProPubSessionId%22:%22f47fb900-a4d2-11ea-8d96-496bdc470853%22,%22ProPubStrPreModifierCode%22:%22%22%7D,%7B%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrItemDescription%22:%22Tomato%20Sauce%22,%22ProPubBoolIsAllowChange%22:true,%22ProPubStrModifierQtyCode%22:%220%22,%22ProPubStrPreModifierCode%22:%22%22,%22ProPubIntQty%22:5,%22ProPubStrModifierCode%22:%22104%22,%22ProPubSessionId%22:%22f47fb900-a4d2-11ea-8d96-496bdc470853%22,%22ProPubIntSelectedRowIndex%22:0%7D%5D&PropCounterSaleOrderDetail=%5B%7B%22ProPubSessionId%22:%22f47fb900-a4d2-11ea-8d96-496bdc470853%22,%22ProPubStrPaymode%22:%22C%22%7D%5D&StrLocDeliveryType=H&strLocComment=&StrLocPickupTime=19.08`
 
-export const d_propMenuItemDetails = [
-  {
-     "ProPubStrMenuItemCode":"478",
-     "ProPubIntQty":2,
-     "ProPubIntMenuComboModifier":"0",
-     "ProPubStrCurrentIncomeHeadCode":"1",
-     "ProPubIntSelectedRowIndex":0,
-     "ProPubSessionId":"c5b62100-9455-11ea-e577-21adaa92055f",
-     "ProPubStrPreModifierCode":""
-  },
-  {
-     "ProPubIntMenuComboModifier":"0",
-     "ProPubStrItemDescription":"299 modifier",
-     "ProPubBoolIsAllowChange":true,
-     "ProPubStrModifierQtyCode":"0",
-     "ProPubStrPreModifierCode":"",
-     "ProPubIntQty":2,
-     "ProPubStrModifierCode":"654",
-     "ProPubSessionId":"c5b62100-9455-11ea-e577-21adaa92055f",
-     "ProPubIntSelectedRowIndex":0
-  },
-  {
-   
-    "ProPubStrMenuItemCode":"478",
-     "ProPubIntQty":1,
-     "ProPubIntMenuComboModifier":"0",
-     "ProPubStrCurrentIncomeHeadCode":"1",
-     "ProPubIntSelectedRowIndex":1,
-     "ProPubSessionId":"c5b62100-9455-11ea-e577-21adaa92055f",
-     "ProPubStrPreModifierCode":""
-  },
-  {
-     "ProPubIntMenuComboModifier":"0",
-     "ProPubStrItemDescription":"1 PLATE",
-     "ProPubBoolIsAllowChange":true,
-     "ProPubStrModifierQtyCode":"0",
-     "ProPubStrPreModifierCode":"",
-     "ProPubIntQty":1,
-     "ProPubStrModifierCode":"629",
-     "ProPubSessionId":"c5b62100-9455-11ea-e577-21adaa92055f",
-     "ProPubIntSelectedRowIndex":1
-  }
+//dineIn
+export const d_tableList = [
+   {
+     "PropPubRestaurantId": 642489,
+     "PropPubTableCode": "T4",
+     "PropPubTableNo": "Table-4"
+   },
+   {
+     "PropPubRestaurantId": 642489,
+     "PropPubTableCode": "T4",
+     "PropPubTableNo": "Table-4"
+   }
 ]

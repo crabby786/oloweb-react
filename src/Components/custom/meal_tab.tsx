@@ -1,255 +1,46 @@
-import React from "react";
-import Tabs from "@material-ui/core/Tabs";
+import { Button, FormControlLabel, Switch, withStyles, CircularProgress } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
-import {
-  Button,
-  Switch,
-  CircularProgress,
-  FormControlLabel,
-  withStyles,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  Checkbox,
-  ListItemText,
-  InputAdornment,
-  TextField,
-} from "@material-ui/core";
-import FullScreenDialog from "../full_dialog";
-import { TabPanel, a11yProps } from "../UiComps/VerticalTabs";
-import {
-  RestaurantDeliveryList,
-  ICheckTotalAmount,
-} from "../../Models/RestListModel";
-import {
-  HDCheckTotalAmountParams,
-  HDCheckTotalAmount,
-} from "../../Constants/OloApi";
-import { d_TotalAmountObj } from "../../Constants/dummy";
-import { getDataWithTypeAction } from "../../Store/Actions/restListAction";
-import { compose } from "recompose";
-import { homeStyle } from "../../Styles/jss/homePageStyles";
+import Tabs from "@material-ui/core/Tabs";
+import withWidth from "@material-ui/core/withWidth";
+import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import {
-  MenuItemList,
-  ImyCart,
-  IMenuDetailsSingleApi,
-  Modifier,
-  MenuHeadList,
-} from "../../Models/restDetailModel";
-import { Counter } from "../FormComps";
-import withWidth from "@material-ui/core/withWidth";
-
-const ModsDrawer = (props) => {
-  let menu: MenuItemList = props.currentMod.menu,
-    Modifier = props.currentMod.Modifier,
-    mealPrice = props.currentMod.mealPrice;
-
-  return (
-    <Drawer
-      PaperProps={{ style: { maxHeight: "70vh" } }}
-      anchor="bottom"
-      open={props.isOpenDr}
-      onClose={() => props.toggleDrawer(false)}
-    >
-      <header className="border-bottom p-2 px-3">
-        <div className="float-right">
-          <Button
-            variant="outlined"
-            onClick={() =>
-              props.addMenuToCart(props.currentMod.hid, props.currentMod.mid)
-            }
-            color="primary"
-          >
-            {`Add - `}
-            <span className="rupee"></span>
-            {menu.PropPubRate && menu.PropPubRate.toFixed(2)}
-          </Button>{" "}
-          <Button
-            variant="outlined"
-            onClick={() => props.toggleDrawer(false)}
-            color="primary"
-          >
-            cancel
-          </Button>
-          {/* <i
-          className="fa fa-close float-right"
-          onClick={() =>
-              props.toggleDrawer(false)
-          }
-        /> */}
-        </div>
-        <h3>{menu.PropPubMenuItemDescription}</h3>
-
-        <h4 className="text-muted">
-          {menu.PropPubMenuItemlineDescription &&
-          menu.PropPubMenuItemlineDescription !== "" ? (
-            menu.PropPubMenuItemlineDescription
-          ) : (
-            <span>
-              <span className="rupee" />
-              {menu.PropPubRate}
-            </span>
-          )}
-        </h4>
-      </header>
-      <List
-        style={{
-          width: "100%",
-          height: "60vh",
-          overflowY: "auto",
-        }}
-      >
-        {Modifier.map((value, i) => {
-          const labelId = `checkbox-list-label-${i}`;
-          return (
-            <ListItem
-              key={i}
-              role={undefined}
-              dense
-              button
-              onClick={() => props.handleToggleMod(i)}
-            >
-              <ListItemIcon>
-                <Checkbox
-                  edge="start"
-                  checked={props.checked.indexOf(i) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{
-                    "aria-labelledby": labelId,
-                  }}
-                />
-              </ListItemIcon>
-              <ListItemText id={labelId} primary={value.ModifierName} />
-              <div>
-                {" "}
-                <span className="rupee"></span> {value.Price}{" "}
-              </div>
-            </ListItem>
-          );
-        })}
-      </List>
-      <div className="float-right">
-        <Button
-          variant="outlined"
-          onClick={() =>
-            props.addMenuToCart(props.currentMod.hid, props.currentMod.mid)
-          }
-          color="primary"
-        >
-          {`Add - `}
-          <span className="rupee" />
-          {mealPrice && mealPrice.toFixed(2)}
-        </Button>{" "}
-      </div>
-    </Drawer>
-  );
-};
-
-const MealList = (props) => (
-  <div className="meal-list">
-    <ul className="list-unstyled">
-      <li className="meal-list-item">
-        <div className="meal-img-box">
-          <img
-            src={props.item.PropPubImagePath}
-            className="img-fluid meal-img"
-            alt=""
-          />
-          <i
-            className={props.item.PropPubVegNonVeg == "Veg" ? "veg" : "non veg"}
-          ></i>
-        </div>
-        <div className="caption-meal">
-          <h4>{props.item.PropPubMenuItemDescription}</h4>
-          {!props.isCart && 
-            <h5>{props.item.PropPubMenuItemlineDescription}</h5>
-          }
-          
-          <p className="item-rate">
-            <i
-              className="rupee"
-              aria-hidden="true"
-              title="Copy to use rupee"
-            ></i>{" "}
-            {" " + props.item.PropPubRate}{" "}
-          </p>
-          <div>
-                { props.cart && props.isCart ? props.cart.addonList.map((add, j) => (
-                  <span key={j}>
-                    {" "}
-                    {add.ProPubStrItemDescription}{" "}
-                  </span>
-                )) : ""}
-              </div>
-        </div>
-        <div className="add-control Qty align-self-center">
-          {(props.toggleCounter(
-            props.item.PropPubMenuHeadCode,
-            props.item.PropMenuItemCode
-          ) > -1) || props.isCart ? (
-            <Counter
-              upgrader={() =>
-                props.plusMenuQty(
-                  props.item.PropPubMenuHeadCode,
-                  props.item.PropMenuItemCode
-                )
-              }
-              degrader={() =>
-                props.minusMenuQty(
-                  props.item.PropPubMenuHeadCode,
-                  props.item.PropMenuItemCode
-                )
-              }
-              count={props.i}
-            />
-          ) : (
-            <>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                onClick={() =>
-                  props.addMenuToCart(
-                    props.item.PropPubMenuHeadCode,
-                    props.item.PropMenuItemCode
-                  )
-                }
-              >
-                {" "}
-                Add{" "}
-              </Button>
-              {props.PropPubModifierLinked === "1" && (
-                <h5 className="text-success mt-1 text-center small">Customizable</h5>
-              )}
-            </>
-          )}
-        </div>
-      </li>
-    </ul>
-  </div>
-);
+import { compose } from "recompose";
+import { HDCheckTotalAmount, HDCheckTotalAmountParams, ProPubSessionId, GetMenuDetailsSingleApiParams, GetMenuDetailsSingleApi,tableNameValidateParams,tableNameValidate } from "../../Constants/OloApi";
+import { IMenuDetailsSingleApi, ImyCart, MenuHeadList, MenuItemList, Modifier } from "../../Models/restDetailModel";
+import { RestaurantDeliveryList, IrestData,IMyPOSMenuDetail } from "../../Models/RestListModel";
+import { getDataWithTypeAction } from "../../Store/Actions/restListAction";
+import { homeStyle } from "../../Styles/jss/homePageStyles";
+import FullScreenDialog from "../full_dialog";
+import { a11yProps, TabPanel } from "../UiComps/VerticalTabs";
+import { format } from "date-fns";
+import { RestHeader } from "../../Pages/comps/rest_detail_header";
+import { MealList, ModsDrawer, TableDrawer } from "../../Pages/comps/rest_details_comps";
+import clsx from "clsx";
 
 class MealTab extends React.Component<any, any> {
+  readonly restData:IrestData = this.props.restData;
+  readonly FlavourCode = this.restData.homeDetails.MyPOSMenuDetail ? this.restData.homeDetails.MyPOSMenuDetail.IntMyPOSPUSHFlavourCode : 0 // 1= "eMenu" 2="JustOrder"
+  readonly tableList = this.restData.tableList
+
+  // StrMyPOSPUSHFlavourDescription: "eMenu"
   state = {
     menuTabValue: 0,
-    searchKey: "",
     isDialogeOpen: false,
+    searchKey: "",
+    MenuItemList: [],
     filter: { isVeg: false },
     cartTotal: 0,
     myCart: [],
     itemAmt: 0,
     itemQty: 1,
     value: 0,
-    menuList2: [...this.props.restData.menuDetails.MenuItemList],
-    MenuItemList: this.props.restData.menuDetails.MenuItemList,
     MenuItemModifier: [],
     checked: [],
     isOpenDr: false,
+    selectedRest: { ...this.restData.restObj },
     modsData: [],
+    menuDetails: {flavourCode:0,flavourDescription:"", MenuHeadList: [], MenuItemList: [], MenuItemModifierList: [] },
     currentMod: {
       menu: { Modifier: [] },
       hid: "",
@@ -257,6 +48,99 @@ class MealTab extends React.Component<any, any> {
       Modifier: [],
       mealPrice: 0,
     },
+    selectObj: {...this.restData.selectObj},
+    toggle:{ askTable:false},
+    tableList:[...this.tableList],
+    justOrderData:{isValidTable:null}
+  };
+  
+  constructor(props){
+    super(props)
+  }
+  static getDerivedStateFromProps(props, state) {
+    let { restData } = props;
+    let { MenuHeadList, MenuItemList, MenuItemModifierList } = restData.menuDetails;
+    if ( MenuHeadList !== null && MenuHeadList.length && state.menuDetails.MenuHeadList.length < 1 ) {
+      let menuItemList = restData.updatedMenuItemList.length ? restData.updatedMenuItemList : [...MenuItemList].map((obj) =>  {
+          obj.Qty = 0;
+          obj.cartQty = 0;
+          return obj;
+      })
+      let flavourCode = restData.menuDetails.IntMyPOSPUSHFlavourCode ? restData.menuDetails.IntMyPOSPUSHFlavourCode : 0;
+      return { menuDetails: { ...state.menuDetails, MenuHeadList, MenuItemList, MenuItemModifierList,flavourCode },MenuItemList:menuItemList }
+    }
+    else if (state.selectObj !== restData.selectObj) {
+      return { selectObj: restData.selectObj }
+    }
+    // else if( state.selectedRest !== restData.restObj ) {
+    //   return {selectedRest : restData.restObj}
+    // }
+    return null
+  }
+  componentDidMount = () => {
+    const { menuDetails,selectObj } = this.state
+    switch (this.FlavourCode) {
+      case 2: {
+        if(this.state.tableList.length && this.state.tableList[0].PropPubTableNo) {return}
+        else {
+        this.setState({toggle:{...this.state.toggle, askTable:true}})
+        }
+      }
+        break;
+      case 0 || 1: {
+        if (menuDetails.MenuHeadList.length < 1 ) {
+        const restId = selectObj.restId
+        const query = { ...GetMenuDetailsSingleApiParams }
+        query.StrLocRestaurantId = restId;
+        const reqParams = { minLoading: true }
+        this.props
+          .getDataWithParams(query, GetMenuDetailsSingleApi, "menuDetails", { ...reqParams })
+        }
+      }
+      default:
+        break;
+    }
+    if (menuDetails.MenuHeadList.length < 1 ) {
+      const restId = selectObj.restId
+      const query = { ...GetMenuDetailsSingleApiParams }
+      query.StrLocRestaurantId = restId;
+      const reqParams = { minLoading: true }
+      this.props
+        .getDataWithParams(query, GetMenuDetailsSingleApi, "menuDetails", { ...reqParams })
+    }
+    if(this.props.restData.myCart.length) {
+      this.setState({myCart:this.restData.myCart, cartTotal:this.restData.cartTotal,menuItemList:this.restData.updatedMenuItemList })
+    }
+  };
+
+  filterBy = (value) => {
+    let { filter } = this.state;
+    let isTrue = filter[value];
+    let filteredList = this.state.MenuItemList;
+    if (!isTrue)
+      filteredList = this.props.restData.menuDetails.MenuItemList.filter(
+        (menu) => menu.PropPubVegNonVeg === "Veg"
+      );
+    else {
+      filteredList = this.props.restData.menuDetails.MenuItemList;
+    }
+
+    this.setState({
+      ...this.state,
+      filter: { ...filter, [value]: !isTrue },
+      MenuItemList: [...filteredList],
+    });
+  };
+  searchMenu = (e) => {
+    let { name, value } = e.target;
+    let filteredList = this.props.restData.menuDetails.MenuItemList.filter(
+      (menu) => {
+        let keyRegx = new RegExp(value, "i");
+        let temp = menu.PropPubMenuItemDescription.search(keyRegx);
+        return temp === -1 ? false : true;
+      }
+    );
+    this.setState({ [name]: value, MenuItemList: [...filteredList] });
   };
 
   toggleCounter = (headId, menuId) => {
@@ -267,6 +151,18 @@ class MealTab extends React.Component<any, any> {
     );
     return itemIndex;
   };
+  handleTableChange = (value) => { 
+     let params = {...tableNameValidateParams};
+     params.IntLocRestaurantId = this.restData.selectObj.restId
+     params.StrLocTableName = value.toString();
+    this.props.getDataWithParams(params,tableNameValidate,'',{})
+    .then(obj=> {
+      const {boolMyPOSTableValidate} = obj.payload
+      let tableList = [...this.state.tableList];
+      tableList.push({PropPubTableNo:value.toString()})
+      this.setState({justOrderData:{...this.state.justOrderData,isTableValid:obj.payload.boolMyPOSTableValidate}, toggle:{...this.state.toggle,askTable:!boolMyPOSTableValidate },tableList  })
+    } )
+  }
   //checklist
   handleToggleMod = (value) => {
     const { checked } = this.state;
@@ -292,14 +188,14 @@ class MealTab extends React.Component<any, any> {
   addMenuToCart = (hid, mid) => {
     const { actMenu: MenuItem, actHead } = this.getActive(hid, mid);
     if (actHead.PropPubModifierLinked === "0") {
-      //cart Item
+      // to_do create session cart Item
       let cartItem = {
         ProPubStrMenuItemCode: MenuItem.PropMenuItemCode,
         ProPubIntQty: 1,
         ProPubIntMenuComboModifier: 0,
         ProPubStrCurrentIncomeHeadCode: MenuItem.PropPubIncomeHeadCode,
         ProPubIntSelectedRowIndex: this.state.myCart.length,
-        ProPubSessionId: "e198fa90-92d5-11ea-d69c-450d36e5fca4",
+        ProPubSessionId ,
         ProPubStrPreModifierCode: "",
         PropPubRate: MenuItem.PropPubRate,
       };
@@ -309,10 +205,18 @@ class MealTab extends React.Component<any, any> {
         MenuItem,
       };
       let cartTotal = this.state.cartTotal + MenuItem.PropPubRate;
+      // menu qty update
+    let menuItemList:MenuItemList[] = [...this.state.MenuItemList];
+    let menuIndex = menuItemList.findIndex(obj=> obj.PropMenuItemCode === mid ) 
+    let menuItem = {...menuItemList[menuIndex]};
+    menuItem.Qty += 1
+    menuItem.cartQty += 1
+    menuItemList[menuIndex] = menuItem;
       this.setState({
         ...this.state,
         myCart: [...this.state.myCart, cartItemExt],
         cartTotal,
+        MenuItemList:menuItemList
       });
     } else {
       this.showMods(hid, mid);
@@ -321,7 +225,7 @@ class MealTab extends React.Component<any, any> {
 
   //mods
   showMods = (hid, mid) => {
-    const { actMenu, actHead, actMod } = this.getActive(hid, mid);
+    const { actMenu, actMod } = this.getActive(hid, mid);
     this.setState({
       currentMod: {
         Modifier: actMod,
@@ -336,16 +240,23 @@ class MealTab extends React.Component<any, any> {
   };
 
   gotoCheck = () => {
-    let myCart = [...this.state.myCart];
-    let restData: RestaurantDeliveryList = this.props.restObj;
-    let PropMenuItemDetails = [];
-    let PropCounterSaleOrderDetail: [
+    const {myCart} = this.state;
+   let restObj = this.restData.restObj
+   if(Number(restObj.MinOrder) > this.state.cartTotal) {
+     let errorObj = {Message:`Minimum order value for online order is ${restObj.MinOrder}, Please add few more items.`}
+     this.props.dispatchError({errorObj});
+    // alert(errorObj.Message);
+     return;
+   }
+    else {
+      let PropMenuItemDetails = [];
+    let PropCounterSaleOrderDetail= [
       {
-        ProPubSessionId: "c57f63a0-86ee-11ea-c844-fb0db4c93d3e";
-        ProPubStrPaymode: "C";
+        ProPubSessionId,
+        ProPubStrPaymode: "C",
       }
     ];
-    myCart.forEach((item, i) => {
+    myCart.forEach((item:ImyCart, i) => {
       const { MenuItem } = item;
       let saleItem = {
         ProPubStrMenuItemCode: MenuItem.PropMenuItemCode,
@@ -354,48 +265,70 @@ class MealTab extends React.Component<any, any> {
         ProPubStrPreModifierCode: "",
         ProPubIntMenuComboModifier: 0,
         ProPubIntSelectedRowIndex: i,
-        ProPubSessionId: "a2d01780-8eb6-11ea-c357-2da7f6b1762d",
+        ProPubSessionId,
       };
+      let addonObj = {
+        ProPubIntMenuComboModifier:0,
+        ProPubStrItemDescription:"",
+        ProPubBoolIsAllowChange:true,
+        ProPubStrPreModifierCode:"",
+        ProPubIntQty:0,
+        ProPubStrModifierCode:"",
+        ProPubSessionId,
+        ProPubIntSelectedRowIndex:i
+    }
+    item.addonList && item.addonList.forEach((don) => {
+        addonObj.ProPubStrItemDescription = don.ProPubStrItemDescription;
+        addonObj.ProPubIntQty = don.ProPubIntQty;
+        addonObj.ProPubStrModifierCode = don.ProPubStrModifierCode;
+
+        PropMenuItemDetails.push(addonObj);
+      } )
+      
       PropMenuItemDetails.push(saleItem);
+
     });
     let queryParams = {
       ...HDCheckTotalAmountParams,
-      IntLocRestaurantId: restData.RestaurantId,
-      strLocOrderDate: new Date().toDateString(),
-      PropMenuItemDetails,
-      PropCounterSaleOrderDetail,
+      IntLocRestaurantId: restObj.RestaurantId,
+      strLocOrderDate: format( new Date(), 'dd/MM/yyyy'),
     };
-    this.props.getDataWithParams(
+    queryParams.PropMenuItemDetails= JSON.stringify(PropMenuItemDetails);
+    queryParams.PropCounterSaleOrderDetail= JSON.stringify(PropCounterSaleOrderDetail);
+    
+    this.props.dispatchSetData({
+      myCart: this.state.myCart,
+      updatedMenuItemList:this.state.MenuItemList,
+      cartTotal:this.state.cartTotal,
+      PropMenuItemDetails:queryParams.PropMenuItemDetails,
+      PropCounterSaleOrderDetail:queryParams.PropCounterSaleOrderDetail
+    });
+    this.props.getData(
       queryParams,
       HDCheckTotalAmount,
-      "TotalAmountObj"
-    );
-    const TotalAmountObj: ICheckTotalAmount = d_TotalAmountObj;
-    this.props.history.push({
-      pathname: "home/checkout/",
-      state: {
-        restObj: restData,
-        TotalAmountObj,
-        myCart: this.state.myCart,
-      },
-    });
+      "totalAmountObj"
+    )
+    // .then(obj=> this.props.history.push("/checkout/"))
+    // .then(obj=> console.log('resp: ',obj, 'params',queryParams))
+    this.props.history.push("/checkout/")
+    }
   };
 
   toggleDrawer = (isTrue) => {
     this.setState({ isOpenDr: isTrue });
   };
-  minusMenuQty = (headId, menuId) => {
+  minusMenuQty = (headId, menuId,cartId?) => {
     const { actMenu: MenuItem } = this.getActive(headId, menuId);
     // 1. Make a shallow copy of the items
     let items = [...this.state.myCart];
-    let itemIndex = items.findIndex(
+    let itemIndex = cartId >= 0 ? cartId : items.findIndex(
       (obj: ImyCart) =>
         obj.ProPubStrMenuItemCode == menuId &&
         obj.MenuItem.PropPubMenuHeadCode == headId
-    );
+    ) 
     // 2. Make a shallow copy of the item you want to mutate
     let item = { ...items[itemIndex] };
-    // 3. Replace the property you're intested in
+    // cart update
     if (item.ProPubIntQty > 1) {
       item.ProPubIntQty -= 1;
       item.PropPubPrice -= MenuItem.PropPubRate;
@@ -416,7 +349,7 @@ class MealTab extends React.Component<any, any> {
         });
       }
     } else {
-      items.splice(itemIndex, 1);
+      cartId ? items.splice(cartId, 1) :  items.splice(itemIndex, 1);
       if (item.addonList && item.addonList.length) {
         this.setState({
           myCart: items,
@@ -429,12 +362,26 @@ class MealTab extends React.Component<any, any> {
         });
       }
     }
+    
+    // menu qty update
+    let menuItemList:MenuItemList[] = [...this.state.MenuItemList];
+    let menuIndex = menuItemList.findIndex(obj=> obj.PropMenuItemCode === menuId ) 
+    let menuItem = {...menuItemList[menuIndex]};
+    menuItem.Qty -= 1
+    menuItem.cartQty -= 1
+    menuItemList[menuIndex] = menuItem;
+    this.setState({MenuItemList:menuItemList})
   };
-  plusMenuQty = (headId, menuId) => {
-    const { actMenu, actHead, actMod } = this.getActive(headId, menuId);
+  plusMenuQty = (headId, menuId, cartId?) => {
+    const { actMenu, actHead } = this.getActive(headId, menuId);
 
     if (actHead.PropPubModifierLinked === "1") {
+      if(cartId >= 0) {
+        this.plusCartQty(headId, menuId, cartId)
+      }
+      else {
       this.showMods(headId, menuId);
+      }
     } else {
       let items: ImyCart[] = [...this.state.myCart];
       let itemIndex = items.findIndex(
@@ -447,7 +394,15 @@ class MealTab extends React.Component<any, any> {
       item.PropPubPrice += actMenu.PropPubRate;
       let cartTotal = this.state.cartTotal + item.PropPubRate;
       items[itemIndex] = item;
-      this.setState({ myCart: items, cartTotal });
+      // menu qty update
+    let menuItemList:MenuItemList[] = [...this.state.MenuItemList];
+    let menuIndex = menuItemList.findIndex(obj=> obj.PropMenuItemCode === menuId ) 
+    let menuItem = {...menuItemList[menuIndex]};
+    menuItem.Qty += 1
+    menuItem.cartQty += 1
+    menuItemList[menuIndex] = menuItem;
+
+      this.setState({ myCart: items, cartTotal,MenuItemList:menuItemList });
     }
   };
 
@@ -463,8 +418,7 @@ class MealTab extends React.Component<any, any> {
   };
 
   addMenuToCartWithAddon = (hid, mid) => {
-    debugger;
-    const { actMenu: MenuItem, actHead, actMod } = this.getActive(hid, mid);
+    const { actMenu: MenuItem } = this.getActive(hid, mid);
     //cart Item
     let cartItem = {
       ProPubStrMenuItemCode: MenuItem.PropMenuItemCode,
@@ -472,9 +426,10 @@ class MealTab extends React.Component<any, any> {
       ProPubIntMenuComboModifier: 0,
       ProPubStrCurrentIncomeHeadCode: MenuItem.PropPubIncomeHeadCode,
       ProPubIntSelectedRowIndex: this.state.myCart.length,
-      ProPubSessionId: "e198fa90-92d5-11ea-d69c-450d36e5fca4",
+      ProPubSessionId,
       ProPubStrPreModifierCode: "",
       PropPubRate: MenuItem.PropPubRate,
+      PropPubPrice: MenuItem.PropPubRate,
       MenuItem,
     };
 
@@ -492,7 +447,7 @@ class MealTab extends React.Component<any, any> {
           ProPubStrPreModifierCode: "",
           ProPubIntQty: 1,
           ProPubStrModifierCode: mod.ModifierCode.toString(),
-          ProPubSessionId: "e198fa90-92d5-11ea-d69c-450d36e5fca4",
+          ProPubSessionId,
           ProPubIntSelectedRowIndex: this.state.myCart.length,
         };
         addonList.push(addObj);
@@ -505,49 +460,32 @@ class MealTab extends React.Component<any, any> {
     };
     let cartTotal =
       this.state.cartTotal + MenuItem.PropPubRate + saleItem.addonPrice;
-    let menuList2 = [...this.state.menuList2],
-      menu2 = menuList2.find((obj) => obj.PropMenuItemCode === mid);
-    menu2.menuQty ? (menu2.menuQty += 1) : (menu2.menuQty = 1);
+      
+      // menu qty update
+    let menuItemList:MenuItemList[] = [...this.state.MenuItemList];
+    let menuIndex = menuItemList.findIndex(obj=> obj.PropMenuItemCode === mid ) 
+    let menuItem = {...menuItemList[menuIndex]};
+    menuItem.Qty += 1
+    menuItem.cartQty += 1
+    menuItemList[menuIndex] = menuItem;
+
     this.setState({
       ...this.state,
       myCart: [...this.state.myCart, saleItem],
       cartTotal,
-      menuList2,
       checked: [],
+      MenuItemList:menuItemList
     });
     this.toggleDrawer(false);
   };
-  filterBy = (value) => {
-    let { filter } = this.state;
-    let isTrue = filter[value];
-    let filteredList = this.state.MenuItemList;
-    if (!isTrue)
-      filteredList = this.props.restData.menuDetails.MenuItemList.filter(
-        (menu: MenuItemList, i) => menu.PropPubVegNonVeg === "Veg"
-      );
-
-    this.setState({
-      ...this.state,
-      filter: { ...filter, [value]: !isTrue },
-      MenuItemList: [...filteredList],
-    });
-  };
-  searchMenu = (e) => {
-    let { name, value } = e.target;
-    let filteredList = this.props.restData.menuDetails.MenuItemList.filter(
-      (menu: MenuItemList, i) => {
-        let keyRegx = new RegExp(value, "i");
-        let temp = menu.PropPubMenuItemDescription.search(keyRegx);
-        return temp === -1 ? false : true;
-      }
-    );
-    this.setState({ [name]: value, MenuItemList: [...filteredList] });
-  };
+  
+  
 
   getActive(hid, mid) {
     const { restData } = this.props;
+    const { MenuItemList } = this.state;
     const menuDetails: IMenuDetailsSingleApi = restData.menuDetails;
-    const { MenuItemModifierList, MenuItemList } = menuDetails;
+    const { MenuItemModifierList,  } = menuDetails;
     const actHead: MenuHeadList = menuDetails.MenuHeadList.find(
       (head) => head.PropPubMenuHeadCode === hid
     );
@@ -565,47 +503,54 @@ class MealTab extends React.Component<any, any> {
   render() {
     const { restData } = this.props;
     const menuDetails: IMenuDetailsSingleApi = restData.menuDetails;
-    const { MenuHeadList, MenuItemModifierList, MenuItemList } = menuDetails;
+    const { MenuHeadList } = menuDetails;
     return (
-      <div className="tab-pane" id="order-online">
-        <div className="restaurants-order-bg m-bottom">
-          <div className="tab-header">
-            <div className="row">
-              <div className="col-12 col-md-4 offset-md-6">
-                <TextField
-                  label="search menu item"
-                  id="standard-start-adornment"
-                  onChange={this.searchMenu}
-                  value={this.state.searchKey}
-                  fullWidth
-                  name="searchKey"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        {" "}
-                        <i className="fa fa-search text-muted"></i>{" "}
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </div>
-              <div className="col-12 col-md-2">
-                <div className="filter-box">
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        checked={this.props.isVeg}
-                        onChange={() => this.filterBy("isVeg")}
-                        name="Veg"
-                        color="primary"
-                      />
-                    }
-                    label="Veg"
-                  />
+      <section className="all-partners">
+        <div className="container">
+          <div className="row border " id="tab-header">
+            <div className="col-12 col-md-6">
+              {this.state.selectedRest.RestaurantId && (
+                <RestHeader selectedRest={this.state.selectedRest} ></RestHeader>
+              )}
+            </div>
+            <div className="col-12 col-md-4">
+              <div className="input-group mt-md-2">
+              <div className="input-group-prepend">
+                <i className="fa fa-search text-muted" />
                 </div>
+                <input 
+                    placeholder="search menu item"
+                    id="standard-start-adornment"
+                    onChange={this.searchMenu}
+                    value={this.state.searchKey}
+                    name="searchKey"
+                    className="form-control "
+                />
+                
+
               </div>
+
+            </div>
+            <div className=" col-md-2 filter-box ">
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={this.props.isVeg}
+                    onChange={() => this.filterBy("isVeg")}
+                    name="Veg"
+                    color="primary"
+                  />
+                }
+                label="Veg"
+              />
             </div>
           </div>
+          <div className="row">
+            <div className="col-12  p-md-0">
+{
+  this.state.menuDetails.MenuHeadList.length ? 
+      <div className= {clsx("tab-pane", this.FlavourCode === 1 && "e-menu")}  id="order-online">
+        <div className="">
           <div className="order-tabs">
             <Tabs
               value={this.state.menuTabValue}
@@ -631,7 +576,7 @@ class MealTab extends React.Component<any, any> {
                 />
               ))}
             </Tabs>
-            <div className="tab-content meals">
+            <div className="bg-light meals px-md-4 tab-content">
               {MenuHeadList.map((head, i) => {
                 return (
                   <TabPanel value={this.state.menuTabValue} key={i} index={i}>
@@ -642,8 +587,9 @@ class MealTab extends React.Component<any, any> {
                             <div className="col-12 meal-title">
                               <h3> {head.PropPubMenuHeadDescription} </h3>
                             </div>
-                            {this.state.MenuItemList.map((item, j) => {
-                              return (
+                            {this.state.MenuItemList.map((item:MenuItemList, j) => {
+                              return item.PropPubMenuHeadCode === head.PropPubMenuHeadCode ? 
+                               (
                                 <div key={j} className="col-12 pm-right">
                                   <div className="meals-dt">
                                     <MealList
@@ -656,10 +602,11 @@ class MealTab extends React.Component<any, any> {
                                         head.PropPubModifierLinked
                                       }
                                       i={i}
+                                      flavourCode = {this.state.menuDetails.flavourCode}
                                     ></MealList>
                                   </div>
                                 </div>
-                              );
+                              ): null
                             })}
                           </div>
                         </div>
@@ -670,14 +617,15 @@ class MealTab extends React.Component<any, any> {
               })}
             </div>
           </div>
-          <div id="tabs-cart-total">
+          {this.state.menuDetails.flavourCode !== 1 &&
+            <div id="tabs-cart-total">
             <div className="view-cart">
               <p>
                 {" "}
                 {this.state.myCart.length + " Items | "}{" "}
                 <i className="rupee"></i>&nbsp;{this.state.cartTotal.toFixed(2)}{" "}
               </p>
-              <p>( All prices are exclusive of Taxes.)</p>
+              <h5>( All prices are exclusive of Taxes.)</h5>
             </div>
 
             <div className="book">
@@ -694,9 +642,9 @@ class MealTab extends React.Component<any, any> {
               </Button>
             </div>
           </div>
-
+          }
           <FullScreenDialog
-            heading="My Cart"
+            heading={`Your Order (${this.state.myCart.length})`}
             handleClose={() =>
               this.setState({
                 isDialogeOpen: false,
@@ -716,86 +664,26 @@ class MealTab extends React.Component<any, any> {
               item={ item.MenuItem }
               cart={ item }
               isCart={ true }
+              cartId={ i }
+              key={ i }
             ></MealList>
                       )
                     })
                   }
-            </div>
-            
-            <div>
-              {/* <table className="cart-data table table-striped">
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Qty</th>
-                    <th>Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.myCart.length &&
-                    this.state.myCart.map((item: ImyCart, i) => {
-                      return (
-                        <tr key={i}>
-                          <td>
-                            <div>
-                              <h4>
-                                {" "}
-                                {item.MenuItem.PropPubMenuItemDescription}{" "}
-                              </h4>
-                              <h5>
-                                {" "}
-                                <span className="rupee"></span> &nbsp;{" "}
-                                {item.MenuItem.PropPubRate}{" "}
-                              </h5>
-                              <div>
-                                {" "}
-                                {item.addonList.map((add, j) => (
-                                  <h5 key={j}>
-                                    {" "}
-                                    {add.ProPubStrItemDescription}{" "}
-                                  </h5>
-                                ))}{" "}
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <div className="cartQty">
-                              <Counter
-                                count={item.ProPubIntQty}
-                                upgrader={() => this.plusCartQty(i)}
-                                degrader={() => this.minusCartQty(i)}
-                              />
-                            </div>
-                          </td>
-                          <td>
-                            <span className="rupee"></span>
-                            <span> {item.PropPubRate.toFixed(2)} </span>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>
-                      <b>SubTotal</b>{" "}
-                    </th>
-                    <th>
-                      <b>
+                  <div className=" border-top d-flex p-2 cart-footer">
+                  <div className="ml-md-auto">                    
+                      <h4>
                         <span className="rupee"></span>{" "}
                         {this.state.cartTotal.toFixed(2)}
-                      </b>
-                    </th>
-                    <th>
-                      <Button color="primary" onClick={this.gotoCheck}>
-                        {" "}
-                        Order Now{" "}
+                      </h4>
+                      <b>SubTotal</b>
+                    </div>
+                    <div className="ml-auto ml-md-3">
+                      <Button color="primary" variant="contained" onClick={this.gotoCheck}>
+                        Continue
                       </Button>
-                    </th>
-                  </tr>
-                </tfoot>
-              </table>
-            */}
+                    </div>
+                </div>
             </div>
           </FullScreenDialog>
         </div>
@@ -806,16 +694,55 @@ class MealTab extends React.Component<any, any> {
           currentMod={this.state.currentMod}
           handleToggleMod={this.handleToggleMod}
           checked={this.state.checked}
-          addMenuToCart={this.addMenuToCartWithAddon}
+          addMenuToCartWithAddon={this.addMenuToCartWithAddon}
         ></ModsDrawer>
+        <TableDrawer
+          isOpenDr={this.state.toggle.askTable}
+          toggleDrawer={(askTable)=> this.setState({toggle:{...this.state.toggle, askTable}}) }
+          title= 'Table Number'
+          handleSubmit={this.handleTableChange}
+          data={{isValidTbl:true}}
+        ></TableDrawer>
       </div>
+    : (
+                  <div className='center-loader1'>
+                    <CircularProgress />
+                  </div>
+                )}
+    </div>
+    </div>
+  </div>
+</section>
     );
   }
-  minusCartQty(i) {
-    throw new Error("Method not implemented.");
-  }
-  plusCartQty(i: number) {
-    throw new Error("Method not implemented.");
+  
+  
+  plusCartQty = (headId, menuId,cartId) => {
+    // const { actMenu, actHead, actMod } = this.getActive(headId, menuId);
+    const {myCart} = this.state
+    let items = [...myCart];
+    let item = { ...items[cartId] };
+    item.addonPrice += item.addonRate
+    item.PropPubPrice += item.PropPubRate
+    item.ProPubIntQty += 1
+    item.addonList.forEach(obj=>  obj.ProPubIntQty += 1)
+    items[cartId] = item; 
+    let cartTotal =
+      this.state.cartTotal + item.PropPubRate + item.addonRate;
+
+    // menu qty update
+    let menuItemList:MenuItemList[] = [...this.state.MenuItemList];
+    let menuIndex = menuItemList.findIndex(obj=> obj.PropMenuItemCode === menuId ) 
+    let menuItem = {...menuItemList[menuIndex]};
+    menuItem.Qty += 1
+    menuItem.cartQty += 1
+    menuItemList[menuIndex] = menuItem;
+
+    this.setState({
+      myCart: items,
+      cartTotal,
+      MenuItemList:menuItemList
+    });
   }
 }
 const mapStateToProps = (state) => {
@@ -826,7 +753,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getDataWithParams: (queryParams, url, type, other) =>
-      dispatch(getDataWithTypeAction(queryParams, url, type, other)),
+      dispatch(getDataWithTypeAction(queryParams, url, type, {...other, minLoading:true})),
+    getData: (queryParams, url, type) =>
+      dispatch(getDataWithTypeAction(queryParams, url, type)),
+    dispatchError: (errorObj) =>
+      dispatch({type:'local_error', payload:errorObj}),
+    dispatchSetData: (params) =>
+      dispatch({type:'Set_Data', payload:params}),
   };
 };
 export default compose<any, any>(

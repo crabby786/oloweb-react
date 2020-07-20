@@ -1,59 +1,4 @@
-/*================================================
-[  Table of contents  ]
-================================================
 
-:: General
-:: Page section margin padding
-:: text color
-:: Loading
-:: Section title
-:: form
-:: button
-:: Homepage
-:: About Us
-:: How to orders
-:: Recipes
-:: Recipe Detail
-:: Upload Recipe
-:: Partners
-:: Restaurant Detail
-:: Meals 
-:: Meal Detail
-:: Checkout
-:: Bill Slip
-:: Partner With Us
-:: Add Restaurant
-:: Add Driver
-:: Login and Register
-:: 404 Page
-:: our Blog
-:: Blog Detail
-:: Browse Places
-:: Nearby
-:: Cafe's
-:: Upcoming Events
-:: Event Detail
-:: Contact Us
-:: Dashboard
-:: Setting
-:: Faq
-:: Trace Order
-:: Accpet Order
-:: Orders
-:: Payment
-:: Reviews
-:: Rating
-:: Pagination
-:: Services
-:: owl-carousel
-
-======================================
-[ End table content ]
-======================================*/
-
-/***************************
-		 General
-***************************/
 /* @import url('https://fonts.googleapis.com/css?family=Caveat|Open+Sans|Roboto&display=swap'); */
 
 body {
@@ -125,7 +70,7 @@ h2 {
 h3 {
   font-size: 30px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 34px;
 }
 h4 {
@@ -316,7 +261,6 @@ ul li {
   padding: 0px;
   margin: 0px;
   line-height: 26px;
-  display: inline-block;
 }
 a:hover {
   text-decoration: none;
@@ -752,7 +696,7 @@ button.b-btn {
   width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 12px;
-  line-height: 1.4rem;
+  line-height: 1.4rem;  
   color: #b9b9b9;
   background-color: #fff;
   background-clip: padding-box;
@@ -991,6 +935,7 @@ button.b-btn {
   z-index: 716;
   bottom: -35px;
   margin-left: 20px;
+  width:64px;
 }
 .logo-img img {
   width: 100%;
@@ -1297,7 +1242,7 @@ button.b-btn {
 /*** Explore Your Favorite Recipes ***/
 
 .explore-recipes {
-  margin-top: 80px;
+  margin-bottom: 60px;
   text-align: center;
 }
 .b-recipes {
@@ -2405,34 +2350,7 @@ button.b-btn {
   width: 60px;
   border-radius: 50%;
 }
-.name-location {
-  margin-left: 15px;
-  padding: 5px 0px;
-}
-.name-location h4 {
-  color: #000;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
-  margin-bottom: 5px;
-}
-.name-location h1 {
-  color: #000;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 24px;
-  margin-bottom: 10px;
-}
-.name-location span {
-  color: #ffa803;
-  margin-right: 10px;
-}
-.name-location p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  color: #847577;
-}
+
 .right-side-btns {
   display: flex;
   float: right;
@@ -3000,9 +2918,6 @@ button.b-btn {
   background: #fff;
   text-align: left;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.1);
-}
-.form-group {
-  margin-bottom: 30px;
 }
 .form-container label {
   color: #000;
@@ -3593,23 +3508,6 @@ button.b-btn {
   background-color: #fff;
   border: 0;
 }
-.resto-dt {
-  width: 100%;
-  padding: 4px 0px;
-}
-.resto-detail {
-  display: flex;
-  float: left;
-}
-.resto-picy {
-  width: 60px;
-  margin-bottom: -3px;
-}
-.resto-picy img {
-  border: 2px solid #fff;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-}
 .resto-review-stars {
   font-size: 18px;
   color: #ffa803;
@@ -3828,13 +3726,7 @@ button.b-btn {
   padding: 0px;
 }
 
-.order-tabs {
-  margin: 20px 0px;
-  display: flex;
-  flex-grow: 1;
-  margin-bottom: 0;
-  height: 60vh;
-}
+
 .order-tabs .nav-tabs a {
   font-size: 14px;
   font-weight: 400;
@@ -7130,96 +7022,6 @@ button.b-btn {
 .mb-1 {
   padding: 0;
 }
-.right-order-dt {
-  padding: 30px;
-}
-.right-order-dt .order-no {
-  font-size: 14px;
-  text-align: center;
-  color: #000;
-  border: 1px solid #e1e1e1;
-  border-radius: 3px;
-  background-color: rgb(255, 255, 255);
-  width: 152px;
-  height: 42px;
-  padding: 14px;
-}
-.right-order-dt h1 {
-  font-size: 24px;
-  color: #000;
-  font-weight: 600;
-  line-height: 24px;
-  padding: 47px 0 30px;
-}
-.resto-trace-star {
-  text-align: left;
-  font-size: 14px;
-  color: #ffa803;
-  font-weight: 400;
-  margin-bottom: 0px;
-}
-.resto-trace-star span {
-  padding: 5px 10px;
-  font-size: 14px;
-  color: #fff;
-  font-weight: 400;
-  background: #ffa803;
-  border-radius: 50px;
-  margin-left: 10px;
-}
-.trace-steps {
-  margin: 50px 0px;
-  list-style: none;
-  position: relative;
-}
-.trace-steps:before {
-  content: "";
-  width: 1px;
-  height: 100%;
-  background-color: #ffa803;
-  top: 0px;
-  position: absolute;
-  left: 7px;
-}
-.trace-steps li {
-  display: block;
-  margin: 30px 0;
-  list-style: none;
-}
-.trace-steps ul li:before {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #ffa803;
-  background: #fff;
-  border-radius: 50%;
-}
-.trace-steps ul li:hover::before {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #ffa803;
-  background: #ffa803;
-  border-radius: 50%;
-}
-.trace-steps ul li.active::before {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #ffa803;
-  background: #ffa803;
-  border-radius: 50%;
-}
-.trace-steps li .steps-names {
-  margin-left: 30px;
-  line-height: 15px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #000;
-}
 
 /* map location ( tooltip ) */
 
@@ -7349,11 +7151,11 @@ button.b-btn {
 
 .payment-method-dt {
   width: 100%;
-  float: left;
-  margin-bottom: 20px;
+  /* float: left; */
+  margin-bottom: 4px;
 }
 .attr-l {
-  float: left;
+  /* float: left; */
   font-size: 14px;
   font-weight: 400;
   color: #000;

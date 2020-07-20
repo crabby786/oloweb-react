@@ -30,7 +30,7 @@ const [instruct, setInstruct]=React.useState("");
 }
 export const AddForm = props => {
   const {
-    values: { line1, email, home, pin },
+    values: { line1,  home, pin },
     errors,
     touched,
     handleSubmit,
@@ -45,13 +45,13 @@ export const AddForm = props => {
     setFieldTouched(name, true, false);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-group" >
       <TextField
         id="home"
         name="home"
         helperText={touched.home ? errors.home : ""}
         error={touched.home && Boolean(errors.home)}
-        label="home / Flat No."
+        label="Home / Flat No."
         value={home}
         onChange={change.bind(null, "home")}
         fullWidth
@@ -70,27 +70,17 @@ export const AddForm = props => {
         variant="outlined"
       />
       <TextField
-        id="email"
-        name="email"
-        helperText={touched.email ? errors.email : ""}
-        error={touched.email && Boolean(errors.email)}
-        label="Email"
-        fullWidth
-        value={email}
-        onChange={change.bind(null, "email")}
-      />
-      <TextField
         id="pin"
         name="pin"
         helperText={touched.pin ? errors.pin : ""}
         error={touched.pin && Boolean(errors.pin)}
-        label="pin"
+        label="Pin Code"
         fullWidth
         value={pin}
         onChange={change.bind(null, "pin")}
         variant="outlined"
       />
-      <div className="mt-2" > 
+      <div className="float-right" > 
       <Button
         type="submit"
         variant="contained"

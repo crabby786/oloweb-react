@@ -1,5 +1,5 @@
 import React from 'react';
-import './Styles/css/main.scss'
+
 import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 // import {Router } from 'react-router'
 import { createBrowserHistory } from "history";
@@ -8,6 +8,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
 import { Provider } from 'react-redux';
 import { store } from './Store/Store';
+
+
 
 export default function App(props) {
   return (
@@ -25,3 +27,5 @@ export default function App(props) {
   </Provider>
   );
 }
+
+

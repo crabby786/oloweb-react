@@ -8,28 +8,24 @@ import {
 } from "../Store/Actions/restListAction";
 import { homeStyle } from "../Styles/jss/homePageStyles";
 import { LinearProgress, Button } from "@material-ui/core";
-import { d_homeDetails, d_TotalAmountObj, d_CheckTotalAmount } from "../Constants/dummy";
+// import { d_homeDetails, d_TotalAmountObj, d_CheckTotalAmount, d_selectedRest } from "../Constants/dummy";
 import {
   ICheckTotalAmount,
   RestaurantDeliveryList,
+  IrestData,
 } from "../Models/RestListModel";
 import { RestHeader } from "./comps/rest_detail_header";
 import BillSection from "./comps/bill_section";
-import { Cartlist } from "./comps/cart_list";
+import { withRouter } from "react-router";
 
 class CheckoutPage extends React.Component<any, any> {
+  readonly restData:IrestData = this.props.restData;
   state = {
     isRegistered: false,
     mobile: 0,
     myCart: [],
     cartTotal: null,
-    totalObj:d_CheckTotalAmount,
-  };
-  removeItem = (i) => {
-    return null;
-  };
-  getOtp = (i) => {
-    return null;
+    totalObj: {...this.restData.totalAmountObj},
   };
 
   // static getDerivedStateFromProps(props, state) {
@@ -41,24 +37,17 @@ class CheckoutPage extends React.Component<any, any> {
   render() {
     const { restData } = this.props;
     const { myCart } = this.state;
-    const restObj: RestaurantDeliveryList =
-      d_homeDetails.RestaurantList[0].RestaurantDeliveryList[0];
-    const TotalAmountObj: ICheckTotalAmount = d_TotalAmountObj;
+    const restObj: RestaurantDeliveryList = this.restData.restObj;
+    const totalAmountObj: ICheckTotalAmount = this.restData.totalAmountObj;
     return (
       <div>
-        {!restData.isLoading ? (
+        {!restData.isLoading ?
           <section className="all-partners">
             <div className="container">
-              <div className="row">
+              <div className="row border-bottom">
                 <div className="col-12">
-                <div  className="float-right">
-                    <Button color="primary" startIcon={<i className="fa fa-chevron-left" ></i>} >
-                      Go back to order
-                    </Button>
-                  </div>
-                  <RestHeader selectedRest={restObj}></RestHeader>
-                  
-                </div>
+              <RestHeader nav= {true} goBack={() => this.props.history.goBack()} selectedRest={restObj}></RestHeader>
+              </div>
                 {/* <div className="col-lg-8 col-md-8">
                   <Cartlist
                     myCart={this.state.myCart}
@@ -67,21 +56,21 @@ class CheckoutPage extends React.Component<any, any> {
                   ></Cartlist>
 
                  </div> */}
-                <div className="col-12">
-                  <BillSection
-                    cartTotal={this.state.cartTotal}
-                    totalObj={d_CheckTotalAmount}
-                    myCart={myCart}
-                  ></BillSection>
-                </div>
+                 </div>
+                 <div className="row" >
+                <BillSection
+                  cartTotal={this.state.cartTotal}
+                  totalObj={this.restData.totalAmountObj}
+                  myCart={myCart}
+                ></BillSection>
               </div>
             </div>
           </section>
-        ) : (
+          :
           <div className="progress1" style={{ width: "100%" }}>
             <LinearProgress color="primary" />
           </div>
-        )}
+        }
       </div>
     );
   }
@@ -102,5 +91,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 export default compose(
   withStyles(homeStyle),
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter
 )(CheckoutPage);

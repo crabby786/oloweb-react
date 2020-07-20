@@ -1,5 +1,4 @@
 import { withStyles, Theme, createStyles, WithStyles } from '@material-ui/core/styles';
-import * as mainStyle from './main'
 
 export const detailStyle = (theme: Theme) =>
   createStyles(
@@ -13,10 +12,10 @@ export const detailStyle = (theme: Theme) =>
         overflow: 'auto',
       },
       cardHeader: {
-        background: mainStyle.brownColor[0],
+        // background: mainStyle.brownColor[0],
         padding: '2px 8px',
         '& .MuiCardHeader-title': {
-          color: mainStyle.yellowColor[0],
+          // color: mainStyle.yellowColor[0],
           fontSize: theme.typography.h5.fontSize
         },
         '& .MuiCardHeader-subheader ': {
@@ -24,27 +23,27 @@ export const detailStyle = (theme: Theme) =>
         }
       },
       textSuccess: {
-        color: mainStyle.successColor[0],
+        // color: mainStyle.successColor[0],
       },
       textDanger: {
-        color: mainStyle.dangerColor[0],
+        // color: mainStyle.dangerColor[0],
       },
       textBrown: {
-        color: mainStyle.brownColor[0]
+        // color: mainStyle.brownColor[0]
       },
       bgSuccess: {
-        background: mainStyle.successColor[0],
+        // background: mainStyle.successColor[0],
       },
       bgBrown: {
-        background: mainStyle.brownColor[0],
+        // background: mainStyle.brownColor[0],
       },
       bgDanger: {
-        background: mainStyle.dangerColor[0],
+        // background: mainStyle.dangerColor[0],
       },
       iconWithText: { verticalAlign: 'text-bottom' },
       CardActions: {
-        color: mainStyle.brownColor[1],
-        background: mainStyle.grayColor[3],
+        // color: mainStyle.brownColor[1],
+        // background: mainStyle.grayColor[3],
         textAlign: 'center',
         alignItems: 'flex-end',
         justifyContent: 'space-between',
@@ -59,13 +58,13 @@ export const detailStyle = (theme: Theme) =>
         }
       },
       badgeOrange: {
-        background: mainStyle.dangerColor[1],
+        // background: mainStyle.dangerColor[1],
         padding: '2px',
         borderRadius: '999px',
         color: '#fff'
       },
       bgYellow: {
-        background: mainStyle.yellowColor[0],
+        // background: mainStyle.yellowColor[0],
       },
       container: {
         paddingTop: theme.spacing(1),
@@ -127,7 +126,7 @@ export const detailStyle = (theme: Theme) =>
       },
       coupenBox2: {
         padding: '10px',
-        color: mainStyle.yellowColor[0]
+        // color: mainStyle.yellowColor[0]
       },
       carouselRoot: {
         position: 'relative',

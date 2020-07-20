@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "../../Styles/css/style1.css";
 
 export default class FavoriteRecipes extends Component {
   render() {

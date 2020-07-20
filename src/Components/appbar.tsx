@@ -96,18 +96,14 @@ function TopNav(props) {
             <Icon className="MuiListItemIcon">home</Icon>
             <ListItemText primary="Home" />
           </ListItem>
-      <ListItem component="a" target = "_blank" href="https://shawmansoftware.com/our-journey/">
+      <ListItem component="a" target = "_blank" href="#">
             <Icon className="MuiListItemIcon">games</Icon>
             <ListItemText primary="About Us" />
           </ListItem>
           
-      <ListItem component="a" target = "_blank" href="https://shawmansoftware.com/contact-us/">
+      <ListItem component="a" target = "_blank" href="#">
             <Icon className="MuiListItemIcon">perm_phone_msg</Icon>
             <ListItemText primary="Contact" />
-          </ListItem>
-      <ListItem component="a" href="/">
-      <Icon className="MuiListItemIcon">account_circle</Icon>
-            <ListItemText primary="Login" />
           </ListItem>
       </List>
     </div>
@@ -124,12 +120,14 @@ function TopNav(props) {
               edge="start"
               onClick={handleDrawerToggle}
               className={classes.menuButton}
+              id="hamburger1"
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h5" noWrap>
-              Olo Web
-            </Typography>
+            <div className="nav-brand">
+            OloWeb
+            </div>
+            
           </Toolbar>
         </Hidden>
         {/* pc menu */}
@@ -164,12 +162,21 @@ function TopNav(props) {
               keepMounted: true, // Better open performance on mobile.
             }}
           >
-            <div>
-              <img
-                className="side-image"
-                src="/assets/images/other/img/restImg.jpg"
-                alt="restaurant"
-              />
+            <div style={{marginBottom:'2em'}}>
+  <div className="top">
+    <a href="#">
+      <div className="bg-gradient" />
+    </a>
+    <div className="top-img">
+      <img src="/assets/images/meals/img-4.jpg"  />
+    </div>
+    <div className="logo-img">
+      <img
+        src={imgBase + homeDetails.StrRestaurantLogo + '.jpg'}
+        className="side-image"
+      />
+    </div>
+    </div>
             </div>
             {drawer}
           </Drawer>

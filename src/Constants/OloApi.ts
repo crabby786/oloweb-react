@@ -1,16 +1,18 @@
 //consts ....................
-export const testApi = "https://fmtest.dishco.com/shawmanservices/api/";
 export const androidHeader = { "AndroidPhone": 'EV6FTlgBhOalM+qjJpr2OZpAEpPkYJHC5I1aOWyeLevwSIpuzyKEAg==' };
 // export const imgBase = `https://foodmarshal.blob.core.windows.net/fmstorage/`;
 export const imgBase = `https://foodmarshal.blob.core.windows.net/fmtesting/`;
 
 export const BaseApi = "https://fmtest.dishco.com/shawmanservices/api/";
+// export const BaseApi = "https://fmprod.dishco.com/shawmanservices/api/";
+export const ProPubSessionId= "a2d01780-8eb6-11ea-c357-2da7f6b1762d";
 
 // const IntLocAccountId = 0;
 const IntLocCityId=1190;
 const IntLocLocationId=1123;
 const IntLocRestaurantId=642477
 const IntLocAccountId = 3385;
+// const IntLocAccountId = 4;
 //consts ....................
 export const getLandingPageBanner = "LandingPageBanner/GetFunPubRestaurantDetailsByFilter";
 export const getLandingPageBannerParams = {IntLocAccountId,IntLocCityId:null,IntLocRestaurantId:0};
@@ -49,8 +51,8 @@ intLocAddressId: 0,
 IntLocCustomerId: 0,
 IntLocAccountId,
 strLocOrderDate: "04/23/2020",
-PropMenuItemDetails:[],
-PropCounterSaleOrderDetail: [{"ProPubSessionId":"c57f63a0-86ee-11ea-c844-fb0db4c93d3e","ProPubStrPaymode":"C"}]
+PropMenuItemDetails:``,
+PropCounterSaleOrderDetail: ``,
 }
 
 export const GetAddressList = "HDSearchPolygon/FunPubGetAddressList?StrLocSearchText=bandra"
@@ -103,7 +105,7 @@ export const GetRateOfPledge = `OrderId/GetFunPubRateOfPledge`;
 export const GetRateOfPledgeParams = {IntLocCustomerId:117519,StrLocMerchantId:'MBK0249'}
 export const InsertOrderDetails = `HDInsertOrder/FunPubInsertOrderDetails`;
 export const InsertOrderDetailsParams = {
-    strLocPaymentOrderId: `609C3DA6DF3949B`,
+strLocPaymentOrderId: `609C3DA6DF3949B`,
 IntLocRestaurantId: 642477,
 strLoCPaymentMode: 'COD|NA|NA|NA',
 strLocDeliveryArea: '',
@@ -116,10 +118,28 @@ strLocMerchantId:'' ,
 intLocAddressId: 247,
 strLocTocken:'' ,
 strLocTransactionId:'' ,
-PropMenuItemDetails: [{"ProPubStrMenuItemCode":"111341","ProPubIntQty":4,"ProPubIntMenuComboModifier":"0","ProPubStrCurrentIncomeHeadCode":"","ProPubIntSelectedRowIndex":0,"ProPubSessionId":"ddb10f40-9c1b-11ea-ff14-7fb04e9630a3","ProPubStrPreModifierCode":""}],
-PropCounterSaleOrderDetail: [{"ProPubSessionId":"ddb10f40-9c1b-11ea-ff14-7fb04e9630a3","ProPubStrPaymode":"C"}],
+PropMenuItemDetails: `[{"ProPubIntMenuComboModifier":0,"ProPubStrItemDescription":"Tomato Sauce","ProPubBoolIsAllowChange":true,"ProPubStrPreModifierCode":"","ProPubIntQty":4,"ProPubStrModifierCode":"104","ProPubSessionId":"a2d01780-8eb6-11ea-c357-2da7f6b1762d","ProPubIntSelectedRowIndex":0},{"ProPubStrMenuItemCode":"111341","ProPubIntQty":4,"ProPubStrCurrentIncomeHeadCode":"","ProPubStrPreModifierCode":"","ProPubIntMenuComboModifier":0,"ProPubIntSelectedRowIndex":0,"ProPubSessionId":"a2d01780-8eb6-11ea-c357-2da7f6b1762d"}]`,
+PropCounterSaleOrderDetail: `[{"ProPubSessionId":"a2d01780-8eb6-11ea-c357-2da7f6b1762d","ProPubStrPaymode":"C"}]`,
 StrLocDeliveryType: 'H',
 strLocComment: '',
 StrLocPickupTime: '15.48'
 }
-export const InsertOrderDetails0 = `HDInsertOrder/FunPubInsertOrderDetails?IntLocRestaurantId=642336&strLoCPaymentMode=COD%7CNA%7CNA%7CNA&IntLocCustomerId=117519&strLocCardNumber=&strLocOrderDate=05/12/2020&strLocDeliveryArea=Patel%20Wadi,%20Madh,%20Mumbai&TotalAmount=157.85&strLocTransactionStatus=Success&strLocMerchantId=&strLocComment=&intLocAddressId=247&strLocTocken=&strLocTransactionId=&PropMenuItemDetails=%5B%7B%22ProPubStrMenuItemCode%22:%22478%22,%22ProPubIntQty%22:2,%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrCurrentIncomeHeadCode%22:%221%22,%22ProPubIntSelectedRowIndex%22:0,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubStrPreModifierCode%22:%22%22%7D,%7B%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrItemDescription%22:%22299%20modifier%22,%22ProPubBoolIsAllowChange%22:true,%22ProPubStrModifierQtyCode%22:%220%22,%22ProPubStrPreModifierCode%22:%22%22,%22ProPubIntQty%22:2,%22ProPubStrModifierCode%22:%22654%22,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubIntSelectedRowIndex%22:0%7D,%7B%22ProPubStrMenuItemCode%22:%22478%22,%22ProPubIntQty%22:1,%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrCurrentIncomeHeadCode%22:%221%22,%22ProPubIntSelectedRowIndex%22:1,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubStrPreModifierCode%22:%22%22%7D,%7B%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrItemDescription%22:%221%20PLATE%22,%22ProPubBoolIsAllowChange%22:true,%22ProPubStrModifierQtyCode%22:%220%22,%22ProPubStrPreModifierCode%22:%22%22,%22ProPubIntQty%22:1,%22ProPubStrModifierCode%22:%22629%22,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubIntSelectedRowIndex%22:1%7D%5D&PropCounterSaleOrderDetail=%5B%7B%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubStrPaymode%22:%22C%22%7D%5D`
+export const orderStatus = `HDTrackOrder/FunPubGetHDOrderStatus`
+export const orderStatusParams = {
+    IntLocCustomerId:null,StrLocChannelCode:"",strLocFromDate:"",strLocToDate:"",StrBillNo:'FB00000144',StrMobileOTP:1037
+}
+
+//just order api
+export const tableNameValidate = `OLOMyPOSTableNameValidate/FunPubMyPOSTableNameValidate`
+export const tableNameValidateParams = {
+    StrLocTableName:'Table-1',IntLocRestaurantId:642489
+}
+export const getTableList = `GetTableList/FunPubGetTableList`
+export const getTableListParams = {
+    IntLocRestaurantId:642489
+}
+export const clearTable = `ClearTable/FunPubClearTable` //post
+export const clearTableParams = {
+    IntLocAccountIdId:3385,IntLocRestaurantId:642332,PropPubTableList:`[   { "PropPubTableCode": "05" }, { "PropPubTableCode": "01"}]`
+}
+ let InsertOrderDetails0 = `HDInsertOrder/FunPubInsertOrderDetails?IntLocRestaurantId=642336&strLoCPaymentMode=COD%7CNA%7CNA%7CNA&IntLocCustomerId=117519&strLocCardNumber=&strLocOrderDate=05/12/2020&strLocDeliveryArea=Patel%20Wadi,%20Madh,%20Mumbai&TotalAmount=157.85&strLocTransactionStatus=Success&strLocMerchantId=&strLocComment=&intLocAddressId=247&strLocTocken=&strLocTransactionId=&PropMenuItemDetails=%5B%7B%22ProPubStrMenuItemCode%22:%22478%22,%22ProPubIntQty%22:2,%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrCurrentIncomeHeadCode%22:%221%22,%22ProPubIntSelectedRowIndex%22:0,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubStrPreModifierCode%22:%22%22%7D,%7B%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrItemDescription%22:%22299%20modifier%22,%22ProPubBoolIsAllowChange%22:true,%22ProPubStrModifierQtyCode%22:%220%22,%22ProPubStrPreModifierCode%22:%22%22,%22ProPubIntQty%22:2,%22ProPubStrModifierCode%22:%22654%22,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubIntSelectedRowIndex%22:0%7D,%7B%22ProPubStrMenuItemCode%22:%22478%22,%22ProPubIntQty%22:1,%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrCurrentIncomeHeadCode%22:%221%22,%22ProPubIntSelectedRowIndex%22:1,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubStrPreModifierCode%22:%22%22%7D,%7B%22ProPubIntMenuComboModifier%22:%220%22,%22ProPubStrItemDescription%22:%221%20PLATE%22,%22ProPubBoolIsAllowChange%22:true,%22ProPubStrModifierQtyCode%22:%220%22,%22ProPubStrPreModifierCode%22:%22%22,%22ProPubIntQty%22:1,%22ProPubStrModifierCode%22:%22629%22,%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubIntSelectedRowIndex%22:1%7D%5D&PropCounterSaleOrderDetail=%5B%7B%22ProPubSessionId%22:%22caa9cce0-9458-11ea-b741-f551a90fe04b%22,%22ProPubStrPaymode%22:%22C%22%7D%5D`

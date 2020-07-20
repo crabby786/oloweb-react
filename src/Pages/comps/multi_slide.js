@@ -8,8 +8,8 @@ export const MultiSlide = props => {
   const handleOnDragStart = e => e.preventDefault();
   const config = {
     stagePadding: {
-      paddingLeft: 10, // in pixels
-      paddingRight: 10
+      paddingLeft: 15, // in pixels
+      paddingRight: 15
     },
     autoPlay: true,
     duration: 2000,

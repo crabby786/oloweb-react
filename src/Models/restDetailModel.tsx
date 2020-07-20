@@ -145,6 +145,8 @@ export const menuItem = [
         PropPubQuantityDeciaml?: string;
         Status?: any;
         Modifier?: Modifier[];
+        Qty?: number;
+        cartQty?: number;
     }
     
 
@@ -241,3 +243,4 @@ export interface CheckTotalAmount {
     PropGrandTotalAmount: number;
     PropPubOrderCharges: PropPubOrderCharge[];
 }
+

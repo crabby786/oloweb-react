@@ -1,5 +1,4 @@
 import { withStyles, Theme, createStyles, WithStyles, fade,  makeStyles  } from '@material-ui/core/styles';
-import * as mainStyle from './main'
 
 const drawerWidth = 240;
 export const homeStyle = (theme: Theme) => 
@@ -134,24 +133,24 @@ export const homeStyle = (theme: Theme) =>
           height: '100vh',
           overflow: 'auto',
         },
-        container: {
-          paddingTop: theme.spacing(1),
-          paddingBottom: theme.spacing(1),
-          [theme.breakpoints.down('xs')]:{
-            paddingLeft: 0,
-          paddingRight: 0,
-          paddingTop: theme.spacing(1),
-          paddingBottom: theme.spacing(1),
-          }
-        },
-        oloHomeContainer: {
-          marginTop: theme.spacing(1) * -1 ,
-          marginBottom: theme.spacing(1) * -1,
-          [theme.breakpoints.down('xs')]:{
-          marginTop: theme.spacing(1) * -1,
-          marginBottom: theme.spacing(1) * -1,
-          }
-        },
+        // container: {
+        //   paddingTop: theme.spacing(1),
+        //   paddingBottom: theme.spacing(1),
+        //   [theme.breakpoints.down('xs')]:{
+        //     paddingLeft: 0,
+        //   paddingRight: 0,
+        //   paddingTop: theme.spacing(1),
+        //   paddingBottom: theme.spacing(1),
+        //   }
+        // },
+        // oloHomeContainer: {
+        //   marginTop: theme.spacing(1) * -1 ,
+        //   marginBottom: theme.spacing(1) * -1,
+        //   [theme.breakpoints.down('xs')]:{
+        //   marginTop: theme.spacing(1) * -1,
+        //   marginBottom: theme.spacing(1) * -1,
+        //   }
+        // },
         paper: {
           padding: theme.spacing(2),
           display: 'flex',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { imgBase } from '../../Constants/DishCoApi';
+import { IconButton,Button } from '@material-ui/core';
 
 export class RestHeader extends React.Component <any,any> {
 
@@ -7,15 +8,12 @@ export class RestHeader extends React.Component <any,any> {
         return (
             <div className="resto-dt">
                     <div className="resto-detail">
+
                       <div className="resto-picy">
-                        <a href="restaurant_detail.html">
-                          <img src={imgBase + this.props.selectedRest.RestaurantLogo} alt="rest logo" />
-                        </a>
+                      <img src={imgBase + this.props.selectedRest.RestaurantLogo} alt="rest logo" />
                       </div>
                       <div className="name-location">
-                        <a href="restaurant_detail.html">
-                          <h1> {this.props.selectedRest.RestaurantName} </h1>
-                        </a>
+                      <h1> {this.props.selectedRest.RestaurantName} </h1>
                         <p>
                           <span>
                             <i className="fas fa-map-marker-alt" />
@@ -23,6 +21,7 @@ export class RestHeader extends React.Component <any,any> {
                           {this.props.selectedRest.City }
                         </p>
                       </div>
+                      
                     </div>
                   </div>
         );

@@ -337,10 +337,7 @@ text-align:center;
         border: none;
         padding-top: 16px;
     }
-    #tabs-cart-total {
-        width:100% !important;
-        margin: initial !important;
-    }
+    
     .Qty .input-group {
     flex-direction: column-reverse;
     }

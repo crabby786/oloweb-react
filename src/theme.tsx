@@ -157,7 +157,7 @@ const theme = createMuiTheme({
     body2: {
       fontFamily: "'Roboto', sans-serif",
       fontWeight: 400,
-      fontSize: "0.875rem",
+      fontSize: "1rem",
       lineHeight: 1.1,
       letterSpacing: "0.01071em",
     },

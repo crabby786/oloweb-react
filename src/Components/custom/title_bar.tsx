@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../Styles/css/style1.css";
 import { Link } from "react-router-dom";
 
 interface Props {

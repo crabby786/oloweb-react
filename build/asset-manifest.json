@@ -1,29 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.aec5e7b5.chunk.css",
-    "main.js": "/static/js/main.ef95a1c9.chunk.js",
-    "main.js.map": "/static/js/main.ef95a1c9.chunk.js.map",
+    "main.css": "/static/css/main.6711b5bf.chunk.css",
+    "main.js": "/static/js/main.9eeac947.chunk.js",
+    "main.js.map": "/static/js/main.9eeac947.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.372fe896.js",
     "runtime-main.js.map": "/static/js/runtime-main.372fe896.js.map",
-    "static/css/2.7aca39c4.chunk.css": "/static/css/2.7aca39c4.chunk.css",
-    "static/js/2.b8e1bc5f.chunk.js": "/static/js/2.b8e1bc5f.chunk.js",
-    "static/js/2.b8e1bc5f.chunk.js.map": "/static/js/2.b8e1bc5f.chunk.js.map",
+    "static/css/2.1ec98be9.chunk.css": "/static/css/2.1ec98be9.chunk.css",
+    "static/js/2.dc44dd65.chunk.js": "/static/js/2.dc44dd65.chunk.js",
+    "static/js/2.dc44dd65.chunk.js.map": "/static/js/2.dc44dd65.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.13df5d1584984a954c6e69041b5a5635.js": "/precache-manifest.13df5d1584984a954c6e69041b5a5635.js",
+    "precache-manifest.b417b8d5c43e4eb7f287c6fbfb0d2a2d.js": "/precache-manifest.b417b8d5c43e4eb7f287c6fbfb0d2a2d.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.7aca39c4.chunk.css.map": "/static/css/2.7aca39c4.chunk.css.map",
-    "static/css/main.aec5e7b5.chunk.css.map": "/static/css/main.aec5e7b5.chunk.css.map",
-    "static/js/2.b8e1bc5f.chunk.js.LICENSE.txt": "/static/js/2.b8e1bc5f.chunk.js.LICENSE.txt",
+    "static/css/2.1ec98be9.chunk.css.map": "/static/css/2.1ec98be9.chunk.css.map",
+    "static/css/main.6711b5bf.chunk.css.map": "/static/css/main.6711b5bf.chunk.css.map",
+    "static/js/2.dc44dd65.chunk.js.LICENSE.txt": "/static/js/2.dc44dd65.chunk.js.LICENSE.txt",
     "static/media/material-icons.css": "/static/media/MaterialIcons-Regular.e79bfd88.eot",
-    "static/media/style1.css": "/static/media/banner.244821d0.jpg",
     "static/media/fontAwesome.min.css": "/static/media/fa-solid-900.b5cf8ae2.woff2",
-    "static/media/six_degree.png": "/static/media/six_degree.68b83ec8.png"
+    "static/media/main.scss": "/static/media/list_placeholder.48018f6d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.372fe896.js",
-    "static/css/2.7aca39c4.chunk.css",
-    "static/js/2.b8e1bc5f.chunk.js",
-    "static/css/main.aec5e7b5.chunk.css",
-    "static/js/main.ef95a1c9.chunk.js"
+    "static/css/2.1ec98be9.chunk.css",
+    "static/js/2.dc44dd65.chunk.js",
+    "static/css/main.6711b5bf.chunk.css",
+    "static/js/main.9eeac947.chunk.js"
   ]
 }

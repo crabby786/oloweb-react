@@ -1,3 +1,4 @@
+import {MenuHeadList, MenuItemList, IMenuDetailsSingleApi, ImyCart, MenuItemModifierList} from './restDetailModel'
 
   export interface PolygonList {
       PolygonID: number;
@@ -163,7 +164,13 @@ export interface IGetMenuItemDetails {
         CityList: CityList[];
         LocationList: LocationList[];
         RestaurantList: RestaurantList[];
+        MyPOSMenuDetail?: IMyPOSMenuDetail;
     }
+
+    export interface IMyPOSMenuDetail extends IMenuDetailsSingleApi {
+      IntMyPOSPUSHFlavourCode?:        number;
+      StrMyPOSPUSHFlavourDescription?: string;
+  }
 
   export interface ICheckRestaurantsPayments{
     PaymentType: string;
@@ -171,13 +178,15 @@ export interface IGetMenuItemDetails {
     Status?;
 }
 export interface ICheckTotalAmount {
-  PropTotalDiscount: number;
-  PropDeliveryChanges: number;
-  PropMessageCode: string;
-  PropPubMessage: string;
-  PropTotalAmount: number;
-  PropTotalTax: number;
-  Status?;
+  PropTotalDiscount?:    number;
+    PropDeliveryChanges?:  number;
+    PropMessageCode?:      string;
+    PropPubMessage?:       string;
+    PropTotalAmount?:      number;
+    PropTotalTax?:         number;
+    Status?:               null;
+    PropGrandTotalAmount?: number;
+    PropPubOrderCharges?:  any[];
 }
 
   export interface IGetRestuarantList {
@@ -379,4 +388,146 @@ export interface ILandingPageBanner {
 
 
 
-//_______________________ router model __________________________
+//_______________________ Reducer __________________________
+export interface IrestData {
+  isLoading?:                  boolean;
+  minLoading?:                 boolean;
+  isError?:                    boolean;
+  data?:                       any;
+  status?:                     number;
+  cartTotal?:                     number;
+  statusText?:                 string;
+  Strloclatitude?:             string;
+  strLocLongitude?:            string;
+  errorMsg?:                   string;
+  errorObj?:                   ErrorObj;
+  homeDetails?:                IhomeDetails;
+  selectObj?:                  SelectObj;
+  restObj?:                    RestaurantDeliveryList;
+  myCart?:                     ImyCart[];
+  formatedAdd?:                any;
+  totalAmountObj?:             ICheckTotalAmount;
+  restList?:                   IRestList;
+  menuDetails?:                MenuDetails;
+  updatedMenuItemList?:        any;
+  insertOrderDetails?:         InsertOrderDetails;
+  PropMenuItemDetails?:        string;
+  PropCounterSaleOrderDetail?: string;
+  landingPageBanner?: ILandingPageBanner;
+  orderDetails?: ILandingPageBanner;
+  custObj?: Icustomer;
+  orderStatus?: IOrderStatus[];
+  tableList:ITableList[];
+}
+
+export interface InsertOrderDetails {
+  Message?:       string;
+  MessageCode?:   string;
+  PaymentFlag?:   boolean;
+  TransactionId?: null;
+}
+
+export interface Icustomer {
+  CustomerCity?:       string;
+  CustomerId?:         number;
+  CustomerImage?:      string;
+  CustomerName?:       string;
+  Name?:               string;
+  EmailID?:            string;
+  IsRestaurant?:       null;
+  Message?:            null;
+  Mobile?:             string;
+  RestaurantID?:       null;
+  RestaurantName?:     null;
+  VerificationStatus?: null;
+}
+export interface InewCustomer {
+  CouponMessage?: string;
+  CustomerId?: number;
+  Message?:  string;
+  Mobile?:  string;
+  Name?:  string;
+}
+
+export interface InsertOrderDetails {
+  MessageCode?: string;
+  Message?:     string;
+}
+
+export interface ErrorObj {
+  Message?: string;
+}
+export interface MenuDetails {
+  MenuHeadList?:         MenuHeadList[];
+  MenuItemList?:         MenuItemList[];
+  MenuItemModifierList?: IMenuDetailsSingleApi[];
+}
+
+export interface SelectObj {
+  restId?:      number;
+  cityId?:      number;
+  areaId?:      number;
+  pickStatus?: string ;
+  pickupTime?: any;
+}
+//_______________________ track order ______________________
+
+export interface IOrderStatus {
+  RestaurantId?:               number;
+  RestaurantName?:             string;
+  CityName?:                   string;
+  LocationName?:               string;
+  RestaurantLogo?:             string;
+  Cuisines?:                   string;
+  OrderId?:                    number;
+  TotalAmount?:                string;
+  OrderDate?:                  string;
+  Time?:                       string;
+  ContactNumber?:              string;
+  OrderType?:                  string;
+  OrderStatus?:                string;
+  BillNo?:                     string;
+  FeedbackFacility?:           number;
+  Status?:                     null;
+  SpecialInstruction?:         string;
+  DeliveryAddress?:            string;
+  SubTotal?:                   string;
+  TotalTax?:                   string;
+  GrandTotal?:                 string;
+  PropPubMenuItemList?:        PropPubMenuItemList[];
+  PropPubPackingDeliveryList?: any[];
+  PropPubModifierList?:        any[];
+  PropPubTaxList?:             PropPubTaxList[];
+}
+export interface PropPubMenuItemList {
+  PropPubMenuHeadCode?:            string;
+  PropMenuItemCode?:               string;
+  PropPubMenuItemDescription?:     string;
+  PropPubMenuItemlineDescription?: string;
+  PropPubIncomeHeadCode?:          null;
+  PropPubImagePath?:               string;
+  PropPubVegNonVeg?:               string;
+  PropPubRate?:                    number;
+  PropPubQuantityDeciaml?:         null;
+  Status?:                         null;
+  ItemType?:                       string;
+  Quantity?:                       string;
+}
+export interface PropPubTaxList {
+  TaxCode?:        string;
+  TaxTitle?:       string;
+  TaxDescription?: string;
+  TaxType?:        string;
+  ApplicableOn?:   string;
+  Value?:          string;
+  TaxAmount?:      string;
+}
+
+//DineIn or just order models
+
+export interface ITableList {
+  PropPubRestaurantId?: number;
+  PropPubTableCode?:    string;
+  PropPubTableNo?:      string;
+}
+

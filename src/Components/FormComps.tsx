@@ -91,13 +91,13 @@ export const Counter = (props) => {
     <table className="" id="counter" style={{}}>
       <tbody>
         <tr>
-        <td className="actions" onClick= {props.upgrader} >
+        <td className="actions" onClick= {props.degrader} >
         <i className="fa fa-minus"></i>
       </td>
       <td className="val">
         {props.count}
       </td>
-      <td className="actions" onClick= {props.degrader}>
+      <td className="actions" onClick= {props.upgrader}>
         <i className="fa fa-plus"></i>
       </td>
         </tr>

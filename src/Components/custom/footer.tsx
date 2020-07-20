@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../Styles/css/style1.css";
 import { NavRoutes } from "../../routes";
 import { Link } from "react-router-dom";
 import { imgBase } from "../../Constants/DishCoApi";
@@ -7,7 +6,6 @@ import six_degree from "../../img/six_degree.png";
 
 export default class FooterSection extends Component<any,any> {
   render() {
-    const { homeDetailsy } =this.props;
     return (
       <footer className="footer">
         <div className="container">
@@ -15,8 +13,7 @@ export default class FooterSection extends Component<any,any> {
             <div className=" col-lg-3 col-md-4 col-sm-12 col-xs-12">
               <div className="pt-5">
                 <img
-                  // src={imgBase + homeDetails.StrRestaurantLogo}
-                  src={six_degree}
+                  src={imgBase + this.props.StrRestaurantLogo + ".jpg"}
                   alt="logo"
                   style = {{maxHeight:'60px'}}
                 />
@@ -24,11 +21,11 @@ export default class FooterSection extends Component<any,any> {
               <ul className="list-unstyled links">
                 <li>
                   <div className="d-in-block">
-                    <i className="fa fa-phone"></i>&nbsp;+91 330 2717 
+                    <i className="fa fa-phone"></i>&nbsp;+91 2303 2717 
                   </div>
                 </li>
                 <li>
-                  <i className="fa fa-envelope"></i>&nbsp; restaurant@mail.com
+                  <i className="fa fa-envelope"></i>&nbsp; mail@services.com
                 </li>
                 {/* <li>
                   Follow us on:&nbsp;{" "}
@@ -59,13 +56,17 @@ export default class FooterSection extends Component<any,any> {
             </div>
             <div className="col-md-3 col-sm-12 col-xs-12">
               <div className="link-title">
-                <h4>About Olo</h4>
+                <h4>About Us</h4>
                 <ul className="links">
-                  {NavRoutes.map((route, i) => (
-                    <li key={i}>
-                      <Link to={route.path}> {route.name} </Link>
-                    </li>
-                  ))}
+                  <li>
+                  <a  target = "_blank" href="#">
+                  about us  </a>
+                  </li>
+                  <li>
+                  <a  target = "_blank" href="#">
+                    contact us
+                  </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -91,7 +92,7 @@ export default class FooterSection extends Component<any,any> {
               <div className="col-lg-12 col-md-12">
                 <div className="copyright-text">
                   &copy; Copyright {new Date().getFullYear()}
-                  <a href="#"> OloWeb</a> All Rights Reserved.
+                  <a href="#"> KA Hospitality</a> All Rights Reserved.
                 </div>
               </div>
             </div>

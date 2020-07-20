@@ -4,6 +4,49 @@ import { androidHeader } from '../../Constants/DishCoApi'
 import axios from 'axios'
 import * as oloApi from "../../Constants/OloApi";
 
+export var clientError = {Message: "An error has occurred."}
+export function getDataWithTypeAction(queryParams, url,type,others?) {
+
+  return (dispatch) => {
+    const options = {
+      headers: { ...androidHeader },
+      params: {
+        ...queryParams,
+      }
+    };
+    if(others && others.minLoading )
+    {
+      
+      dispatch({ type: `${type}_MIN_LOADING`, shortType:type,loadCode:others.loadCode});
+      return axios.get(BaseApi + url, { ...options, })
+      .then((resp:any) => {
+        if(resp.Message && resp.Message === clientError.Message) {
+          let errorMsg = resp.Message;
+          // let errorMsg = others.errorMsg || resp.Message;
+          return  dispatch({ type: `${type}_MIN_FAILURE`, payload: {errorObj:resp} , shortType:type })
+          
+        }
+        else {
+          return dispatch({ type: `${type}_MIN_SUCCESS`, payload: {[type]:resp.data}, shortType:type })
+        }
+      })
+      .catch(err=>{
+        return  dispatch({ type: `${type}_MIN_FAILURE`, payload: {errorObj:err} , shortType:type })
+      } )
+    }
+
+    else {
+      dispatch({ type: `${type}_LOADING`, shortType:type});
+      return axios.get(BaseApi + url, { ...options, })
+      .then((resp) => {
+        return dispatch({ type: `${type}_SUCCESS`, payload: {[type]:resp.data}, shortType:type })
+      })
+      .catch(err=>{
+        return  dispatch({ type: `${type}_FAILURE`, payload: {errorObj:err} , shortType:type })
+      } )
+    }
+  }
+}
 export const appLaunchAction = () => {
   return (dispatch) => {
     const options = {
@@ -80,47 +123,7 @@ export function filterListAction(queryParams, url) {
       .catch(err=> dispatch({ type: 'LOAD_RESTLIST_FAILURE', payload: err }) )
   }
 }
-export function getDataWithTypeAction(queryParams, url,type,others?) {
 
-  return (dispatch) => {
-    const options = {
-      headers: { ...androidHeader },
-      params: {
-        ...queryParams,
-      }
-    };
-    if(others && others.minLoading )
-    {
-      
-      dispatch({ type: `${type}_MIN_LOADING`, shortType:type,loadCode:others.loadCode});
-      return axios.get(BaseApi + url, { ...options, })
-      .then((resp:any) => {
-        if(resp.Message && resp.Message == "An error has occurred.") {
-          let errorMsg = others.errorMsg || resp.Message;
-          return  dispatch({ type: `${type}_MIN_FAILURE`, payload: {errorObj:resp} , shortType:type })
-          
-        }
-        else {
-          return dispatch({ type: `${type}_MIN_SUCCESS`, payload: {[type]:resp.data}, shortType:type })
-        }
-      })
-      .catch(err=>{
-        return  dispatch({ type: `${type}_MIN_FAILURE`, payload: {errorObj:err} , shortType:type })
-      } )
-    }
-
-    else {
-      dispatch({ type: `${type}_LOADING`, shortType:type});
-      return axios.get(BaseApi + url, { ...options, })
-      .then((resp) => {
-        return dispatch({ type: `${type}_SUCCESS`, payload: {[type]:resp.data}, shortType:type })
-      })
-      .catch(err=>{
-        return  dispatch({ type: `${type}_FAILURE`, payload: {errorObj:err} , shortType:type })
-      } )
-    }
-  }
-}
 //2axios.all
 export function getDataWithTypeAllAction(queryParams, url,type,list) {  
   return (dispatch) => {
