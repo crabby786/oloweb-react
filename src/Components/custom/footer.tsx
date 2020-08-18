@@ -59,11 +59,11 @@ export default class FooterSection extends Component<any,any> {
                 <h4>About Us</h4>
                 <ul className="links">
                   <li>
-                  <a  target = "_blank" href="#">
+                  <a  target = "_blank" href="https://www.kahospitality.com/about/overview">
                   about us  </a>
                   </li>
                   <li>
-                  <a  target = "_blank" href="#">
+                  <a  target = "_blank" href="https://www.kahospitality.com/contact-us">
                     contact us
                   </a>
                   </li>

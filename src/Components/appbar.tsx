@@ -24,6 +24,7 @@ import { connect } from "react-redux";
 import { imgBase } from "../Constants/DishCoApi";
 import { IhomeDetails } from "../Models/RestListModel";
 import six_degree from "../img/six_degree.png";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -92,16 +93,19 @@ function TopNav(props) {
       {/* <div className={classes.toolbar} />
       <Divider /> */}
       <List className={classes.drawerList}>
-      <ListItem component="a" href="/">
+      <ListItem >
             <Icon className="MuiListItemIcon">home</Icon>
-            <ListItemText primary="Home" />
+            <Link to = "/" >
+              <ListItemText primary="Home" />
+            </Link>
+            
           </ListItem>
-      <ListItem component="a" target = "_blank" href="#">
+      <ListItem component="a" target = "_blank" href="https://www.kahospitality.com/about/overview">
             <Icon className="MuiListItemIcon">games</Icon>
             <ListItemText primary="About Us" />
           </ListItem>
           
-      <ListItem component="a" target = "_blank" href="#">
+      <ListItem component="a" target = "_blank" href="https://www.kahospitality.com/contact-us">
             <Icon className="MuiListItemIcon">perm_phone_msg</Icon>
             <ListItemText primary="Contact" />
           </ListItem>

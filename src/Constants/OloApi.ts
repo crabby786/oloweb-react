@@ -1,18 +1,18 @@
 //consts ....................
 export const androidHeader = { "AndroidPhone": 'EV6FTlgBhOalM+qjJpr2OZpAEpPkYJHC5I1aOWyeLevwSIpuzyKEAg==' };
-// export const imgBase = `https://foodmarshal.blob.core.windows.net/fmstorage/`;
-export const imgBase = `https://foodmarshal.blob.core.windows.net/fmtesting/`;
+export const imgBase = `https://foodmarshal.blob.core.windows.net/fmstorage/`;
+// export const imgBase = `https://foodmarshal.blob.core.windows.net/fmtesting/`;
 
-export const BaseApi = "https://fmtest.dishco.com/shawmanservices/api/";
-// export const BaseApi = "https://fmprod.dishco.com/shawmanservices/api/";
+// export const BaseApi = "https://fmtest.dishco.com/shawmanservices/api/";
+export const BaseApi = "https://fmprod.dishco.com/shawmanservices/api/";
 export const ProPubSessionId= "a2d01780-8eb6-11ea-c357-2da7f6b1762d";
 
 // const IntLocAccountId = 0;
 const IntLocCityId=1190;
 const IntLocLocationId=1123;
 const IntLocRestaurantId=642477
-const IntLocAccountId = 3385;
-// const IntLocAccountId = 4;
+// const IntLocAccountId = 3385;
+const IntLocAccountId = 4;
 //consts ....................
 export const getLandingPageBanner = "LandingPageBanner/GetFunPubRestaurantDetailsByFilter";
 export const getLandingPageBannerParams = {IntLocAccountId,IntLocCityId:null,IntLocRestaurantId:0};

@@ -92,7 +92,7 @@ class BannerSection extends Component<any, any> {
     }
     if (prevState.selectedRest !== this.state.selectedRest) {
       this.getLandingPageBanner();
-      this.autoHandleDate()
+      // this.autoHandleDate()
     }
     // if (prevState.toggle !== this.state.toggle) {
     //   const {formBox} = this.state.toggle;
@@ -126,52 +126,57 @@ class BannerSection extends Component<any, any> {
     let errorMsg = "";
     let m_isEarly = isAfter(m_startDt, date)
     let m_isLate = isAfter(date, m_endDt)
-    if (m_isEarly || m_isLate) {
-      errorMsg = homeDetails.StrRestaurantClosedMsg.replace('{{MorningTime}}', `${MorningDeliveryFromTime} To ${MorningDeliveryToTime}`).replace('{{EveningTime}}', `${EveningDeliveryFromTime} To ${EveningDeliveryToTime}`)
-      this.alertError({ isError: true, errorMsg })
-    }
-    else if (pickStatus == "pickup") {
-      // sometimes fmtest brings empty string here
-      let HomeDeliveryPickTime2 = HomeDeliveryPickTime.length ? parseInt(HomeDeliveryPickTime) : 0;
-      let availablePick = addMinutes(now, HomeDeliveryPickTime2);
-      if (date < availablePick) {
-        errorMsg =
-          "pickup" +
-          StrRestaurantDeliveryMsg.replace(
-            "{{minute}}",
-            HomeDeliveryPickTime
-          ).replace(
-            "{{time}}",
-            format(availablePick, "hh:mm a")
-          );
-        this.alertError({ isError: true, errorMsg })
-      }
-      else {
-        this.setState({
-          ...this.state,
-          pickupTime: date,
-        });
-      }
-    }
-    else if (pickStatus == "delivery") {
-      let availableDel = addMinutes(now, MinDeliveryTime);
-      if (date < availableDel) {
-        errorMsg = StrRestaurantDeliveryMsg.replace(
-          "{{minute}}",
-          MinDeliveryTime
-        ).replace(
-          "{{time}}",
-          format(availableDel, "hh:mm a")
-        );
-        this.alertError({ isError: true, errorMsg })
-      }
-      else {
-        this.setState({
-          ...this.state,
-          pickupTime: date,
-        });
-      }
-    }
+    // if (m_isEarly || m_isLate) {
+    //   errorMsg = homeDetails.StrRestaurantClosedMsg.replace('{{MorningTime}}', `${MorningDeliveryFromTime} To ${MorningDeliveryToTime}`).replace('{{EveningTime}}', `${EveningDeliveryFromTime} To ${EveningDeliveryToTime}`)
+    //   this.alertError({ isError: true, errorMsg })
+    // }
+    // else if (pickStatus == "pickup") {
+    //   // sometimes fmtest brings empty string here
+    //   let HomeDeliveryPickTime2 = HomeDeliveryPickTime.length ? parseInt(HomeDeliveryPickTime) : 0;
+    //   let availablePick = addMinutes(now, HomeDeliveryPickTime2);
+    //   if (date < availablePick) {
+    //     errorMsg =
+    //       "pickup" +
+    //       StrRestaurantDeliveryMsg.replace(
+    //         "{{minute}}",
+    //         HomeDeliveryPickTime
+    //       ).replace(
+    //         "{{time}}",
+    //         format(availablePick, "hh:mm a")
+    //       );
+    //     this.alertError({ isError: true, errorMsg })
+    //   }
+    //   else {
+    //     this.setState({
+    //       ...this.state,
+    //       pickupTime: date,
+    //     });
+    //   }
+    // }
+    // else if (pickStatus == "delivery") {
+    //   let availableDel = addMinutes(now, MinDeliveryTime);
+    //   if (date < availableDel) {
+    //     errorMsg = StrRestaurantDeliveryMsg.replace(
+    //       "{{minute}}",
+    //       MinDeliveryTime
+    //     ).replace(
+    //       "{{time}}",
+    //       format(availableDel, "hh:mm a")
+    //     );
+    //     this.alertError({ isError: true, errorMsg })
+    //   }
+    //   else {
+    //     this.setState({
+    //       ...this.state,
+    //       pickupTime: date,
+    //     });
+    //   }
+    // }
+
+    this.setState({
+      ...this.state,
+      pickupTime: date,
+    });
 
   };
   autoHandleDate = () => {
