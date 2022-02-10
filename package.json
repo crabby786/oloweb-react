@@ -72,7 +72,7 @@
     "customize-cra": "^1.0.0",
     "customize-cra-react-refresh": "^1.1.0",
     "gh-pages": "^2.2.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "npm-run-all": "^4.1.5",
     "react-app-rewired": "^2.1.6"
   }
